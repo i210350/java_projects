@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-
+///1
     private SessionFactory sessionFactory;
     private static UserServiceImpl userServiceImpl ;
     public static UserServiceImpl getInstance() {
@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
 
     public void createUsersTable() {
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-      //  UserDaoJDBCImpl userDaoHibernate = new UserDaoJDBCImpl();
         userDaoHibernate.createUsersTable();
     }
 
@@ -41,7 +40,7 @@ public class UserServiceImpl implements UserService {
     public void saveUser(String name, String lastName, byte age) {
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
         userDaoHibernate.saveUser(name, lastName, age);
-        System.out.println(new User(name, lastName, age).toString());
+        System.out.println("User с именем – " + name + " добавлен в базу данных");
     }
 
     public void removeUserById(long id) {
@@ -51,7 +50,9 @@ public class UserServiceImpl implements UserService {
 
     public List<User> getAllUsers() {
         UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-        return userDaoHibernate.getAllUsers();
+        List<User> list = userDaoHibernate.getAllUsers();
+        list.forEach(u -> System.out.println(u.toString()));
+        return list;
     }
 
     public void cleanUsersTable() {
