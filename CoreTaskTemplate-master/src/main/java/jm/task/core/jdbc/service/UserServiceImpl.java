@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-///2
+///
     private SessionFactory sessionFactory;
     private static UserServiceImpl userServiceImpl ;
     public static UserServiceImpl getInstance() {
@@ -28,35 +28,48 @@ public class UserServiceImpl implements UserService {
 
 
     public void createUsersTable() {
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-        userDaoHibernate.createUsersTable();
+//        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
+//        userDaoHibernate.createUsersTable();
+        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+        userDaoJDBC.createUsersTable();
     }
 
     public void dropUsersTable() {
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-        userDaoHibernate.dropUsersTable();
+//        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
+//        userDaoHibernate.dropUsersTable();
+        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+        userDaoJDBC.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-        userDaoHibernate.saveUser(name, lastName, age);
+//        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
+//        userDaoHibernate.saveUser(name, lastName, age);
+        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+        userDaoJDBC.saveUser(name, lastName, age);
         System.out.println("User с именем – " + name + " добавлен в базу данных");
     }
 
     public void removeUserById(long id) {
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-        userDaoHibernate.removeUserById(id);
+//        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
+//        userDaoHibernate.removeUserById(id);
+        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+        userDaoJDBC.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-        List<User> list = userDaoHibernate.getAllUsers();
+//        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
+//        List<User> list = userDaoHibernate.getAllUsers();
+        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+        List<User> list = userDaoJDBC.getAllUsers();
         list.forEach(u -> System.out.println(u.toString()));
         return list;
     }
 
     public void cleanUsersTable() {
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
-        userDaoHibernate.cleanUsersTable();
+//        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl(sessionFactory.openSession());
+//        userDaoHibernate.cleanUsersTable();
+        UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+        userDaoJDBC.cleanUsersTable();
+
     }
 }

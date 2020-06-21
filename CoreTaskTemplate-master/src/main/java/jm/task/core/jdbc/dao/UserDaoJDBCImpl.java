@@ -26,7 +26,7 @@ public class UserDaoJDBCImpl implements UserDao {
                                                                     "lastName varchar(30), " +
                                                                     "age tinyint)";
                 Statement statement = conn.createStatement();
-                statement.executeQuery(query);
+                statement.executeUpdate(query);
             }
         } catch (Exception ex) {
             System.out.println(ex);
@@ -38,7 +38,7 @@ public class UserDaoJDBCImpl implements UserDao {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 Statement statement = conn.createStatement();
-                statement.executeQuery("drop table if exists users ");
+                statement.executeUpdate("drop table if exists users ");
             }
         } catch (Exception ex) {
             System.out.println(ex);
@@ -87,9 +87,10 @@ public class UserDaoJDBCImpl implements UserDao {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)){
                 Statement statement = conn.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+                ResultSet resultSet = statement.executeQuery("SELECT name, lastName, age FROM users");
                 while(resultSet.next()){
-                    list.add(new User(resultSet.getString(2), resultSet.getString(3), resultSet.getByte(4)));
+                    User user = new User(resultSet.getString(1), resultSet.getString(2), resultSet.getByte(3));
+                    list.add(user);
                 }
             }
         }
