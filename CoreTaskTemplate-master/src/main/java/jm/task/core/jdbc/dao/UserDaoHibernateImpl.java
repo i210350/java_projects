@@ -1,5 +1,6 @@
 package jm.task.core.jdbc.dao;
 
+import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Query;
@@ -27,7 +28,7 @@ public class UserDaoHibernateImpl implements UserDao {
                                                     "lastName varchar(30), " +
                                                     "age tinyint)";
 
-        Session session = Util.getSessionFactory().openSession();
+//        Session session = Util.getSessionFactory().openSession();
         session.beginTransaction();
         session.createSQLQuery(query).executeUpdate();
         session.getTransaction().commit();
@@ -36,7 +37,6 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void dropUsersTable() {
         String query = "drop table if exists users ";
-        Session session = Util.getSessionFactory().openSession();
         session.beginTransaction();
         session.createSQLQuery(query).executeUpdate();
         session.getTransaction().commit();
