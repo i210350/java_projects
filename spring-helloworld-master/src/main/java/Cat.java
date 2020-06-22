@@ -1,8 +1,6 @@
 public class Cat {
-    public Cat() {
-    }
-
-    public void voice() {
-        System.out.println("мяу");
+    String voice = "мяу";
+    public String getVoice() {
+        return voice;
     }
 }
