@@ -19,9 +19,19 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne (optional=false, cascade=CascadeType.ALL)
-   @JoinColumn (name="series")
-   private Car series;
+//   @Column(name = "car_series")
+//   private int car_series ;
+
+//   @Column(name = "series")
+//   private String series;
+
+//   @OneToOne (optional=false, cascade=CascadeType.ALL)
+//   @JoinColumn (name="series")
+//   private Car series;
+
+//   @OneToOne(cascade = CascadeType.ALL)
+//   @JoinColumn(name = "series")
+//   private Car car;
 
    public User() {}
    
@@ -63,11 +73,20 @@ public class User {
       this.email = email;
    }
 
-   public Car getSeries() {
-      return series;
-   }
+//   public String getSeries() {
+//      return series;
+//   }
+//
+//   public void setSeries(String series) {
+//      this.series = series;
+//   }
+//
+//   public Car getCar() {
+//      return car;
+//   }
+//
+//   public void setCar(Car car) {
+//      this.car = car;
+//   }
 
-   public void setSeries(Car series) {
-      this.series = series;
-   }
 }

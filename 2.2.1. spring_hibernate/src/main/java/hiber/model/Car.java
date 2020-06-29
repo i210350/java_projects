@@ -14,8 +14,12 @@ public class Car {
     @Column(name = "name")
     private String firstName;
 
-    @OneToOne (optional=false, mappedBy="series")
-    private User owner;
+    @Column(name = "series")
+    private int series;
+
+//    @OneToOne(mappedBy = "car")
+//    private User user;
+
 
     public Long getId() {
         return id;
@@ -25,12 +29,29 @@ public class Car {
         this.id = id;
     }
 
-    public User getOwner() {
-        return owner;
+    public void setSeries(int series) {
+        this.series = series;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public int getSeries() {
+        return series;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+
 
 }
