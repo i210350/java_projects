@@ -33,11 +33,11 @@ public class Car {
         this.id = id;
     }
 
-    public String getFirstName() {
+    public String getname() {
         return name;
     }
 
-    public void setFirstName(String name) {
+    public void setname(String name) {
         this.name = name;
     }
 
