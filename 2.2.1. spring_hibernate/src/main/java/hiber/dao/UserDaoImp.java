@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -33,13 +35,11 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public List<User> listUsersIdAndSeries(Long id, int series) {
-      Session session = sessionFactory.getCurrentSession(); //.getSession();
-//      Transaction transaction = session.beginTransaction();
-      Query query = session.createQuery("from User as u join u.car c where u.car = c.id and u.id = :id and c.series = :series");
+      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(
+              "from User as u where u.id = :id and u.car.series = :series");
       query.setParameter("id", id);
       query.setParameter("series", series);
-//      transaction.commit();
-      return (List<User>)query.list();
+      return query.getResultList();
    }
 
 }
