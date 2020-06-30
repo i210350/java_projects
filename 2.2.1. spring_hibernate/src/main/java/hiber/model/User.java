@@ -30,6 +30,9 @@ public class User {
       this.email = email;
    }
 
+   @OneToOne
+
+
    public Long getId() {
       return id;
    }

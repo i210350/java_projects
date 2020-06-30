@@ -46,6 +46,10 @@ public class AppConfig {
       props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
       factoryBean.setHibernateProperties(props);
+//      Class<?>[] annotatedClasses = new Class<?>[2]   ;
+//      annotatedClasses[0] = User.class;
+//      annotatedClasses[1] = Car.class;
+//      factoryBean.setAnnotatedClasses(annotatedClasses);
       factoryBean.setAnnotatedClasses(User.class, Car.class);
       return factoryBean;
    }
