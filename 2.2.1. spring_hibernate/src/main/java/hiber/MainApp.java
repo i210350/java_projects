@@ -3,8 +3,8 @@ package hiber;
 import hiber.config.AppConfig;
 import hiber.model.Car;
 import hiber.model.User;
+import hiber.service.CarService;
 import hiber.service.UserService;
-import hiber.service.UserServiceImp;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.sql.SQLException;
@@ -22,8 +22,8 @@ public class MainApp {
       userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
       userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
 
-     // userService.add(new Car("Audi", 55));
-
+      CarService carService = context.getBean(CarService.class);
+      carService.add(new Car("Car4", 11));
 
       List<User> users = userService.listUsers();
       for (User user : users) {

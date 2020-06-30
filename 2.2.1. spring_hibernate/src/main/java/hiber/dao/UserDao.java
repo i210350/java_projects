@@ -1,7 +1,6 @@
 package hiber.dao;
 
 import hiber.model.User;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

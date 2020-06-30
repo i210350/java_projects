@@ -8,18 +8,22 @@ import javax.persistence.*;
 @Table(name = "cars")
 public class Car {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
-    private String firstName;
+    private String name;
 
     @Column(name = "series")
     private int series;
 
-//    @OneToOne(mappedBy = "car")
-//    private User user;
+    public Car() {}
 
+    public Car(String name, int series) {
+        this.name = name;
+        this.series = series;
+    }
 
     public Long getId() {
         return id;
@@ -29,29 +33,21 @@ public class Car {
         this.id = id;
     }
 
-    public void setSeries(int series) {
-        this.series = series;
+    public String getFirstName() {
+        return name;
+    }
+
+    public void setFirstName(String name) {
+        this.name = name;
     }
 
     public int getSeries() {
         return series;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setSeries(int series) {
+        this.series = series;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 
 
 }
