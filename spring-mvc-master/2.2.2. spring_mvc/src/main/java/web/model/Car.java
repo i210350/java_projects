@@ -16,6 +16,13 @@ public class Car {
         this.serial = serial;
     }
 
+    @Override
+    public String toString() {
+        return "brand = " + getBrand() + "\n\r" +
+                "model = " + getModel() + "\n\r" +
+                "serial = " + getSerial() + "\n\r" ;
+    }
+
     public Long getId() {
         return id;
     }
