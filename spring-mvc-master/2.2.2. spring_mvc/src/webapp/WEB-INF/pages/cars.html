@@ -8,10 +8,10 @@
 <body>
 <div>
     <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
+<!--        <h1 th:text="${msg}"></h1>-->
         <table>
             <tr><th>id</th><th>brend</th><th>model</th><th>serial</th></tr> <!--ряд с ячейками заголовков-->
-            <tr><td>данные</td><td>данные</td></tr> <!--ряд с ячейками тела таблицы-->
+            <tr><td>${msg}</td><td>${msg}</td><td>${msg}</td><td>${msg}</td></tr> <!--ряд с ячейками тела таблицы-->
         </table>
     </th:block>
 </div>
