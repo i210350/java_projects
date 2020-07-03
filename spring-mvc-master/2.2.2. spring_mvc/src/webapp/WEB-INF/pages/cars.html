@@ -7,11 +7,14 @@
 </head>
 <body>
 <div>
+    <h1 th:text="Cars" ></h1>
+    <table>
+        <tr><th>id</th><th>brend</th><th>model</th><th>serial</th></tr> <!--ряд с ячейками заголовков-->
+    </table>
     <th:block th:each="msg : ${messages}">
 <!--        <h1 th:text="${msg}"></h1>-->
         <table>
-            <tr><th>id</th><th>brend</th><th>model</th><th>serial</th></tr> <!--ряд с ячейками заголовков-->
-            <tr><td>${msg}</td><td>${msg}</td><td>${msg}</td><td>${msg}</td></tr> <!--ряд с ячейками тела таблицы-->
+            <tr><td><h4 th:text="${msg.get(0)}"></h4></td><td><h4 th:text="${msg.get(1)}"></h4></td><td><h4 th:text="${msg.get(2)}"></h4></td><td><h4 th:text="${msg.get(3)}"></h4></td></tr> <!--ряд с ячейками тела таблицы-->
         </table>
     </th:block>
 </div>

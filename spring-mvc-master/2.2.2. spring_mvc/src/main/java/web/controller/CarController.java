@@ -7,6 +7,7 @@ import web.model.Car;
 import web.service.CarService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,18 +16,13 @@ public class CarController {
 
     @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model) {
-        List<String> messages = new ArrayList<>();
-//        messages.add("Hello Car!");
-//        messages.add("I'm Spring MVC application");
-//        messages.add("5.2.0 version by sep'19 ");
+        List<List<String>> messages = new ArrayList<>();
 
         List<Car> carList =  CarService.getCarService().getAllCars();
         Iterator<Car> iterator = carList.iterator();
         while (iterator.hasNext()) {
-            messages.add(iterator.next().getId().toString());
-            messages.add(iterator.next().getBrand());
-            messages.add(iterator.next().getModel());
-            messages.add(iterator.next().getSerial());
+            Car car = iterator.next();
+            messages.add(new ArrayList<String>(Arrays.asList(car.getId().toString(),car.getBrand(),car.getModel(),car.getSerial())));
         }
         model.addAttribute("messages", messages);
         return "cars";
