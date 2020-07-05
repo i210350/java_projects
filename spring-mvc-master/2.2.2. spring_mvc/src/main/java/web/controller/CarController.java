@@ -17,6 +17,7 @@ public class CarController {
     @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model) {
         List<List<String>> messages = new ArrayList<>();
+       // String localeCars = "";
 
         List<Car> carList =  CarService.getCarService().getAllCars();
         Iterator<Car> iterator = carList.iterator();
@@ -25,6 +26,7 @@ public class CarController {
             messages.add(new ArrayList<String>(Arrays.asList(car.getId().toString(),car.getBrand(),car.getModel(),car.getSerial())));
         }
         model.addAttribute("messages", messages);
+//        model.addAttribute("localeCars", localeCars);
         return "cars";
     }
 }

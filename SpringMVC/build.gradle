@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+archivesBaseName = 'concretepage'
+version = '1' 
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:1.2.2.RELEASE'
+	compile 'jstl:jstl:1.2'
+	providedCompile 'org.springframework.boot:spring-boot-starter-tomcat:1.2.2.RELEASE'
+}
