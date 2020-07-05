@@ -1,15 +1,13 @@
 package web.controller;
 
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import web.model.Car;
 import web.service.CarService;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class CarController {
@@ -17,7 +15,7 @@ public class CarController {
     @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model) {
         List<List<String>> messages = new ArrayList<>();
-       // String localeCars = "";
+
 
         List<Car> carList =  CarService.getCarService().getAllCars();
         Iterator<Car> iterator = carList.iterator();
@@ -26,6 +24,8 @@ public class CarController {
             messages.add(new ArrayList<String>(Arrays.asList(car.getId().toString(),car.getBrand(),car.getModel(),car.getSerial())));
         }
         model.addAttribute("messages", messages);
+
+        
 //        model.addAttribute("localeCars", localeCars);
         return "cars";
     }
