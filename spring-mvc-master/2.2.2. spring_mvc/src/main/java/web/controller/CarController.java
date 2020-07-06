@@ -19,8 +19,6 @@ public class CarController {
     @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model, HttpServletRequest request) {
         List<List<String>> messages = new ArrayList<>();
-
-
         List<Car> carList =  CarService.getCarService().getAllCars();
         Iterator<Car> iterator = carList.iterator();
         while (iterator.hasNext()) {
@@ -35,13 +33,6 @@ public class CarController {
             localeCars = "CARS";
         }
         model.addAttribute("localeCars", localeCars);
-
         return "cars";
     }
-
-//    @GetMapping(value = "/cars")
-//    public String carsPage(HttpServletRequest request) {
-//
-//        return "/cars";
-//    }
 }
