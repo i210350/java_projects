@@ -14,16 +14,6 @@ import java.util.List;
 public class UserController {
     private UserService userService = new UserServiceImpl();
 
-//    private static web.model.User user;
-//
-//    static {
-//        user = new web.model.User();
-//        user.setName("Ivan");
-//        user.setLastname("Ivanov");
-//        user.setOld(20);
-//        user.setMail("aaa@mmm.com");
-//    }
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView allUsers() {
         List<User> users = userService.allUsers();
