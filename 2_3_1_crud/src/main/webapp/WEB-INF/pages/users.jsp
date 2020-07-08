@@ -20,7 +20,7 @@
         <tr>
             <td>${user.id}</td>
             <td>${user.name}</td>
-            <td>${user.lastName}</td>
+            <td>${user.lastname}</td>
             <td>${user.old}</td>
             <td>${user.mail}</td>
             <td>

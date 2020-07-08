@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>FILMS</title>
+    <title>USERS</title>
 </head>
 <body>
 
@@ -16,11 +16,11 @@
         <th>mail</th>
         <th>action</th>
     </tr>
-    <c:forEach var="user" items="${user}">
+    <c:forEach var="user" items="${usersList}">
         <tr>
             <td>${user.id}</td>
             <td>${user.name}</td>
-            <td>${user.lastName}</td>
+            <td>${user.lastname}</td>
             <td>${user.old}</td>
             <td>${user.mail}</td>
             <td>

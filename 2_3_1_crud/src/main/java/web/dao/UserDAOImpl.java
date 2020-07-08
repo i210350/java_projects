@@ -22,9 +22,9 @@ public class UserDAOImpl implements UserDAO {
         user2.setId(AUTO_ID.getAndIncrement());
         user2.setName("Tanya");
         user2.setLastname("Petrova");
-        user2.setOld(30);
+        user2.setOld(20);
         user2.setMail("dd@hhhh.com");
-        users.put(user2.getId(), user1);
+        users.put(user2.getId(), user2);
     }
     @Override
     public List<User> allUsers() {
