@@ -46,4 +46,15 @@ public class User {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", old=" + old +
+                ", mail='" + mail + '\'' +
+                '}';
+    }
 }
