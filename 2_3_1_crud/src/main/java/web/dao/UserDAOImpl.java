@@ -1,10 +1,12 @@
 package web.dao;
 
+import org.springframework.stereotype.Repository;
 import web.model.User;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Repository
 public class UserDAOImpl implements UserDAO {
     private static final AtomicInteger AUTO_ID = new AtomicInteger(0);
     private static Map<Integer, User> users = new HashMap<>();
