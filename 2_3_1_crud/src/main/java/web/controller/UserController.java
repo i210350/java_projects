@@ -19,7 +19,7 @@ public class UserController {
         List<User> users = userService.allUsers();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("users");
-        modelAndView.addObject("user", users);
+        modelAndView.addObject("usersList", users);
         return modelAndView;
     }
 
