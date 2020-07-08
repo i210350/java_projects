@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-    Hello world
+    ${user}
     <h2><a href="edit">editpage</a></h2>
 </body>
 </html>

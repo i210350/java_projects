@@ -1,4 +1,4 @@
-package testgroup.filmography.model;
+package web.model;
 
 public class User {
     private int id;

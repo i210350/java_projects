@@ -7,11 +7,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
+    private static web.model.User user;
+
+    static {
+        user = new web.model.User();
+        user.setName("Ivan");
+        user.setLastname("Ivanov");
+        user.setOld(20);
+        user.setMail("aaa@mmm.com");
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView allUsers() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("users");
+        modelAndView.addObject("user", user);
         return modelAndView;
     }
 
