@@ -1,5 +1,8 @@
 package web.dao;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.User;
 
@@ -11,27 +14,21 @@ public class UserDAOImpl implements UserDAO {
     private static final AtomicInteger AUTO_ID = new AtomicInteger(0);
     private static Map<Integer, User> users = new HashMap<>();
 
-    static {
-        User user1 = new User();
-        user1.setId(AUTO_ID.getAndIncrement());
-        user1.setName("Vasya");
-        user1.setLastname("Petrov");
-        user1.setOld(30);
-        user1.setMail("bb@nnnn.com");
-        users.put(user1.getId(), user1);
+    private SessionFactory sessionFactory;
 
-        User user2 = new User();
-        user2.setId(AUTO_ID.getAndIncrement());
-        user2.setName("Tanya");
-        user2.setLastname("Petrova");
-        user2.setOld(20);
-        user2.setMail("dd@hhhh.com");
-        users.put(user2.getId(), user2);
+    @Autowired
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
+
     @Override
     public List<User> allUsers() {
-        return new ArrayList<>(users.values());
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from User").list();
     }
+//    public List<User> allUsers() {
+//        return new ArrayList<>(users.values());
+//    }
 
     @Override
     public void add(User user) {
