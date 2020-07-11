@@ -7,9 +7,9 @@ import web.config.WebConfig;
 import javax.servlet.Filter;
 
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-    @Override
+
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class[]{web.config.HibernateConfig.class};
     }
 
     @Override
