@@ -13,7 +13,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 //    }
 
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{testgroup.filmography.config.HibernateConfig.class};
+        return new Class[]{web.config.HibernateConfig.class};
     }
 
     @Override

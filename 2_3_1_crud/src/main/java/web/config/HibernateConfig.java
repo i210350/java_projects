@@ -1,4 +1,4 @@
-package testgroup.filmography.config;
+package web.config;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
