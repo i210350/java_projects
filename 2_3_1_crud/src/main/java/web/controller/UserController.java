@@ -9,14 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.User;
 import web.service.UserService;
-import web.service.UserServiceImpl;
 
 import java.util.List;
 
 @Controller
 public class UserController {
-//    private UserService userService = new UserServiceImpl();
-//    @Autowired
     private UserService userService;
 
     @Autowired
