@@ -6,6 +6,7 @@ import web.dao.UserDAO;
 import web.dao.UserDAOImpl;
 import web.model.User;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -19,6 +20,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public List<User> allUsers() {
         return userDAO.allUsers();
     }
