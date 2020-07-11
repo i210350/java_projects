@@ -48,4 +48,3 @@ public class UserDAOImpl implements UserDAO {
         return session.get(User.class, id);
     }
 }
-//--1
