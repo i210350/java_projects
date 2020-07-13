@@ -12,7 +12,16 @@
         <tr><th>id</th><th>name</th><th>lastName</th><th>old</th><th>mail</th></tr>
         <th:block th:each="msg : ${messages}">
 
-            <tr><td><h4 th:text="${msg.getId()}"></h4></td><td><h4 th:text="${msg.getName()}"></h4></td><td><h4 th:text="${msg.getLastname()}"></h4></td><td><h4 th:text="${msg.getOld()}"></h4></td><td><h4 th:text="${msg.getMail()}"></h4></td></tr> <!--ряд с ячейками тела таблицы-->
+            <tr><td><h4 th:text="${msg.getId()}"></h4></td>
+                <td><h4 th:text="${msg.getName()}"></h4></td>
+                <td><h4 th:text="${msg.getLastname()}"></h4></td>
+                <td><h4 th:text="${msg.getOld()}"></h4></td>
+                <td><h4 th:text="${msg.getMail()}"></h4></td>
+                <td>
+                    <a href="/edit?id="${msg.getId()}>edit</a>
+                    <a href="/delete?id="${msg.getId()}>delete</a>
+                </td>
+            </tr> <!--ряд с ячейками тела таблицы-->
 
         </th:block>
     </table>
