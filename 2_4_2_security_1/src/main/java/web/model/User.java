@@ -1,6 +1,5 @@
 package web.model;
 
-import com.sun.tools.javac.jvm.Items;
 
 import javax.persistence.*;
 import java.util.Set;
