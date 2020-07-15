@@ -49,20 +49,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21">
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/config/SecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/config/SpringSecurityInitializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/config/handler/LoginSuccessHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/model/Role.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/lib/spring-security-config-5.2.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/lib/spring-security-core-5.2.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/lib/spring-security-web-5.2.0.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/config/SecurityConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/config/SpringSecurityInitializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/config/handler/LoginSuccessHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/model/Role.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/hello.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/pages/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/model/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

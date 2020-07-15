@@ -1,10 +1,11 @@
 package web.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -14,11 +15,8 @@ public class Role {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "lastname")
-    private String lastname;
-
     @ManyToOne
-    @JoinColumn(name="users_id", nullable=false)
+    @JoinColumn(name="userId", nullable=false)
     private User user;
 
     public Role() {}
@@ -39,13 +37,6 @@ public class Role {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
 
     public User getUser() {
         return user;
