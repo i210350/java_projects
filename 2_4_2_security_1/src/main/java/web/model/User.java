@@ -30,7 +30,7 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy="user") //user здесь ссылка на user в Role private User user;
     private Set<Role> roles = new HashSet<>();
 
     public User() {
