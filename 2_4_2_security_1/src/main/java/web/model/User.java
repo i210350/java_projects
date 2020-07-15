@@ -1,6 +1,9 @@
 package web.model;
 
+import com.sun.tools.javac.jvm.Items;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -22,6 +25,12 @@ public class User {
 
     @Column(name = "mail")
     private String mail;
+
+    @Column(name = "password")
+    private String password;
+
+    @OneToMany(mappedBy="users")
+    private Set<Role> roles;
 
 
     public int getId() {
