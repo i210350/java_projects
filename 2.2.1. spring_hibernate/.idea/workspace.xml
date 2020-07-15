@@ -48,9 +48,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21">
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
