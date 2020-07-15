@@ -3,6 +3,7 @@ package web.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -29,9 +30,11 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy="users")
-    private Set<Role> roles;
+    @OneToMany(mappedBy="user")
+    private Set<Role> roles = new HashSet<>();
 
+    public User() {
+    }
 
     public int getId() {
         return id;

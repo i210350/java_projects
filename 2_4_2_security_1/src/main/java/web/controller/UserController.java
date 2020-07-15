@@ -30,14 +30,14 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView logon() {
-//        List<User> users = userService.allUsers();
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-//        modelAndView.addObject("usersList", users);
-        return modelAndView;
-    }
+//    @RequestMapping(value = "/login", method = RequestMethod.GET)
+//    public ModelAndView logon() {
+////        List<User> users = userService.allUsers();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("login");
+////        modelAndView.addObject("usersList", users);
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {
