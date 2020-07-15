@@ -79,7 +79,7 @@ public class WebConfig implements WebMvcConfigurer {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("/WEB-INF/pages/");
-        templateResolver.setSuffix(".jsp");
+//        templateResolver.setSuffix(".jsp");
         templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
