@@ -31,13 +31,16 @@ public class UserController {
     }
 
 //    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    public ModelAndView logon() {
-////        List<User> users = userService.allUsers();
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("login");
-////        modelAndView.addObject("usersList", users);
-//        return modelAndView;
+//    public String loginPage() {
+//        return "login";
 //    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {
