@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.User;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -46,5 +47,12 @@ public class UserDAOImpl implements UserDAO {
     public User getById(int id) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(User.class, id);
+    }
+
+    public User getByName(String username) {
+        Session session = sessionFactory.getCurrentSession();
+        TypedQuery<User> query = session.createQuery("from User as u where u.name like :name ");
+        query.setParameter("name", username);
+        return query.getResultList().get(0);
     }
 }
