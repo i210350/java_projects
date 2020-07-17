@@ -9,7 +9,7 @@ import javax.servlet.Filter;
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{web.config.HibernateConfig.class};
+        return new Class[]{SecurityConfig.class, HibernateConfig.class};
     }
 
     @Override
