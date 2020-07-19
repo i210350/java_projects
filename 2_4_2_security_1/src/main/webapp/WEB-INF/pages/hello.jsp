@@ -7,9 +7,10 @@
 </head>
 <body>
 <div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+<%--    <th:block th:each="msg : ${messages}">--%>
+<%--        <h1 th:text="${msg}"></h1>--%>
+<%--    </th:block>--%>
+    <h4>heLLOO</h4>
 </div>
 </body>
 </html>

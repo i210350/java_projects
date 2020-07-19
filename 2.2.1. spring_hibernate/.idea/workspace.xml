@@ -50,15 +50,11 @@
   <component name="ChangeListManager">
     <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/dao/UserDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/dao/UserDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/hello.html" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/hello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/pages/hello.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/controller/UserController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
