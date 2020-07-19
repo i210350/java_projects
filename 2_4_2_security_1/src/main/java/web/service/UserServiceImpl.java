@@ -53,6 +53,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         /*Here we are using dummy data, you need to load user data from
      database or other third party application*/
