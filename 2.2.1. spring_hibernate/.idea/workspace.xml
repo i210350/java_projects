@@ -49,74 +49,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21">
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/spring-security.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/classes/web/config/AppInit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/classes/web/config/SecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/classes/web/config/SpringSecurityInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/classes/web/config/WebConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/classes/web/config/handler/LoginSuccessHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/classes/web/controller/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/attoparser-2.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/slf4j-api-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-aop-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-beans-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-context-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-core-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-expression-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-jcl-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-security-config-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-security-core-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-security-web-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-web-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/spring-webmvc-5.2.0.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/thymeleaf-3.0.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/thymeleaf-spring5-3.0.9.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/lib/unbescape-1.1.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/pages/hello.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/Spring_Security/WEB-INF/pages/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/classes/web/config/AppInit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/classes/web/config/SecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/classes/web/config/SpringSecurityInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/classes/web/config/WebConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/classes/web/config/handler/LoginSuccessHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring_security-master/target/classes/web/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/artifacts/spring_security_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/artifacts/spring_security_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_attoparser_attoparser_2_0_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_aop_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_beans_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_context_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_core_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_expression_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_web_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_0_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/libraries/Maven__org_unbescape_unbescape_1_1_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/spring-security.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/main/java/web/config/AppInit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/main/java/web/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/main/java/web/config/SpringSecurityInitializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/main/java/web/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/main/java/web/config/handler/LoginSuccessHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/main/java/web/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/webapp/WEB-INF/pages/hello.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/src/webapp/WEB-INF/pages/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/classes/web/config/AppInit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/classes/web/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/classes/web/config/SpringSecurityInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/classes/web/config/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/classes/web/config/handler/LoginSuccessHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/classes/web/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/attoparser-2.0.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-aop-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-beans-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-context-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-core-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-expression-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-jcl-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-security-config-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-security-core-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-security-web-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-web-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/spring-webmvc-5.2.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/thymeleaf-3.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/thymeleaf-spring5-3.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/lib/unbescape-1.1.5.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/pages/hello.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/Spring_Security/WEB-INF/pages/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/classes/web/config/AppInit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/classes/web/config/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/classes/web/config/SpringSecurityInitializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/classes/web/config/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/classes/web/config/handler/LoginSuccessHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master_1/target/classes/web/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_security-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring_security-master/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,12 +122,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="C:/android-sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../spring_security-master_1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../spring_security-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="lessc" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -349,10 +317,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593579157609" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1595266009717">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1595266593922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595266009717" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1595266593922" />
     <state width="1876" height="181" key="GridCell.Tab.0.bottom" timestamp="1594099698250">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -385,6 +353,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="181" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594099698250" />
+    <state x="461" y="151" key="SettingsEditor" timestamp="1595266418941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595266418941" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1593579147384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
