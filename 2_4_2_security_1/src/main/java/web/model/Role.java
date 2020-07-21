@@ -1,11 +1,13 @@
 package web.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "roles")
-public class Role implements Serializable {
+public class Role implements Serializable, GrantedAuthority {
 
     @Id
     @Column(name = "id")
@@ -14,10 +16,6 @@ public class Role implements Serializable {
 
     @Column(name = "name")
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name="userId", nullable=false)
-    private User user;
 
     public Role() {}
 
@@ -37,12 +35,9 @@ public class Role implements Serializable {
         this.name = name;
     }
 
-
-    public User getUser() {
-        return user;
+    @Override
+    public String getAuthority() {
+        return "MANAGER";
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
