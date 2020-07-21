@@ -19,6 +19,7 @@ public class Role implements Serializable {
 //    @JoinColumn(name="userId", nullable=false)
 //    private User user;
 
+
     public Role() {}
 
     public int getId() {
