@@ -37,7 +37,7 @@ public class Role implements Serializable, GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return null;
+        return "MANAGER";
     }
 
 }

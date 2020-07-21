@@ -8,10 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable, UserDetails {
+public class UserApp implements Serializable, UserDetails {
 
     @Id
     @Column(name = "id")
@@ -40,7 +41,7 @@ public class User implements Serializable, UserDetails {
         inverseJoinColumns = { @JoinColumn(name = "roles_id") })
     private Set<Role> roles = new HashSet<>();
 
-    public User() {
+    public UserApp() {
     }
 
     public int getId() {
@@ -95,17 +96,18 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return getName();
     }
 
     @Override
     public boolean isAccountNonExpired() {
+
         return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
@@ -115,7 +117,7 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public void setPassword(String password) {
@@ -128,6 +130,11 @@ public class User implements Serializable, UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String[] getRolesString() {
+
+        return (String[]) getRoles().stream().map(Role::getName).toArray();
     }
 
     @Override
