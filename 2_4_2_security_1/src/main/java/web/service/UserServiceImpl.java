@@ -6,11 +6,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import web.model.Role;
 import web.model.User;
 import org.springframework.stereotype.Service;
 import web.dao.UserDAO;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -57,18 +59,28 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         /*Here we are using dummy data, you need to load user data from
      database or other third party application*/
+
+
         User user = findUserbyUername(username);
 
-        UserBuilder builder = null;
-        if (user != null) {
-            builder = org.springframework.security.core.userdetails.User.withUsername(username);
-            builder.password(new BCryptPasswordEncoder().encode(user.getPassword()));
-            builder.roles(user.getRoles().toString());
-        } else {
-            throw new UsernameNotFoundException("User not found.");
+        System.out.println(user.getName() + " " + user.getLastname() );
+
+        for (Role role : user.getRoles()) {
+            System.out.println(role.getName());
         }
 
-        return builder.build();
+//
+//        UserBuilder builder = null;
+//        if (user != null) {
+//            builder = org.springframework.security.core.userdetails.User.withUsername(username);
+//            builder.password(new BCryptPasswordEncoder().encode(user.getPassword()));
+//            builder.roles(user.getRoles().toString());
+//        } else {
+//            throw new UsernameNotFoundException("User not found.");
+//        }
+//
+//        return builder.build();
+        return null;
     }
 
 

@@ -52,9 +52,9 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User getByName(String username) {
         Session session = sessionFactory.getCurrentSession();
-        TypedQuery<User> query = session.createQuery("from User as u where u.id = :id ");
-//        query.setParameter("name", username);
-        query.setParameter("id", 2);
+        TypedQuery<User> query = session.createQuery("from User as u where u.name like :name ");
+        query.setParameter("name", username);
+//        query.setParameter("id", 2);
         return query.getResultList().get(0);
     }
 }

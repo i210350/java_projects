@@ -1,14 +1,17 @@
 package web.model;
 
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User implements Serializable, UserDetails {
 
     @Id
     @Column(name = "id")
@@ -30,7 +33,11 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @OneToMany(mappedBy="user") //user здесь ссылка на user в Role private User user;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "users_roles",
+        joinColumns = { @JoinColumn(name = "users_id") },
+        inverseJoinColumns = { @JoinColumn(name = "roles_id") })
     private Set<Role> roles = new HashSet<>();
 
     public User() {
@@ -76,8 +83,39 @@ public class User implements Serializable {
         this.mail = mail;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("User"));
+        return authorities;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 
     public void setPassword(String password) {
