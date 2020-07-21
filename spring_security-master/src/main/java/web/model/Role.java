@@ -15,11 +15,6 @@ public class Role implements Serializable {
     @Column(name = "name")
     private String name;
 
-//    @ManyToOne
-//    @JoinColumn(name="userId", nullable=false)
-//    private User user;
-
-
     public Role() {}
 
     public int getId() {
@@ -39,11 +34,4 @@ public class Role implements Serializable {
     }
 
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
 }
