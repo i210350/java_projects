@@ -39,7 +39,7 @@ public class UserApp implements Serializable, UserDetails {
     @JoinTable(name = "users_roles",
         joinColumns = { @JoinColumn(name = "users_id") },
         inverseJoinColumns = { @JoinColumn(name = "roles_id") })
-    private Set<Role> roles = new HashSet<>();
+    private List<Role> roles = new ArrayList<>();
 
     public UserApp() {
     }
@@ -124,17 +124,12 @@ public class UserApp implements Serializable, UserDetails {
         this.password = password;
     }
 
-    public Set<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
-    }
-
-    public String[] getRolesString() {
-
-        return (String[]) getRoles().stream().map(Role::getName).toArray();
     }
 
     @Override

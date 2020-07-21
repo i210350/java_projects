@@ -68,9 +68,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         UserDetails userDetails = User.builder()
                 .username(userApp.getName())
                 .password(userApp.getPassword())
-                .roles(userApp.getRolesString())     //.contains("MANAGER") ? "MANAGER" : "USER");
+                .roles(userApp.getRoles().stream().map(Role::getName).toArray(String[]::new))
                 .build();
-        System.out.println(userApp.getRolesString());
+
         return userDetails;
     }
 
