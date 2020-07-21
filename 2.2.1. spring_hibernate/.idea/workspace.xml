@@ -49,14 +49,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21">
-      <change afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/dao/UserDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/service/RoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/service/RoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring_security-master/src/main/java/web/service/RoleServiceImpl.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
