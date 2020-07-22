@@ -1,16 +1,20 @@
 package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import web.model.User;
+import web.model.Role;
+import web.model.UserApp;
 import org.springframework.stereotype.Service;
 import web.dao.UserDAO;
+import web.model.UserApp;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -24,55 +28,54 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public List<User> allUsers() {
+    public List<UserApp> allUsers() {
         return userDAO.allUsers();
     }
 
     @Override
     @Transactional
-    public void add(User user) {
-        userDAO.add(user);
+    public void add(UserApp userApp) {
+        userDAO.add(userApp);
     }
 
     @Override
     @Transactional
-    public void delete(User user) {
-        userDAO.delete(user);
+    public void delete(UserApp userApp) {
+        userDAO.delete(userApp);
     }
 
     @Override
     @Transactional
-    public void edit(User user) {
-        userDAO.edit(user);
+    public void edit(UserApp userApp) {
+        userDAO.edit(userApp);
     }
 
     @Override
     @Transactional
-    public User getById(int id) {
+    public UserApp getById(int id) {
         return userDAO.getById(id);
     }
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        /*Here we are using dummy data, you need to load user data from
-     database or other third party application*/
-        User user = findUserbyUername(username);
+        UserApp userApp = findUserbyUername(username);
 
-        UserBuilder builder = null;
-        if (user != null) {
-            builder = org.springframework.security.core.userdetails.User.withUsername(username);
-            builder.password(new BCryptPasswordEncoder().encode(user.getPassword()));
-            builder.roles(user.getRoles().toString());
-        } else {
-            throw new UsernameNotFoundException("User not found.");
+        if (userApp == null) {
+            throw new UsernameNotFoundException("Unknown user: " + username);
         }
 
-        return builder.build();
+        UserDetails userDetails = User.builder()
+                .username(userApp.getName())
+                .password(userApp.getPassword())
+                .roles(userApp.getRoles().stream().map(Role::getName).toArray(String[]::new))
+                .build();
+
+        return userDetails;
     }
 
 
-    private User findUserbyUername(String username) {
+    private UserApp findUserbyUername(String username) {
         return userDAO.getByName(username) ;
     }
 }

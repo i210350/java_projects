@@ -3,8 +3,9 @@ package web.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
-import web.model.User;
+import web.model.UserApp;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -20,41 +21,41 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<User> allUsers() {
+    public List<UserApp> allUsers() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from User").list();
+        return session.createQuery("from UserApp").list();
     }
 
     @Override
-    public void add(User user) {
+    public void add(UserApp userApp) {
         Session session = sessionFactory.getCurrentSession();
-        session.persist(user);
+        session.persist(userApp);
     }
 
     @Override
-    public void delete(User user) {
+    public void delete(UserApp userApp) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete(user);
+        session.delete(userApp);
     }
 
     @Override
-    public void edit(User user) {
+    public void edit(UserApp userApp) {
         Session session = sessionFactory.getCurrentSession();
-        session.update(user);
+        session.update(userApp);
     }
 
     @Override
-    public User getById(int id) {
+    public UserApp getById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(User.class, id);
+        return session.get(UserApp.class, id);
     }
 
     @Override
-    public User getByName(String username) {
+    public UserApp getByName(String username) {
         Session session = sessionFactory.getCurrentSession();
-        TypedQuery<User> query = session.createQuery("from User as u where u.id = :id ");
-//        query.setParameter("name", username);
-        query.setParameter("id", 2);
+        TypedQuery<UserApp> query = session.createQuery("from UserApp as u where u.name like :name ");
+        query.setParameter("name", username);
+//        query.setParameter("id", 2);
         return query.getResultList().get(0);
     }
 }
