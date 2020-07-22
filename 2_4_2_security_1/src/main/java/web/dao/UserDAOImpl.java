@@ -26,10 +26,17 @@ public class UserDAOImpl implements UserDAO {
         return session.createQuery("from UserApp").list();
     }
 
+//    @Override
+//    public void add(UserApp userApp) {
+//        Session session = sessionFactory.getCurrentSession();
+//        session.persist(userApp);
+//    }
+
     @Override
-    public void add(UserApp userApp) {
+    public UserApp add(UserApp userApp) {
         Session session = sessionFactory.getCurrentSession();
-        session.persist(userApp);
+        session.save(userApp);
+        return userApp;
     }
 
     @Override

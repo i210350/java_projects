@@ -32,10 +32,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userDAO.allUsers();
     }
 
+//    @Override
+//    @Transactional
+//    public void add(UserApp userApp) {
+//        userDAO.add(userApp);
+//    }
+
     @Override
     @Transactional
-    public void add(UserApp userApp) {
+    public UserApp add(UserApp userApp) {
         userDAO.add(userApp);
+        return userApp;
     }
 
     @Override

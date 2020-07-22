@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import web.model.Role;
 import web.model.UserApp;
 import web.model.UserApp;
 import web.service.UserService;
@@ -78,10 +79,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp) {
+    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") Role roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/users");
+        userApp.getRoles().add(roleCurrent);
         userService.add(userApp);
+        modelAndView.setViewName("redirect:/users");
         return modelAndView;
     }
 
