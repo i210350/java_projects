@@ -35,13 +35,23 @@ public class UserApp implements Serializable, UserDetails {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles",
         joinColumns = { @JoinColumn(name = "users_id") },
         inverseJoinColumns = { @JoinColumn(name = "roles_id") })
-    private List<Role> roles = new ArrayList<>();
+//    private List<Role> roles = new ArrayList<>();
+    Set <Role> roles = new HashSet <> ();
 
     public UserApp() {
+    }
+
+    public UserApp(String name, String lastname, int old, String mail, String password, Set<Role> roles) {
+        this.name = name;
+        this.lastname = lastname;
+        this.old = old;
+        this.mail = mail;
+        this.password = password;
+        this.roles = roles;
     }
 
     public int getId() {
@@ -124,17 +134,30 @@ public class UserApp implements Serializable, UserDetails {
         this.password = password;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
+//    public List<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(List<Role> roles) {
+//        this.roles = roles;
+//    }
 
 //    public List<Role> getRolesString() {
 //        return roles;
 //    }
+
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     @Override
     public String toString() {

@@ -12,6 +12,7 @@
         <th>id</th>
         <th>name</th>
         <th>lastName</th>
+        <th>password</th>
         <th>old</th>
         <th>mail</th>
         <th>role</th>
@@ -22,6 +23,7 @@
             <td>${user.id}</td>
             <td>${user.name}</td>
             <td>${user.lastname}</td>
+            <td>${user.password}</td>
             <td>${user.old}</td>
             <td>${user.mail}</td>
             <td>
