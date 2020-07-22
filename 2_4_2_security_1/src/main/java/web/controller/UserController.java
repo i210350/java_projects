@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import web.model.User;
+import web.model.Role;
+import web.model.UserApp;
+import web.model.UserApp;
 import web.service.UserService;
 
 import java.util.List;
@@ -21,33 +23,29 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView allUsers() {
-        List<User> users = userService.allUsers();
+        List<UserApp> users = userService.allUsers();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("users");
         modelAndView.addObject("usersList", users);
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    public String loginPage() {
-//        return "login";
-//    }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
+    public String login() {
+        return  "login";
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public ModelAndView hello() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("hello");
-        return modelAndView;
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String hello() {
+        return "hello";
     }
+
+//    @RequestMapping(value = "/users", method = RequestMethod.GET)
+//    public String hello() {
+//        return "users";
+//    }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {
@@ -57,19 +55,19 @@ public class UserController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public ModelAndView editUser(@ModelAttribute("user") User user) {
+    public ModelAndView editUser(@ModelAttribute("user") UserApp userApp) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/");
-        userService.edit(user);
+        userService.edit(userApp);
         return modelAndView;
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") int id) {
-        User user = userService.getById(id);
+        UserApp userApp = userService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
-        modelAndView.addObject("user", user);
+        modelAndView.addObject("user", userApp);
         return modelAndView;
     }
 
@@ -81,19 +79,20 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("user") User user) {
+    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") Role roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/");
-        userService.add(user);
+        userApp.getRoles().add(roleCurrent);
+        userService.add(userApp);
+        modelAndView.setViewName("redirect:/users");
         return modelAndView;
     }
 
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteUser(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/");
-        User user = userService.getById(id);
-        userService.delete(user);
+        modelAndView.setViewName("redirect:/users");
+        UserApp userApp = userService.getById(id);
+        userService.delete(userApp);
         return modelAndView;
     }
 

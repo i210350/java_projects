@@ -1,11 +1,15 @@
 package web.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-public class Role implements Serializable {
+public class Role implements Serializable, GrantedAuthority {
 
     @Id
     @Column(name = "id")
@@ -15,11 +19,10 @@ public class Role implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name="userId", nullable=false)
-    private User user;
-
     public Role() {}
+
+    @ManyToMany(mappedBy = "roles", cascade = { CascadeType.ALL })
+    private Set<UserApp> userApps = new HashSet<>();
 
     public int getId() {
         return id;
@@ -37,12 +40,16 @@ public class Role implements Serializable {
         this.name = name;
     }
 
-
-    public User getUser() {
-        return user;
+    public Set<UserApp> getUserApps() {
+        return userApps;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserApps(Set<UserApp> userApps) {
+        this.userApps = userApps;
+    }
+
+    @Override
+    public String getAuthority() {
+        return "ROLE_" + getName();
     }
 }

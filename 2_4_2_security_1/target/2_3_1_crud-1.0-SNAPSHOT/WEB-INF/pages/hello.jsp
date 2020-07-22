@@ -11,6 +11,7 @@
 <%--        <h1 th:text="${msg}"></h1>--%>
 <%--    </th:block>--%>
     <h4>heLLOO</h4>
+    <a href="/edit/${user.id}">edit</a>
 </div>
 </body>
 </html>
