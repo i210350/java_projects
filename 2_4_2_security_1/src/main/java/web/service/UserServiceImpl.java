@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 .password(userApp.getPassword())
                 .roles(userApp.getRoles().stream().map(Role::getName).toArray(String[]::new))
                 .build();
-
+        System.out.println(userApp.getAuthorities());
         return userDetails;
     }
 

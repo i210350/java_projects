@@ -35,7 +35,7 @@ public class UserApp implements Serializable, UserDetails {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
         joinColumns = { @JoinColumn(name = "users_id") },
         inverseJoinColumns = { @JoinColumn(name = "roles_id") })
@@ -131,6 +131,10 @@ public class UserApp implements Serializable, UserDetails {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
+//    public List<Role> getRolesString() {
+//        return roles;
+//    }
 
     @Override
     public String toString() {

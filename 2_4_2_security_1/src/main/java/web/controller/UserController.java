@@ -22,7 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView allUsers() {
         List<UserApp> users = userService.allUsers();
         ModelAndView modelAndView = new ModelAndView();
@@ -36,10 +36,15 @@ public class UserController {
         return  "login";
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello() {
         return "hello";
     }
+
+//    @RequestMapping(value = "/users", method = RequestMethod.GET)
+//    public String hello() {
+//        return "users";
+//    }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {
@@ -75,7 +80,7 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") UserApp userApp) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/");
+        modelAndView.setViewName("redirect:/users");
         userService.add(userApp);
         return modelAndView;
     }
@@ -83,7 +88,7 @@ public class UserController {
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteUser(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/");
+        modelAndView.setViewName("redirect:/users");
         UserApp userApp = userService.getById(id);
         userService.delete(userApp);
         return modelAndView;
