@@ -5,16 +5,8 @@
         <name>Edit</name>
 </head>
 <body>
-<%--<c:if test="${empty user.name}">--%>
-<%--    <c:url value="/add" var="var"/>--%>
-<%--</c:if>--%>
-<%--<c:if test="${!empty user.name}">--%>
-<%--    <c:url value="/edit" var="var"/>--%>
-<%--</c:if>--%>
 <form action="/edit" method="POST">
-<%--    <c:if test="${!empty user.name}">--%>
-        <input type="hidden" name="id" value="${userApp.id}">
-<%--    </c:if>--%>
+    <input type="hidden" name="id" value="${userApp.id}">
     <label for="name">name</label>
     <input type="text" name="name" id="name" value="${userApp.name}">
     <label for="lastname">lastname</label>
@@ -27,12 +19,7 @@
     <input type="text" name="mail" id="mail" value="${userApp.mail}">
     <label for="roleCurrent">role</label>
     <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.roles}">
-<%--    <c:if test="${empty user.name}">--%>
-<%--        <input type="submit" value="Add new user">--%>
-<%--    </c:if>--%>
-<%--    <c:if test="${!empty user.name}">--%>
-        <input type="submit" value="Edit user">
-<%--    </c:if>--%>
+    <input type="submit" value="Edit user">
 </form>
 </body>
 </html>
