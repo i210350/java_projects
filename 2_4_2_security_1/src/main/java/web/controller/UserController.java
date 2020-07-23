@@ -55,10 +55,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public ModelAndView editUser(@ModelAttribute("user") UserApp userApp) {
+    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/");
         userService.edit(userApp);
+        modelAndView.setViewName("redirect:/users");
         return modelAndView;
     }
 
@@ -67,21 +67,22 @@ public class UserController {
         UserApp userApp = userService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
-        modelAndView.addObject("user", userApp);
+        modelAndView.addObject("userApp", userApp);
         return modelAndView;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addPage() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editUser");
+        modelAndView.setViewName("addUser");
         return modelAndView;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") Role roleCurrent) {
+    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        userApp.getRoles().add(roleCurrent);
+        Role role = new Role(roleCurrent);
+        userApp.getRoles().add(role);
         userService.add(userApp);
         modelAndView.setViewName("redirect:/users");
         return modelAndView;
