@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
 import web.model.UserApp;
 import web.model.UserApp;
+import web.service.RoleService;
 import web.service.UserService;
 
 import java.util.List;
@@ -17,10 +18,16 @@ import java.util.List;
 @Controller
 public class UserController {
     private UserService userService;
+    private RoleService roleService;
 
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    @Autowired
+    public void setRoleService(RoleService roleService) {
+        this.roleService = roleService;
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -79,9 +86,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") Role roleCurrent) {
+    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") String  roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        userApp.getRoles().add(roleCurrent);
+        userApp.getRoles().add(roleService.getRoleByName(roleCurrent));
         userService.add(userApp);
         modelAndView.setViewName("redirect:/users");
         return modelAndView;

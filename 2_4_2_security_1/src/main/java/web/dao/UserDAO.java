@@ -1,5 +1,6 @@
 package web.dao;
 
+import web.model.Role;
 import web.model.UserApp;
 import web.model.UserApp;
 
@@ -12,4 +13,5 @@ public interface UserDAO {
     void edit(UserApp userApp);
     UserApp getById(int id);
     UserApp getByName(String username) ;
+//    Role getRoleByName(String roleName);
 }

@@ -85,4 +85,5 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private UserApp findUserbyUername(String username) {
         return userDAO.getByName(username) ;
     }
+
 }

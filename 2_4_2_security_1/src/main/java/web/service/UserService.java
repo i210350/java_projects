@@ -1,6 +1,7 @@
 package web.service;
 
 import org.springframework.security.core.userdetails.User;
+import web.model.Role;
 import web.model.UserApp;
 import web.model.UserApp;
 

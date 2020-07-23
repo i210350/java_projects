@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
+import web.model.Role;
 import web.model.UserApp;
 
 import javax.persistence.TypedQuery;
@@ -64,4 +65,6 @@ public class UserDAOImpl implements UserDAO {
         query.setParameter("name", username);
         return query.getResultList().get(0);
     }
+
+
 }
