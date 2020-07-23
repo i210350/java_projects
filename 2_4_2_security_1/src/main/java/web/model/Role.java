@@ -21,6 +21,10 @@ public class Role implements Serializable, GrantedAuthority {
 
     public Role() {}
 
+    public Role(String name) {
+        this.name = name;
+    }
+
     @ManyToMany(mappedBy = "roles", cascade = { CascadeType.ALL })
     private Set<UserApp> userApps = new HashSet<>();
 

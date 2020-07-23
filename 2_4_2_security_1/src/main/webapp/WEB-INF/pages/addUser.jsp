@@ -2,7 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-        <name>Edit</name>
+<%--    <c:if test="${empty user.name}">--%>
+        <name>Add</name>
+<%--    </c:if>--%>
+<%--    <c:if test="${!empty user.name}">--%>
+<%--        <name>Edit</name>--%>
+<%--    </c:if>--%>
 </head>
 <body>
 <%--<c:if test="${empty user.name}">--%>
@@ -11,9 +16,9 @@
 <%--<c:if test="${!empty user.name}">--%>
 <%--    <c:url value="/edit" var="var"/>--%>
 <%--</c:if>--%>
-<form action="/edit" method="POST">
+<form action="/add" method="POST">
 <%--    <c:if test="${!empty user.name}">--%>
-        <input type="hidden" name="id" value="${userApp.id}">
+<%--        <input type="hidden" name="id" value="${user.id}">--%>
 <%--    </c:if>--%>
     <label for="name">name</label>
     <input type="text" name="name" id="name" value="${userApp.name}">
@@ -26,12 +31,12 @@
     <label for="mail">mail</label>
     <input type="text" name="mail" id="mail" value="${userApp.mail}">
     <label for="roleCurrent">role</label>
-    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.roles}">
+    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.getAuthority}">
 <%--    <c:if test="${empty user.name}">--%>
-<%--        <input type="submit" value="Add new user">--%>
+        <input type="submit" value="Add new user">
 <%--    </c:if>--%>
 <%--    <c:if test="${!empty user.name}">--%>
-        <input type="submit" value="Edit user">
+<%--        <input type="submit" value="Edit user">--%>
 <%--    </c:if>--%>
 </form>
 </body>

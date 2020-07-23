@@ -48,7 +48,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21" />
+    <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21">
+      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/addUser.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/editUser11.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/editUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/webapp/WEB-INF/pages/editUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/dao/UserDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/classes/web/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/pages/editUser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/2_3_1_crud-1.0-SNAPSHOT/WEB-INF/pages/editUser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/dao/UserDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/dao/UserDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/target/classes/web/model/Role.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
