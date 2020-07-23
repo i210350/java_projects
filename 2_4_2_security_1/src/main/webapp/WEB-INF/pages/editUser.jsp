@@ -27,12 +27,15 @@
          <td width="50px"></td>
 <%--         <td width="100px"></td>--%>
          <td>
-             <input type="submit" formaction="/edit/add_role/${}" value="<--" >
+
                  <select id="roleCurrent" name="roleCurrent">
                      <c:forEach items="${listRoles}" var="role2">
                          <option value="${role2.authority}" selected->"${role2.authority}"</option>
+                         <input type="submit" formaction="/edit/add_role?idUser=${userApp.id}&idRoles=${role2.id}" value="<--" >
                      </c:forEach>
                  </select>
+
+
 <%--             </label>--%>
          </td>
      </tr>
