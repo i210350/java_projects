@@ -1,6 +1,7 @@
 package web.service;
 
 import org.springframework.security.core.userdetails.User;
+import web.model.Role;
 import web.model.UserApp;
 import web.model.UserApp;
 
@@ -12,4 +13,6 @@ public interface UserService {
         void delete(UserApp userApp);
         void edit(UserApp userApp);
         UserApp getById(int id);
+
+
 }

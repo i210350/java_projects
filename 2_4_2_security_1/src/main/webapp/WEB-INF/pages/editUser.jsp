@@ -6,20 +6,67 @@
 </head>
 <body>
 <form action="/edit" method="POST">
-    <input type="hidden" name="id" value="${userApp.id}">
-    <label for="name">name</label>
-    <input type="text" name="name" id="name" value="${userApp.name}">
-    <label for="lastname">lastname</label>
-    <input type="text" name="lastname" id="lastname" value="${userApp.lastname}">
-    <label for="password">password</label>
-    <input type="text" name="password" id="password" value="${userApp.password}">
-    <label for="old">old</label>
-    <input type="text" name="old" id="old" value="${userApp.old}">
-    <label for="mail">mail</label>
-    <input type="text" name="mail" id="mail" value="${userApp.mail}">
-    <label for="roleCurrent">role</label>
-    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.roles}">
-    <input type="submit" value="Edit user">
+<table>
+<tr>
+
+    <td><input type="hidden" name="id" value="${userApp.id}"></td>
+</tr>
+    <tr>
+
+    </tr>
+     <tr>
+         <td><label for="name">name</label></td>
+         <td><input type="text" name="name" id="name" value="${userApp.name}"></td>
+         <td width="100px"></td>
+         <td>
+             <c:forEach items="${userApp.roles}" var="role1">
+                 <input type="text" name="name1" id="name1" value="${role1.authority}">
+             </c:forEach>
+             <input type="button" value="-->"><br>
+         </td>
+         <td width="50px"></td>
+<%--         <td width="100px"></td>--%>
+         <td>
+             <input type="submit" formaction="/edit/add_role/${}" value="<--" >
+                 <select id="roleCurrent" name="roleCurrent">
+                     <c:forEach items="${listRoles}" var="role2">
+                         <option value="${role2.authority}" selected->"${role2.authority}"</option>
+                     </c:forEach>
+                 </select>
+<%--             </label>--%>
+         </td>
+     </tr>
+      <tr>
+          <td><label for="lastname">lastname</label></td>
+          <td><input type="text" name="lastname" id="lastname" value="${userApp.lastname}"></td>
+      </tr>
+       <tr>
+           <td><label for="password">password</label></td>
+           <td><input type="text" name="password" id="password" value="${userApp.password}"></td>
+       </tr>
+        <tr>
+            <td><label for="old">old</label></td>
+            <td><input type="text" name="old" id="old" value="${userApp.old}"></td>
+        </tr>
+        <tr>
+            <td><label for="mail">mail</label></td>
+            <td><input type="text" name="mail" id="mail" value="${userApp.mail}"></td>
+        </tr>
+
+
+
+        <%--    <label for="roleCurrent">role</label>--%>
+        <%--    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.roles}">--%>
+
+
+
+        <tr>
+
+            <input type="submit" value="Edit user">
+        </tr>
+
+</table>
+
 </form>
 </body>
 </html>

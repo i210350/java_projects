@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
 import web.model.UserApp;
 import web.model.UserApp;
+import web.service.RoleService;
 import web.service.UserService;
 
 import java.util.List;
@@ -17,10 +18,16 @@ import java.util.List;
 @Controller
 public class UserController {
     private UserService userService;
+    private RoleService roleService;
 
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    @Autowired
+    public void setRoleService(RoleService roleService) {
+        this.roleService = roleService;
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -65,9 +72,22 @@ public class UserController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") int id) {
         UserApp userApp = userService.getById(id);
+        List<Role> listRoles = roleService.allRolesExist();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
         modelAndView.addObject("userApp", userApp);
+        modelAndView.addObject("listRoles", listRoles);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/edit/add_role/{id}", method = RequestMethod.GET)
+    public ModelAndView editRoleAdd(@PathVariable("id") int id) {
+        UserApp userApp = userService.getById(id);
+        List<Role> listRoles = roleService.allRolesExist();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editUser");
+        modelAndView.addObject("userApp", userApp);
+        modelAndView.addObject("listRoles", listRoles);
         return modelAndView;
     }
 
