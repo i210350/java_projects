@@ -62,7 +62,6 @@ public class UserDAOImpl implements UserDAO {
         Session session = sessionFactory.getCurrentSession();
         TypedQuery<UserApp> query = session.createQuery("from UserApp as u where u.name like :name ");
         query.setParameter("name", username);
-//        query.setParameter("id", 2);
         return query.getResultList().get(0);
     }
 }
