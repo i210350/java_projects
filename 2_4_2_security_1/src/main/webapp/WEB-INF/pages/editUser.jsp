@@ -19,14 +19,17 @@
          <td><input type="text" name="name" id="name" value="${userApp.name}"></td>
          <td width="100px"></td>
          <td>
-             <c:forEach items="${listRoles}" var="role1">
-                 <input type="text" name="name1" id="name1" value="${role1.authority}"><br>
+             <c:forEach items="${userApp.roles}" var="role1">
+                 <input type="text" name="name1" id="name1" value="${role1.authority}">
              </c:forEach>
+             <input type="button" value="-->"><br>
          </td>
+         <td width="50px"></td>
+<%--         <td width="100px"></td>--%>
          <td>
-<%--             <label>Author--%>
+             <input type="submit" formaction="/edit/add_role/${}" value="<--" >
                  <select id="roleCurrent" name="roleCurrent">
-                     <c:forEach items="${userApp.roles}" var="role2">
+                     <c:forEach items="${listRoles}" var="role2">
                          <option value="${role2.authority}" selected->"${role2.authority}"</option>
                      </c:forEach>
                  </select>

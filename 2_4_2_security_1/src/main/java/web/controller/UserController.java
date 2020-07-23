@@ -80,6 +80,17 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/edit/add_role/{id}", method = RequestMethod.GET)
+    public ModelAndView editRoleAdd(@PathVariable("id") int id) {
+        UserApp userApp = userService.getById(id);
+        List<Role> listRoles = roleService.allRolesExist();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editUser");
+        modelAndView.addObject("userApp", userApp);
+        modelAndView.addObject("listRoles", listRoles);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addPage() {
         ModelAndView modelAndView = new ModelAndView();
