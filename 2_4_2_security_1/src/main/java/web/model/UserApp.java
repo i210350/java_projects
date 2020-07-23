@@ -159,6 +159,8 @@ public class UserApp implements Serializable, UserDetails {
         this.roles = roles;
     }
 
+
+
     @Override
     public String toString() {
         return "User{" +

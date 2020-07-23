@@ -65,9 +65,11 @@ public class UserController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") int id) {
         UserApp userApp = userService.getById(id);
+        List<Role> listRoles = userService.allRolesExist();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
         modelAndView.addObject("userApp", userApp);
+        modelAndView.addObject("listRoles", listRoles);
         return modelAndView;
     }
 

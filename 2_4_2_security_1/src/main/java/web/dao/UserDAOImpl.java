@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Repository;
+import web.model.Role;
 import web.model.UserApp;
 
 import javax.persistence.TypedQuery;
@@ -63,5 +64,12 @@ public class UserDAOImpl implements UserDAO {
         TypedQuery<UserApp> query = session.createQuery("from UserApp as u where u.name like :name ");
         query.setParameter("name", username);
         return query.getResultList().get(0);
+    }
+
+    @Override
+    public List<Role> allRolesExist() {
+        Session session = sessionFactory.getCurrentSession();
+        TypedQuery<Role> query = session.createQuery("from roles ");
+        return query.getResultList();
     }
 }

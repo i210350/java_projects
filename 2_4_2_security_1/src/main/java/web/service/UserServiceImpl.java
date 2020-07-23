@@ -85,4 +85,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private UserApp findUserbyUername(String username) {
         return userDAO.getByName(username) ;
     }
+
+    @Override
+    public List<Role> allRolesExist() {
+        return userDAO.allRolesExist();
+    }
 }
