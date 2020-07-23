@@ -11,7 +11,7 @@ import web.model.UserApp;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-@Repository
+@Repository("UserDAO")
 public class UserDAOImpl implements UserDAO {
     private SessionFactory sessionFactory;
 
@@ -66,10 +66,4 @@ public class UserDAOImpl implements UserDAO {
         return query.getResultList().get(0);
     }
 
-    @Override
-    public List<Role> allRolesExist() {
-        Session session = sessionFactory.getCurrentSession();
-        TypedQuery<Role> query = session.createQuery("from roles ");
-        return query.getResultList();
-    }
 }

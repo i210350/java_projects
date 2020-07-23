@@ -14,5 +14,5 @@ public interface UserService {
         void edit(UserApp userApp);
         UserApp getById(int id);
 
-    List<Role> allRolesExist();
+
 }

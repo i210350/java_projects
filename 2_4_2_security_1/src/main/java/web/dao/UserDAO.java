@@ -14,5 +14,4 @@ public interface UserDAO {
     UserApp getById(int id);
     UserApp getByName(String username) ;
 
-    List<Role> allRolesExist();
 }
