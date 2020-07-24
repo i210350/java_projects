@@ -9,7 +9,7 @@
 <div>
     <form method="post" action="/login">
         <input name="j_username"/>
-        <input name="j_password"/>
+        <input type="password" name="j_password"/>
         <input type="submit"/>
     </form>
 </div>

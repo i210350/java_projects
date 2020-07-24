@@ -2,23 +2,26 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
 import web.model.UserApp;
 import web.model.UserApp;
+import web.model.Users_Roles;
 import web.service.RoleService;
 import web.service.UserService;
+import web.service.UsersRolesService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
 public class UserController {
     private UserService userService;
     private RoleService roleService;
+    private UsersRolesService usersRolesService;
 
     @Autowired
     public void setUserService(UserService userService) {
@@ -29,6 +32,25 @@ public class UserController {
     public void setRoleService(RoleService roleService) {
         this.roleService = roleService;
     }
+
+    @Autowired
+    public void setUsersRolesService(UsersRolesService usersRolesService) {
+        this.usersRolesService = usersRolesService;
+    }
+
+    public UserService getUserService() {
+        return userService;
+    }
+
+    public RoleService getRoleService() {
+        return roleService;
+    }
+
+    public UsersRolesService getUsersRolesService() {
+        return usersRolesService;
+    }
+
+
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView allUsers() {
@@ -80,15 +102,33 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit/add_role/{id}", method = RequestMethod.GET)
-    public ModelAndView editRoleAdd(@PathVariable("id") int id) {
-        UserApp userApp = userService.getById(id);
-        List<Role> listRoles = roleService.allRolesExist();
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editUser");
-        modelAndView.addObject("userApp", userApp);
-        modelAndView.addObject("listRoles", listRoles);
-        return modelAndView;
+//    @RequestMapping(value = "/edit/add_role",params = {"id","idRole"}, method = RequestMethod.GET)
+//    public ModelAndView editRoleAdd(@RequestParam(value = "id") int idUser,
+//                                    @RequestParam(value = "idRole") int idRole ) {
+//        Users_Roles users_roles = usersRolesService.getById_Users_Roles(idUser, idRole);
+//        List<Role> listRoles = roleService.allRolesExist();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("editUser");
+////        modelAndView.addObject("userApp", userApp);
+//        modelAndView.addObject("listRoles", listRoles);
+//        return modelAndView;
+//    }
+
+    @RequestMapping(value = "/edit/add_role" , method = RequestMethod.GET)
+    public String editRoleAdd(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int idUser=Integer.parseInt(request.getParameter("id"));
+        int idRole=Integer.parseInt(request.getParameter("idRole"));
+        try
+        {
+//            String val=shopService1.editShopinfo(id);
+            System.out.println("Edit Shop : "+idRole+" "+idUser);
+        }
+        catch(Exception e)
+        {
+
+            System.out.println("Edit Shop : "+e );
+        }
+        return "redirect:/edit";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
