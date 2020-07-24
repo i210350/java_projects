@@ -1,3 +1,4 @@
+<%@ page import="web.model.Role" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -5,11 +6,16 @@
         <name>Edit</name>
 </head>
 <body>
+<%!  Role roleSelect; %>
 <form action="/edit" method="POST">
+
 <table>
 <tr>
 
-    <td><input type="hidden" name="id" value="${userApp.id}"></td>
+    <td>
+        <input type="hidden" name="id" value="${userApp.id}">
+    <td><input type="hidden" name="idRole" id="idRole"></td>
+    </td>
 </tr>
     <tr>
 
@@ -25,21 +31,23 @@
              <input type="button" value="-->"><br>
          </td>
          <td width="50px"></td>
-<%--         <td width="100px"></td>--%>
          <td>
-
-                 <select id="roleCurrent" name="roleCurrent" itemid="itRole">
-                     <c:forEach items="${listRoles}" var="role2">
-                         <option value="${role2.authority}" selected->"${role2.authority}"</option>
-                         <input type="text" name="idSel" value="${role2.id}">
+<%--             <form id="formRole" action="/edit/add_role" method="GET">--%>
+                     <c:forEach items="${listRoles}" var="role2" >
+<%--                         <input  type="button" formmethod="get" formaction="/edit/add_role?idRole=${role2.id} & id=${userApp.id}" value="<--" onClick="esample();">--%>
+                         <button id="btAdd" class="float-left submit-button" ><--</button>
+                         <input type="text" value="${role2.authority}" ><br>
                      </c:forEach>
-                 </select>
-            <h4>"${idSel}"</h4>
-             <input type="submit" formaction="/edit/add_role?idUser=${userApp.id}&idRoles=${idSel}" value="<--" >
+                         <script>
+                             // function esample() {
+                                <%--document.getElementById("idRole").value = ${role2.id};--%>
+                                 document.getElementById("btAdd").onclick = function () {
+                                     location.href = "/edit/add_role?idRole=${role2.id} & id=${userApp.id}";}
+                             // }
+                         </script>
 
-
-
-<%--             </label>--%>
+<%--             </form>--%>
+<%--             ?id=${userApp.id}&idRole=${role2.id}"--%>
          </td>
      </tr>
       <tr>
@@ -74,5 +82,8 @@
 </table>
 
 </form>
+
+
+
 </body>
 </html>
