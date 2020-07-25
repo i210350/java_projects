@@ -12,74 +12,73 @@
         <tr>
             <td>
 
-    <table>
-        <tr>
-            <td><input type="hidden" name="id" value="${userApp.id}"></td>
-            <td><input type="hidden" name="idRole" id="idRole" value="${selRole}"></td>
-        </tr>
-        <tr>
-            <td><label for="name">name</label></td>
-            <td><input type="text" name="name" id="name" value="${userApp.name}"></td>
-            <td width="100px"></td>
-        </tr>
-        <tr>
-            <td><label for="lastname">lastname</label></td>
-            <td><input type="text" name="lastname" id="lastname" value="${userApp.lastname}"></td>
-        </tr>
-        <tr>
-            <td><label for="password">password</label></td>
-            <td><input type="text" name="password" id="password" value="${userApp.password}"></td>
-        </tr>
-        <tr>
-            <td><label for="old">old</label></td>
-            <td><input type="text" name="old" id="old" value="${userApp.old}"></td>
-        </tr>
-        <tr>
-            <td><label for="mail">mail</label></td>
-            <td><input type="text" name="mail" id="mail" value="${userApp.mail}"></td>
-        </tr>
+                <table>
+                    <tr>
+                        <td><input type="hidden" name="id" value="${userApp.id}"></td>
+                        <td><input type="hidden" name="idRole" id="idRole" value="${selRole}"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="name">name</label></td>
+                        <td><input type="text" name="name" id="name" value="${userApp.name}"></td>
+                        <td width="100px"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lastname">lastname</label></td>
+                        <td><input type="text" name="lastname" id="lastname" value="${userApp.lastname}"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">password</label></td>
+                        <td><input type="text" name="password" id="password" value="${userApp.password}"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="old">old</label></td>
+                        <td><input type="text" name="old" id="old" value="${userApp.old}"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mail">mail</label></td>
+                        <td><input type="text" name="mail" id="mail" value="${userApp.mail}"></td>
+                    </tr>
+                    <tr></tr>
 
-        <tr>
-            <input type="submit" value="Edit user">
-        </tr>
+                    <tr>
+                       <td><input type="submit" value="Edit user"></td>
+                    </tr>
 
-    </table>
+                </table>
             </td>
 
-<%--</form>--%>
 
-<%--<form action="/edit" method="GET">--%>
             <td>
 
-    <table>
-        <tr>
-            <td width="50px"></td>
-            <td>
-                <c:forEach items="${listRoles}" var="role2">
-                    <input type="checkbox" class="CheckBoxRole" onchange="checkRole()">
-                    <input type="text" class="TextFieldRole" value="${role2.authority}"><br>
-                </c:forEach>
+                <table>
+                    <tr>
+<%--                        <td width="50px"></td>--%>
+                        <td>
+                            <c:forEach items="${listRoles}" var="role2">
+                                <input type="checkbox" class="CheckBoxRole" onchange="checkRole()">
+                                <input type="text" class="TextFieldRole" value="${role2.authority}"><br>
+                            </c:forEach>
 
 
-                <script>
-                    checkRole();
+                            <script>
+                                checkRole();
 
-                    function checkRole() {
-                        checks = document.getElementsByClassName("CheckBoxRole");
-                        textfields = document.getElementsByClassName("TextFieldRole");
-                        <c:forEach items="${userApp.roles}" var="role1">
-                            for (let i = 0; i < textfields.length - 1; i++) {
-                                if (textfields[i].getAttribute("value") === "${role1.authority}") {
-                                    checks[i].setAttribute("checked", true) ;
+                                function checkRole() {
+                                    checks = document.getElementsByClassName("CheckBoxRole");
+                                    textfields = document.getElementsByClassName("TextFieldRole");
+                                    <c:forEach items="${userApp.roles}" var="role1">
+                                    for (let i = 0; i < textfields.length - 1; i++) {
+                                        if (textfields[i].getAttribute("value") === "${role1.authority}") {
+                                            checks[i].setAttribute("checked", true);
+                                        }
+                                    }
+                                    </c:forEach>
                                 }
-                            }
-                        </c:forEach>
-                     }
-                </script>
+                            </script>
 
-            </td>
-        </tr>
-    </table>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>
