@@ -95,10 +95,12 @@ public class UserController {
     public ModelAndView editUser(@PathVariable("id") int id) {
         UserApp userApp = userService.getById(id);
         List<Role> listRoles = roleService.allRolesExist();
+        int selRole = 0;
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
         modelAndView.addObject("userApp", userApp);
         modelAndView.addObject("listRoles", listRoles);
+        modelAndView.addObject("selRole", selRole);
         return modelAndView;
     }
 
@@ -114,21 +116,11 @@ public class UserController {
 //        return modelAndView;
 //    }
 
-    @RequestMapping(value = "/edit/add_role" , method = RequestMethod.GET)
-    public String editRoleAdd(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int idUser=Integer.parseInt(request.getParameter("id"));
-        int idRole=Integer.parseInt(request.getParameter("idRole"));
-        try
-        {
-//            String val=shopService1.editShopinfo(id);
-            System.out.println("Edit Shop : "+idRole+" "+idUser);
-        }
-        catch(Exception e)
-        {
+    @RequestMapping(value = "/edit/add_role/{arrID}" , method = RequestMethod.GET)
+    public String editRoleAdd(@PathVariable("arrID") int[] arrID)  {
+        System.out.println("ID array = {"+arrID[0]+" "+arrID[1]+"}");
 
-            System.out.println("Edit Shop : "+e );
-        }
-        return "redirect:/edit";
+        return "redirect:/edit/" + arrID[1];
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
