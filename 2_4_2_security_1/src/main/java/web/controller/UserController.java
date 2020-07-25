@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
@@ -115,11 +116,16 @@ public class UserController {
 //        return modelAndView;
 //    }
 
-    @RequestMapping(value = "/edit/add_role/{arrID}" , method = RequestMethod.GET)
-    public String editRoleAdd(@PathVariable("arrID") int[] arrID)  {
-        System.out.println("ID array = {"+arrID[0]+" "+arrID[1]+"}");
+//    @RequestMapping(value = "/contacts/doSomething", method = RequestMethod.POST, params = {"send"})
+//    public String send(@RequestParam(value = "contacts", required = false) long[] contactIds, Model model) {
+//        model.addAttribute("contactIds", contactIds);
+//        return "redirect:/newMessage";
+//    }
 
-        return "redirect:/edit/" + arrID[1];
+    @RequestMapping(value = "/edit/add_role" , method = RequestMethod.POST, params = {"send"})
+    public String send(@RequestParam(value = "contacts", required = false) int[] rolesIds, Model model) {
+        model.addAttribute("rolesIds", rolesIds);
+        return "redirect:/edit/";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
