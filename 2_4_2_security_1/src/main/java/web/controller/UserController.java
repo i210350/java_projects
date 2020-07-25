@@ -95,12 +95,11 @@ public class UserController {
     public ModelAndView editUser(@PathVariable("id") int id) {
         UserApp userApp = userService.getById(id);
         List<Role> listRoles = roleService.allRolesExist();
-        int selRole = 0;
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
         modelAndView.addObject("userApp", userApp);
         modelAndView.addObject("listRoles", listRoles);
-        modelAndView.addObject("selRole", selRole);
+//        modelAndView.addObject("selRole", selRole);
         return modelAndView;
     }
 

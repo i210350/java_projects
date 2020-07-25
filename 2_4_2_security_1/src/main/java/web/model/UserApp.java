@@ -39,7 +39,6 @@ public class UserApp implements Serializable, UserDetails {
     @JoinTable(name = "users_roles",
         joinColumns = { @JoinColumn(name = "users_id") },
         inverseJoinColumns = { @JoinColumn(name = "roles_id") })
-//    private List<Role> roles = new ArrayList<>();
     Set <Role> roles = new HashSet <> ();
 
     public UserApp() {
@@ -97,6 +96,10 @@ public class UserApp implements Serializable, UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("User"));
+//        Iterator<Role> it = roles.iterator();
+//        while (it.hasNext()) {
+//            authorities.add(it.next());
+//        }
         return authorities;
     }
 
