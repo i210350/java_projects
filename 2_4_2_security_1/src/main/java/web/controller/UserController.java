@@ -88,13 +88,14 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
-        ModelAndView modelAndView = new ModelAndView();
-        userService.edit(userApp);
-        modelAndView.setViewName("redirect:/users");
-        return modelAndView;
-    }
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp ) {
+//        ModelAndView modelAndView = new ModelAndView();
+////        userApp.setRoles(new HashSet<>(listRoles));
+//        userService.edit(userApp);
+//        modelAndView.setViewName("redirect:/users");
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") int id) {
@@ -126,19 +127,24 @@ public class UserController {
 //        return "redirect:/newMessage";
 //    }
 
-    @RequestMapping(value = "/edit/add_role" , method = RequestMethod.POST, params = {"send"})
-    public String send(@RequestParam(value = "rolesId", required = false) int[] rolesId,
-                       @RequestParam(value = "userId", required = false) int userId, Model model) {
-        model.addAttribute("rolesId", rolesId);
-        model.addAttribute("userId", userId);
-        UserApp user = getUserService().getById(userId);
-        user.getRoles().clear();
-        Set<Role> addRoles = new HashSet<>();
-        for (int i = 0; i < rolesId.length-1; i++) {
-            addRoles.add(getRoleService().getById(rolesId[i]));
-        }
-        user.setRoles(addRoles);
-        return "redirect:/edit/";
+//    @RequestParam(value = "listRoles", required = false) List<Role> listRoles,
+
+//    @RequestMapping(value = "/edit" , method = RequestMethod.POST, params = {"send"})
+//    public String editUser(@RequestParam(value = "userApp", required = false) UserApp userApp, Model model) {
+////        model.addAttribute("listRoles", listRoles);
+//        model.addAttribute("userApp", userApp);
+////        userApp.getRoles().clear();
+////        userApp.setRoles(new HashSet<>(listRoles));
+//        return "redirect:/edit/";
+//    }
+
+        @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
+        ModelAndView modelAndView = new ModelAndView();
+//        userApp.setRoles(new HashSet<>(listRoles));
+        userService.edit(userApp);
+        modelAndView.setViewName("redirect:/users");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
