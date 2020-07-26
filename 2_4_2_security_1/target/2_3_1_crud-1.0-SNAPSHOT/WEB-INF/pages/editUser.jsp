@@ -61,7 +61,7 @@
 
 
                             <script>
-                                var arrRoleUser = new Array();
+                                // var arrRoleUser = new Array();
                                 initRole();
 
                                 function initRole() {

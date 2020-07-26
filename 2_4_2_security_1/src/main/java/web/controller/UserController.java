@@ -17,10 +17,7 @@ import web.service.UsersRolesService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class UserController {
@@ -121,31 +118,43 @@ public class UserController {
 //        return modelAndView;
 //    }
 
-//    @RequestMapping(value = "/contacts/doSomething", method = RequestMethod.POST, params = {"send"})
-//    public String send(@RequestParam(value = "contacts", required = false) long[] contactIds, Model model) {
-//        model.addAttribute("contactIds", contactIds);
-//        return "redirect:/newMessage";
-//    }
-
-//    @RequestParam(value = "listRoles", required = false) List<Role> listRoles,
-
-//    @RequestMapping(value = "/edit" , method = RequestMethod.POST, params = {"send"})
-//    public String editUser(@RequestParam(value = "userApp", required = false) UserApp userApp, Model model) {
-////        model.addAttribute("listRoles", listRoles);
+//    @RequestMapping(value = "/edit" , method = RequestMethod.POST, params = {"editUser"})
+//    public String editUser(@RequestParam(value = "userApp", required = false) UserApp userApp,
+//                           @RequestParam(value = "listRoles") List<Role> listRoles,
+//                           Model model) {
+//        model.addAttribute("listRoles", listRoles);
 //        model.addAttribute("userApp", userApp);
-////        userApp.getRoles().clear();
-////        userApp.setRoles(new HashSet<>(listRoles));
-//        return "redirect:/edit/";
+//        userApp.getRoles().clear();
+//        userApp.setRoles(new HashSet<>(listRoles));
+//        return "redirect:/users";
 //    }
 
-        @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
-        ModelAndView modelAndView = new ModelAndView();
-//        userApp.setRoles(new HashSet<>(listRoles));
-        userService.edit(userApp);
-        modelAndView.setViewName("redirect:/users");
-        return modelAndView;
+    @RequestMapping(value = "/edit" , method = RequestMethod.POST)
+    public String editUser(@RequestParam(value = "userApp", required = false) UserApp userApp,
+                           @RequestParam(value = "listRoles", required = false) List<Role> listRoles,
+                           Model model) {
+//        List<Role> listRoles = new ArrayList<>();
+//        model.addAttribute("listRoles", listRoles);
+        model.addAttribute("userApp", userApp);
+        userApp.getRoles().clear();
+        userApp.setRoles(new HashSet<>(listRoles));
+        return "redirect:/users";
     }
+
+
+
+
+
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("listRoles") List<Role> listRoles) {
+//        ModelAndView modelAndView = new ModelAndView();
+////        listRoles = new ArrayList<>();
+//        userApp.setRoles(new HashSet<>(listRoles));
+//        userService.add(userApp);
+//        modelAndView.setViewName("redirect:/users");
+//        return modelAndView;
+//    }
+
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addPage() {
