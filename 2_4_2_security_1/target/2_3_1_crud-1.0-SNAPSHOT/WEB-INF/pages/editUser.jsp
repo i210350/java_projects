@@ -15,7 +15,7 @@
                 <table>
                     <tr>
                         <td><input type="hidden" name="id" value="${userApp.id}"></td>
-                        <td><input type="hidden" name="idRole" id="idRole" value="${selRole}"></td>
+<%--                        <td><input type="hidden" name="idRole" id="idRole" value="${selRole}"></td>--%>
                     </tr>
                     <tr>
                         <td><label for="name">name</label></td>
@@ -41,7 +41,7 @@
                     <tr></tr>
 
                     <tr>
-                       <td><input type="submit" formaction="/edit/${listRoles}" value="Edit user"></td>
+                       <td><input type="submit"  value="Edit user"></td>        <!-- formaction="/edit/${listRoles}" -->
                     </tr>
 
                 </table>
@@ -55,7 +55,7 @@
 <%--                        <td width="50px"></td>--%>
                         <td>
                             <c:forEach items="${listRoles}" var="role2">
-                                <input type="checkbox" class="CheckBoxRole" id="${role2.id}" onchange="changeRole()">
+                                <input type="checkbox" class="CheckBoxRole" id="${role2.id}" >  <!--onchange="changeRole()" -->
                                 <input type="text" class="TextFieldRole" value="${role2.authority}"><br>
                             </c:forEach>
 
@@ -79,19 +79,19 @@
 
 
                                 function changeRole() {
-                                    arrRoleUser.clear();
-                                    arrRoleUser.push(${userApp.id});
-                                    checks = document.getElementsByClassName("CheckBoxRole");
-                                    textfields = document.getElementsByClassName("TextFieldRole");
-                                    <c:forEach items="${listRoles}" var="role3">
-                                    for (let i = 0; i < textfields.length - 1; i++) {
-                                        if (textfields[i].getAttribute("value") === "${role3.authority}"
-                                          && (checks[i].getAttribute("checked") === true)) {
-                                            arrRoleUser.push(${role3.id});
-                                            ${listRoles.add()}
-                                        }
-                                    }
-                                    </c:forEach>
+                                    <%--arrRoleUser.clear();--%>
+                                    <%--arrRoleUser.push(${userApp.id});--%>
+                                    <%--checks = document.getElementsByClassName("CheckBoxRole");--%>
+                                    <%--textfields = document.getElementsByClassName("TextFieldRole");--%>
+                                    <%--<c:forEach items="${listRoles}" var="role3">--%>
+                                    <%--for (let i = 0; i < textfields.length - 1; i++) {--%>
+                                    <%--    if (textfields[i].getAttribute("value") === "${role3.authority}"--%>
+                                    <%--      && (checks[i].getAttribute("checked") === true)) {--%>
+                                    <%--        arrRoleUser.push(${role3.id});--%>
+                                    <%--        ${listRoles.add()}--%>
+                                    <%--    }--%>
+                                    <%--}--%>
+                                    <%--</c:forEach>--%>
                                 }
                             </script>
 
