@@ -1,7 +1,9 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
@@ -15,7 +17,10 @@ import web.service.UsersRolesService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserController {
@@ -115,11 +120,25 @@ public class UserController {
 //        return modelAndView;
 //    }
 
-    @RequestMapping(value = "/edit/add_role/{arrID}" , method = RequestMethod.GET)
-    public String editRoleAdd(@PathVariable("arrID") int[] arrID)  {
-        System.out.println("ID array = {"+arrID[0]+" "+arrID[1]+"}");
+//    @RequestMapping(value = "/contacts/doSomething", method = RequestMethod.POST, params = {"send"})
+//    public String send(@RequestParam(value = "contacts", required = false) long[] contactIds, Model model) {
+//        model.addAttribute("contactIds", contactIds);
+//        return "redirect:/newMessage";
+//    }
 
-        return "redirect:/edit/" + arrID[1];
+    @RequestMapping(value = "/edit/add_role" , method = RequestMethod.POST, params = {"send"})
+    public String send(@RequestParam(value = "rolesId", required = false) int[] rolesId,
+                       @RequestParam(value = "userId", required = false) int userId, Model model) {
+        model.addAttribute("rolesId", rolesId);
+        model.addAttribute("userId", userId);
+        UserApp user = getUserService().getById(userId);
+        user.getRoles().clear();
+        Set<Role> addRoles = new HashSet<>();
+        for (int i = 0; i < rolesId.length-1; i++) {
+            addRoles.add(getRoleService().getById(rolesId[i]));
+        }
+        user.setRoles(addRoles);
+        return "redirect:/edit/";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)

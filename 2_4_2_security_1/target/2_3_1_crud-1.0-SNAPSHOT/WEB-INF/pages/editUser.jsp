@@ -41,7 +41,7 @@
                     <tr></tr>
 
                     <tr>
-                       <td><input type="submit" value="Edit user"></td>
+                       <td><input type="submit" formaction="/edit/${listRoles}" value="Edit user"></td>
                     </tr>
 
                 </table>
@@ -55,21 +55,40 @@
 <%--                        <td width="50px"></td>--%>
                         <td>
                             <c:forEach items="${listRoles}" var="role2">
-                                <input type="checkbox" class="CheckBoxRole" onchange="checkRole()">
+                                <input type="checkbox" class="CheckBoxRole" id="${role2.id}" onchange="changeRole()">
                                 <input type="text" class="TextFieldRole" value="${role2.authority}"><br>
                             </c:forEach>
 
 
                             <script>
-                                checkRole();
+                                var arrRoleUser = new Array();
+                                initRole();
 
-                                function checkRole() {
+                                function initRole() {
                                     checks = document.getElementsByClassName("CheckBoxRole");
                                     textfields = document.getElementsByClassName("TextFieldRole");
                                     <c:forEach items="${userApp.roles}" var="role1">
                                     for (let i = 0; i < textfields.length - 1; i++) {
                                         if (textfields[i].getAttribute("value") === "${role1.authority}") {
                                             checks[i].setAttribute("checked", true);
+                                        }
+                                    }
+                                    </c:forEach>
+                                }
+
+
+
+                                function changeRole() {
+                                    arrRoleUser.clear();
+                                    arrRoleUser.push(${userApp.id});
+                                    checks = document.getElementsByClassName("CheckBoxRole");
+                                    textfields = document.getElementsByClassName("TextFieldRole");
+                                    <c:forEach items="${listRoles}" var="role3">
+                                    for (let i = 0; i < textfields.length - 1; i++) {
+                                        if (textfields[i].getAttribute("value") === "${role3.authority}"
+                                          && (checks[i].getAttribute("checked") === true)) {
+                                            arrRoleUser.push(${role3.id});
+                                            ${listRoles.add()}
                                         }
                                     }
                                     </c:forEach>

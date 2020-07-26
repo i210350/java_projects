@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import web.dao.RoleDAO;
 import web.dao.UserDAO;
 import web.model.Role;
+import web.model.UserApp;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -28,5 +29,11 @@ public class RoleServiceImpl implements RoleService {
     @Transactional
     public List<Role> allRolesExist() {
         return roleDAO.allRolesExist();
+    }
+
+    @Override
+    @Transactional
+    public Role getById(int id) {
+        return roleDAO.getById(id);
     }
 }
