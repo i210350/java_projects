@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserController {
@@ -126,11 +127,17 @@ public class UserController {
 //    }
 
     @RequestMapping(value = "/edit/add_role" , method = RequestMethod.POST, params = {"send"})
-    public String send(@RequestParam(value = "rolesId", required = false) int[] rolesId, @RequestParam(value = "userId", required = false) int userId, Model model) {
+    public String send(@RequestParam(value = "rolesId", required = false) int[] rolesId,
+                       @RequestParam(value = "userId", required = false) int userId, Model model) {
         model.addAttribute("rolesId", rolesId);
         model.addAttribute("userId", userId);
         UserApp user = getUserService().getById(userId);
-        user.setRoles(new HashSet<>(Arrays.asList(rolesId));
+        user.getRoles().clear();
+        Set<Role> addRoles = new HashSet<>();
+        for (int i = 0; i < rolesId.length-1; i++) {
+            addRoles.add(getRoleService().getById(rolesId[i]));
+        }
+        user.setRoles(addRoles);
         return "redirect:/edit/";
     }
 

@@ -55,7 +55,7 @@
 <%--                        <td width="50px"></td>--%>
                         <td>
                             <c:forEach items="${listRoles}" var="role2">
-                                <input type="checkbox" class="CheckBoxRole" id="${role2.id}" onchange="changeRole()">
+                                <input type="checkbox" class="CheckBoxRole" id="${role2.id}" >  <!--onchange="changeRole()" -->
                                 <input type="text" class="TextFieldRole" value="${role2.authority}"><br>
                             </c:forEach>
 
