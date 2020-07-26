@@ -1,6 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,8 @@ import web.service.UsersRolesService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 @Controller
@@ -123,8 +126,11 @@ public class UserController {
 //    }
 
     @RequestMapping(value = "/edit/add_role" , method = RequestMethod.POST, params = {"send"})
-    public String send(@RequestParam(value = "contacts", required = false) int[] rolesIds, Model model) {
-        model.addAttribute("rolesIds", rolesIds);
+    public String send(@RequestParam(value = "rolesId", required = false) int[] rolesId, @RequestParam(value = "userId", required = false) int userId, Model model) {
+        model.addAttribute("rolesId", rolesId);
+        model.addAttribute("userId", userId);
+        UserApp user = getUserService().getById(userId);
+        user.setRoles(new HashSet<>(Arrays.asList(rolesId));
         return "redirect:/edit/";
     }
 
