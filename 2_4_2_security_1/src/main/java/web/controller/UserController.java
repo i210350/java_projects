@@ -2,6 +2,7 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
@@ -15,6 +16,8 @@ import web.service.UsersRolesService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Controller
@@ -65,16 +68,7 @@ public class UserController {
     public String login() {
         return  "login";
     }
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String hello() {
-        return "hello";
-    }
-
-//    @RequestMapping(value = "/users", method = RequestMethod.GET)
-//    public String hello() {
-//        return "users";
-//    }
+    ////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {
@@ -83,6 +77,44 @@ public class UserController {
         return modelAndView;
     }
 
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editUser(@PathVariable("id") int id) {
+        UserApp userApp = userService.getById(id);
+        List<Role> listRoles = roleService.allRolesExist();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editUser");
+        modelAndView.addObject("userApp", userApp);
+        modelAndView.addObject("listRoles", listRoles);
+        return modelAndView;
+    }
+
+
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp ) {
+//        ModelAndView modelAndView = new ModelAndView();
+////        userApp.setRoles(new HashSet<>(listRoles));
+//        userService.edit(userApp);
+//        modelAndView.setViewName("redirect:/users");
+//        return modelAndView;
+//    }
+
+//
+
+//    @RequestMapping(value = "/edit" , method = RequestMethod.POST)
+//    public String editUser(@RequestParam(value = "userApp", required = false) UserApp userApp,
+////                           @RequestParam(value = "listRoles", required = false) List<Role> listRoles,
+//                           Model model) {
+////        listRoles = new ArrayList<>();
+////        model.addAttribute("listRoles", listRoles);
+//        model.addAttribute("userApp", userApp);
+////        userApp.getRoles().clear();
+////        userApp.setRoles(new HashSet<>(listRoles));
+//        userService.edit(userApp);
+//        return "redirect:/users";
+//    }
+
+    /////////work
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
         ModelAndView modelAndView = new ModelAndView();
@@ -91,37 +123,9 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editUser(@PathVariable("id") int id) {
-        UserApp userApp = userService.getById(id);
-        List<Role> listRoles = roleService.allRolesExist();
-        int selRole = 0;
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editUser");
-        modelAndView.addObject("userApp", userApp);
-        modelAndView.addObject("listRoles", listRoles);
-        modelAndView.addObject("selRole", selRole);
-        return modelAndView;
-    }
 
-//    @RequestMapping(value = "/edit/add_role",params = {"id","idRole"}, method = RequestMethod.GET)
-//    public ModelAndView editRoleAdd(@RequestParam(value = "id") int idUser,
-//                                    @RequestParam(value = "idRole") int idRole ) {
-//        Users_Roles users_roles = usersRolesService.getById_Users_Roles(idUser, idRole);
-//        List<Role> listRoles = roleService.allRolesExist();
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("editUser");
-////        modelAndView.addObject("userApp", userApp);
-//        modelAndView.addObject("listRoles", listRoles);
-//        return modelAndView;
-//    }
+/////////////////////////////////////////////////////////////////////////////////////////////
 
-    @RequestMapping(value = "/edit/add_role/{arrID}" , method = RequestMethod.GET)
-    public String editRoleAdd(@PathVariable("arrID") int[] arrID)  {
-        System.out.println("ID array = {"+arrID[0]+" "+arrID[1]+"}");
-
-        return "redirect:/edit/" + arrID[1];
-    }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addPage() {
