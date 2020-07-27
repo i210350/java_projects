@@ -20,7 +20,6 @@ public class RoleDAOImpl implements RoleDAO{
 
     @Override
     public List<Role> allRolesExist() {
-
         Session session = sessionFactory.getCurrentSession();
         TypedQuery<Role> query = session.createQuery("from Role ");
         return query.getResultList();

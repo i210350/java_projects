@@ -115,6 +115,17 @@ public class UserController {
 //        return "redirect:/users" ;
 //    }
 
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
+//                                 @ModelAttribute("listRoles") List<Role>listRoles) {
+//        List<Role>list = new ArrayList<>(listRoles);
+//        userApp.setRoles(new HashSet<>(list));
+//        ModelAndView modelAndView = new ModelAndView();
+//        userService.edit(userApp);
+//        modelAndView.setViewName("redirect:/users");
+//        return modelAndView;
+//    }
+
     /////////work
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {

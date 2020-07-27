@@ -25,5 +25,4 @@ public class UsersRolesDAOImpl implements UsersRolesDAO {
         TypedQuery<Users_Roles> query = session.createQuery("from Users_Roles as ur where ur.users_id = :idUsers and ur.roles_id = :idRoles ");
         return query.getResultList().get(0);
     }
-
 }
