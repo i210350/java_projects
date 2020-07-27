@@ -103,15 +103,16 @@ public class UserController {
 
 //    @RequestMapping(value = "/edit" , method = RequestMethod.POST)
 //    public String editUser(@RequestParam(value = "userApp", required = false) UserApp userApp,
-////                           @RequestParam(value = "listRoles", required = false) List<Role> listRoles,
+//                           @RequestParam(value = "listRoles", required = false) List<Role> listRoles,
 //                           Model model) {
+//
 ////        listRoles = new ArrayList<>();
 ////        model.addAttribute("listRoles", listRoles);
 //        model.addAttribute("userApp", userApp);
 ////        userApp.getRoles().clear();
 ////        userApp.setRoles(new HashSet<>(listRoles));
 //        userService.edit(userApp);
-//        return "redirect:/users";
+//        return "redirect:/users" ;
 //    }
 
     /////////work

@@ -68,7 +68,7 @@
                                     checks = document.getElementsByClassName("CheckBoxRole");
                                     textfields = document.getElementsByClassName("TextFieldRole");
                                     <c:forEach items="${userApp.roles}" var="role1">
-                                    for (let i = 0; i < textfields.length - 1; i++) {
+                                    for (let i = 0; i < textfields.length ; i++) {
                                         if (textfields[i].getAttribute("value") === "${role1.authority}") {
                                             checks[i].setAttribute("checked", true);
                                         }
