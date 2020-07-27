@@ -1,13 +1,14 @@
 <%@ page import="web.model.Role" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <name>Edit</name>
 </head>
 <body>
 <%! Role roleSelect; %>
-<form action="/edit" method="POST">
+<form:form action="/edit" method="POST">
     <table>
         <tr>
             <td>
@@ -102,7 +103,7 @@
         </tr>
     </table>
 
-</form>
+</form:form>
 
 </body>
 </html>

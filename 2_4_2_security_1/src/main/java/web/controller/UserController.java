@@ -2,20 +2,14 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
 import web.model.UserApp;
-import web.model.UserApp;
-import web.model.Users_Roles;
 import web.service.RoleService;
 import web.service.UserService;
 import web.service.UsersRolesService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -89,6 +83,17 @@ public class UserController {
         return modelAndView;
     }
 
+//    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+//    public ModelAndView editUser(@PathVariable("id") int id) {
+//        UserApp userApp = userService.getById(id);
+//        List<Role> listRoles = roleService.allRolesExist();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("editUser");
+//        modelAndView.addObject("userApp", userApp);
+//        modelAndView.addObject("listRoles", listRoles);
+//        return modelAndView;
+//    }
+
 
 //    @RequestMapping(value = "/edit", method = RequestMethod.POST)
 //    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp ) {
@@ -126,14 +131,25 @@ public class UserController {
 //        return modelAndView;
 //    }
 
-    /////////work
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
+    public ModelAndView editUser(@RequestParam(value = "userApp", required = false) UserApp userApp  ,
+                                 @RequestParam(value = "listRoles", required = false) List<Role>listRoles) {
         ModelAndView modelAndView = new ModelAndView();
+        List<Role>list = new ArrayList<>(listRoles);
+        userApp.setRoles(new HashSet<>(list));
         userService.edit(userApp);
         modelAndView.setViewName("redirect:/users");
         return modelAndView;
     }
+
+    /////////work
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        userService.edit(userApp);
+//        modelAndView.setViewName("redirect:/users");
+//        return modelAndView;
+//    }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
