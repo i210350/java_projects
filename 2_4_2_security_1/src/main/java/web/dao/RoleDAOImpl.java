@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import web.model.Role;
+import web.model.UserApp;
 
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -25,4 +26,11 @@ public class RoleDAOImpl implements RoleDAO{
         TypedQuery<Role> query = session.createQuery("from Role ");
         return query.getResultList();
     }
+
+    @Override
+    public Role getById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Role.class, id);
+    }
+
 }

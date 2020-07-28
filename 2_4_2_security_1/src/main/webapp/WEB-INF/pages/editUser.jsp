@@ -87,9 +87,8 @@
                                 function initRole() {
                                     <c:forEach items="${userApp.roles}" var="role1">
                                     for (let i = 0; i < textfields.length ; i++) {
-                                        if (checks[i].getAttribute("value") === ${role1.id}) {
-                                            // checks[i].setAttribute("checked", true);
-                                            checks[i].checked;
+                                        if (checks[i].getAttribute("value") === ${role1.id}+"") {
+                                            checks[i].setAttribute("checked",true);
                                             idfields[i].setAttribute("value", checks[i].getAttribute("value"));
                                         }
                                     }

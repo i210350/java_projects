@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserController {
@@ -119,6 +120,11 @@ public class UserController {
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
                                  @RequestParam(required = false) Integer[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
+        Set<Role> roleSet = new HashSet<>();
+        for (int idRole: idRoles) {
+            roleSet.add(getRoleService().getById(idRole));
+        }
+        userApp.setRoles(new HashSet<>(roleSet));
         userService.edit(userApp);
         modelAndView.setViewName("redirect:/users");
         return modelAndView;
