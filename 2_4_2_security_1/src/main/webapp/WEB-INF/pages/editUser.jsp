@@ -24,6 +24,12 @@
     <table>
         <tr>
             <td>
+                <a href="<c:url value="/users" />"><-- Назад</a>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
 
                 <table>
                     <tr>
@@ -53,13 +59,8 @@
                     <tr></tr>
 
                     <tr>
-                        <td><input type="submit"  value="Edit user"></td>
-                    </tr>
-                    <tr>
-                        <br>
-                        <br>
-                        <br>
-                        <a href="<c:url value="/logout" />">Logout</a>
+                        <td><input type="submit"  value="Edit user"><br>
+                        </td>
                     </tr>
 
                 </table>
