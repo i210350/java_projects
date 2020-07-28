@@ -35,7 +35,7 @@ public class UserApp implements Serializable, UserDetails {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    //
     @JoinTable(name = "users_roles",
         joinColumns = { @JoinColumn(name = "users_id") },
         inverseJoinColumns = { @JoinColumn(name = "roles_id") })
