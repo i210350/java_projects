@@ -25,6 +25,15 @@ import java.util.Set;
 public class UserServiceImpl implements UserService, UserDetailsService {
     private UserDAO userDAO;
 
+    ////////////////////////////////////
+
+
+
+
+
+    ///////////////////////////////////
+
+
     @Autowired
     public void setUserDAO(UserDAO userDAO) {
         this.userDAO = userDAO;
@@ -45,6 +54,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     @Transactional
     public UserApp add(UserApp userApp) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(8);
+        userApp.setPassword(passwordEncoder.encode(userApp.getPassword()));
         userDAO.add(userApp);
         return userApp;
     }
