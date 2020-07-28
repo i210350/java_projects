@@ -1,22 +1,16 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import web.model.Role;
 import web.model.UserApp;
-import web.model.UserApp;
-import web.model.Users_Roles;
 import web.service.RoleService;
 import web.service.UserService;
 import web.service.UsersRolesService;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -69,7 +63,27 @@ public class UserController {
     public String login() {
         return  "login";
     }
-    ////////////////////////////////////////////////////////////////////
+
+    @RequestMapping(value = "/homepage_user", method = RequestMethod.GET)
+    public ModelAndView loginUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserApp userApp = userService.getByName(user.getUsername());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("homepage");
+        modelAndView.addObject("userApp", userApp);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/homepage/{userName}", method = RequestMethod.GET)
+    public ModelAndView editUser(@PathVariable("userName") String userName) {
+        UserApp userApp = userService.getByName(userName);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("homepage");
+        modelAndView.addObject("userApp", userApp);
+        return modelAndView;
+    }
+
+
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {

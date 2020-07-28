@@ -34,10 +34,10 @@ public class RoleDAOImpl implements RoleDAO{
     }
 
     @Override
-    public Role getByName(String username) {
+    public Role getByName(String nameRole) {
         Session session = sessionFactory.getCurrentSession();
         TypedQuery<Role> query = session.createQuery("from Role as r where r.name like :name ");
-        query.setParameter("name", username);
+        query.setParameter("name", nameRole);
         return query.getResultList().get(0);
     }
 

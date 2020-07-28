@@ -13,6 +13,7 @@ public interface UserService {
         void delete(UserApp userApp);
         void edit(UserApp userApp);
         UserApp getById(int id);
+        UserApp getByName(String username);
 
 
 }

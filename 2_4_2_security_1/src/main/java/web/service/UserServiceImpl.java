@@ -25,6 +25,8 @@ import java.util.Set;
 public class UserServiceImpl implements UserService, UserDetailsService {
     private UserDAO userDAO;
 
+
+
     @Autowired
     public void setUserDAO(UserDAO userDAO) {
         this.userDAO = userDAO;
@@ -36,15 +38,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userDAO.allUsers();
     }
 
-//    @Override
-//    @Transactional
-//    public void add(UserApp userApp) {
-//        userDAO.add(userApp);
-//    }
 
     @Override
     @Transactional
     public UserApp add(UserApp userApp) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(8);
+        userApp.setPassword(passwordEncoder.encode(userApp.getPassword()));
         userDAO.add(userApp);
         return userApp;
     }
@@ -69,8 +68,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
+    public UserApp getByName(String username) {
+        return userDAO.getByName(username) ;
+    }
+
+    @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserApp userApp = findUserbyUername(username);
+        UserApp userApp = getByName(username);
 
         if (userApp == null) {
             throw new UsernameNotFoundException("Unknown user: " + username);
@@ -80,16 +85,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         roles.addAll(userApp.getRoles());
         roles.addAll(userApp.getAuthorities());
 
-        return new User(userApp.getName(),     //org.springframework.security.core.userdetails.
-                userApp.getPassword(),
-                roles);
+        return new User(userApp.getName(), userApp.getPassword(), roles);
 
     }
-
-
-    private UserApp findUserbyUername(String username) {
-        return userDAO.getByName(username) ;
-    }
-
 
 }
