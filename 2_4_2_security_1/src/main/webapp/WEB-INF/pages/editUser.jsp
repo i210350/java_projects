@@ -55,6 +55,12 @@
                     <tr>
                         <td><input type="submit"  value="Edit user"></td>
                     </tr>
+                    <tr>
+                        <br>
+                        <br>
+                        <br>
+                        <a href="<c:url value="/logout" />">Logout</a>
+                    </tr>
 
                 </table>
             </td>
@@ -94,10 +100,12 @@
 
                         </td>
                     </tr>
+
                 </table>
-                <a href="<c:url value="/logout" />">Logout</a>
+
             </td>
         </tr>
+
     </table>
 
 </form>

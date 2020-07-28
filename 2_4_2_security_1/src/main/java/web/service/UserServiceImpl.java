@@ -69,8 +69,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
+    public UserApp getByName(String username) {
+        return userDAO.getByName(username) ;
+    }
+
+    @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserApp userApp = findUserbyUername(username);
+        UserApp userApp = getByName(username);
 
         if (userApp == null) {
             throw new UsernameNotFoundException("Unknown user: " + username);
@@ -83,11 +89,5 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return new User(userApp.getName(), userApp.getPassword(), roles);
 
     }
-
-
-    private UserApp findUserbyUername(String username) {
-        return userDAO.getByName(username) ;
-    }
-
 
 }

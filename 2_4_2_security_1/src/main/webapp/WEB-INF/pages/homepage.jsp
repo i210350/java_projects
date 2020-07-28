@@ -12,9 +12,10 @@
     <title>Title</title>
 </head>
 <body>
-    <h2>
-        Hello USER!
-    </h2>
+    <p>Привет ${userApp.name} ${userApp.lastname}!</p>
+    <p>Пароль  ${userApp.password}</p>
+    <p>Возраст ${userApp.old}</p>
+    <p>E-mail: ${userApp.name}</p>
 <br>
 <br>
 <br>

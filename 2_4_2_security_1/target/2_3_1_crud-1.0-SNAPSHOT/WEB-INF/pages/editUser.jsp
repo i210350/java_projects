@@ -94,10 +94,17 @@
 
                         </td>
                     </tr>
+                    <tr>
+                        <br>
+                        <br>
+                        <br>
+                        <a href="<c:url value="/logout" />">Logout</a>
+                    </tr>
                 </table>
-                <a href="<c:url value="/logout" />">Logout</a>
+
             </td>
         </tr>
+
     </table>
 
 </form>

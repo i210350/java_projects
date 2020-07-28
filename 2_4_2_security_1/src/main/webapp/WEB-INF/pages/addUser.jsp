@@ -19,6 +19,12 @@
 <%--    <label for="roleCurrent">role</label>--%>
 <%--    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.getAuthority}">--%>
     <input type="submit" value="Add new user">
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="<c:url value="/logout" />">Logout</a>
+
 </form>
 </body>
 </html>

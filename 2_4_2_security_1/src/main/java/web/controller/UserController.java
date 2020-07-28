@@ -1,6 +1,8 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -70,21 +72,24 @@ public class UserController {
         return  "login";
     }
 
-    @RequestMapping(value = "/homepage", method = RequestMethod.GET)
-    public String loginUser() {
-        return  "homepage";
+    @RequestMapping(value = "/homepage_user", method = RequestMethod.GET)
+    public ModelAndView loginUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserApp userApp = userService.getByName(user.getUsername());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("homepage");
+        modelAndView.addObject("userApp", userApp);
+        return modelAndView;
     }
 
-//    @RequestMapping(value = "/homepage/{id}", method = RequestMethod.GET)
-//    public ModelAndView editUser(@PathVariable("id") int id) {
-//        UserApp userApp = userService.getById(id);
-//        List<Role> listRoles = roleService.allRolesExist();
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("editUser");
-//        modelAndView.addObject("userApp", userApp);
-//        modelAndView.addObject("listRoles", listRoles);
-//        return modelAndView;
-//    }
+    @RequestMapping(value = "/homepage/{userName}", method = RequestMethod.GET)
+    public ModelAndView editUser(@PathVariable("userName") String userName) {
+        UserApp userApp = userService.getByName(userName);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("homepage");
+        modelAndView.addObject("userApp", userApp);
+        return modelAndView;
+    }
 
 
 
