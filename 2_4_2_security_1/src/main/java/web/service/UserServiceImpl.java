@@ -25,13 +25,6 @@ import java.util.Set;
 public class UserServiceImpl implements UserService, UserDetailsService {
     private UserDAO userDAO;
 
-    ////////////////////////////////////
-
-
-
-
-
-    ///////////////////////////////////
 
 
     @Autowired
@@ -45,11 +38,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userDAO.allUsers();
     }
 
-//    @Override
-//    @Transactional
-//    public void add(UserApp userApp) {
-//        userDAO.add(userApp);
-//    }
 
     @Override
     @Transactional
