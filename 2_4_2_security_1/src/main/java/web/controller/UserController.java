@@ -69,7 +69,7 @@ public class UserController {
     public String login() {
         return  "login";
     }
-    ////////////////////////////////////////////////////////////////////
+
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {

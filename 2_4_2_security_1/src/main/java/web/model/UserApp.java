@@ -95,7 +95,7 @@ public class UserApp implements Serializable, UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("User"));
+        final List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
         return authorities;
     }
 
