@@ -70,6 +70,30 @@ public class UserController {
         return  "login";
     }
 
+    @RequestMapping(value = "/homepage", method = RequestMethod.GET)
+    public String loginUser() {
+        return  "homepage";
+    }
+
+//    @RequestMapping(value = "/homepage/{id}", method = RequestMethod.GET)
+//    public ModelAndView editUser(@PathVariable("id") int id) {
+//        UserApp userApp = userService.getById(id);
+//        List<Role> listRoles = roleService.allRolesExist();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("editUser");
+//        modelAndView.addObject("userApp", userApp);
+//        modelAndView.addObject("listRoles", listRoles);
+//        return modelAndView;
+//    }
+
+
+
+
+    @RequestMapping(value = "/console", method = RequestMethod.GET)
+    public String loginAdmin() {
+        return  "console";
+    }
+
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {

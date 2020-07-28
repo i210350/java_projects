@@ -44,6 +44,10 @@
 
 <h2>Add</h2>
 <c:url value="/add" var="add"/>
-<a href="${add}">Add new user</a>
+<a href="${add}">Add new user</a><br>
+<br>
+<br>
+<br>
+<a href="<c:url value="/logout" />">Logout</a>
 </body>
 </html>

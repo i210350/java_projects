@@ -80,9 +80,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         roles.addAll(userApp.getRoles());
         roles.addAll(userApp.getAuthorities());
 
-        return new User(userApp.getName(),     //org.springframework.security.core.userdetails.
-                userApp.getPassword(),
-                roles);
+        return new User(userApp.getName(), userApp.getPassword(), roles);
 
     }
 

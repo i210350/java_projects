@@ -95,6 +95,7 @@
                         </td>
                     </tr>
                 </table>
+                <a href="<c:url value="/logout" />">Logout</a>
             </td>
         </tr>
     </table>
