@@ -1,6 +1,8 @@
 package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +19,7 @@ import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -73,13 +76,28 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             throw new UsernameNotFoundException("Unknown user: " + username);
         }
 
-        UserDetails userDetails = User.builder()
-                .username(userApp.getName())
-                .password(userApp.getPassword())
-                .roles(userApp.getRoles().stream().map(Role::getName).toArray(String[]::new))
-                .build();
-        System.out.println(userApp.getAuthorities());
-        return userDetails;
+//        UserDetails userDetails = User.builder()
+//                .username(userApp.getName())
+//                .password(userApp.getPassword())
+//                .roles(userApp.getRoles().stream().map(Role::getName).toArray(String[]::new))
+//                .build();
+////        System.out.println(userApp.getAuthorities());
+//        return userDetails;
+
+        // с помощью нашего сервиса UserService получаем User
+//        User user = userService.getUser("colibri");
+        // указываем роли для этого пользователя
+        //        roles.add(new SimpleGrantedAuthority(UserRoleEnum.USER.name()));
+        Set<GrantedAuthority> roles = new HashSet<>(userApp.getAuthorities());
+
+        // на основании полученных данных формируем объект UserDetails
+        // который позволит проверить введенный пользователем логин и пароль
+        // и уже потом аутентифицировать пользователя
+
+        return new User(userApp.getName(),     //org.springframework.security.core.userdetails.
+                userApp.getPassword(),
+                roles);
+
     }
 
 
