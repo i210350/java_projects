@@ -88,13 +88,6 @@ public class UserController {
 
 
 
-
-    @RequestMapping(value = "/console", method = RequestMethod.GET)
-    public String loginAdmin() {
-        return  "console";
-    }
-
-
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {
         ModelAndView modelAndView = new ModelAndView();
