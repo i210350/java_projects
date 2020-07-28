@@ -114,14 +114,37 @@ public class UserController {
 //        return "redirect:/users";
 //    }
 
-    /////////work
+
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
+    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
+                                 @RequestParam(required = false) Integer[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
         userService.edit(userApp);
         modelAndView.setViewName("redirect:/users");
         return modelAndView;
     }
+
+
+    //////work
+
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
+//                                 @RequestParam(required = false) String[] idRoles) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        System.out.println(idRoles);
+//        userService.edit(userApp);
+//        modelAndView.setViewName("redirect:/users");
+//        return modelAndView;
+//    }
+
+    /////////work
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        userService.edit(userApp);
+//        modelAndView.setViewName("redirect:/users");
+//        return modelAndView;
+//    }
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
