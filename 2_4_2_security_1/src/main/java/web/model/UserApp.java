@@ -39,7 +39,6 @@ public class UserApp implements Serializable, UserDetails {
     @JoinTable(name = "users_roles",
         joinColumns = { @JoinColumn(name = "users_id") },
         inverseJoinColumns = { @JoinColumn(name = "roles_id") })
-//    private List<Role> roles = new ArrayList<>();
     Set <Role> roles = new HashSet <> ();
 
     public UserApp() {
@@ -111,7 +110,6 @@ public class UserApp implements Serializable, UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-
         return false;
     }
 
@@ -134,18 +132,6 @@ public class UserApp implements Serializable, UserDetails {
         this.password = password;
     }
 
-//    public List<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(List<Role> roles) {
-//        this.roles = roles;
-//    }
-
-//    public List<Role> getRolesString() {
-//        return roles;
-//    }
-
     public void addRole(Role role) {
         roles.add(role);
     }
@@ -156,7 +142,7 @@ public class UserApp implements Serializable, UserDetails {
     }
 
     public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+        this.roles.addAll(roles);
     }
 
 

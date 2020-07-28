@@ -65,10 +65,10 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() {
-        return  "login";
-    }
+//    @RequestMapping(value = "/login", method = RequestMethod.GET)
+//    public String login() {
+//        return  "login";
+//    }
     ////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -91,30 +91,6 @@ public class UserController {
     }
 
 
-//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp ) {
-//        ModelAndView modelAndView = new ModelAndView();
-////        userApp.setRoles(new HashSet<>(listRoles));
-//        userService.edit(userApp);
-//        modelAndView.setViewName("redirect:/users");
-//        return modelAndView;
-//    }
-
-//
-
-//    @RequestMapping(value = "/edit" , method = RequestMethod.POST)
-//    public String editUser(@RequestParam(value = "userApp", required = false) UserApp userApp,
-////                           @RequestParam(value = "listRoles", required = false) List<Role> listRoles,
-//                           Model model) {
-////        listRoles = new ArrayList<>();
-////        model.addAttribute("listRoles", listRoles);
-//        model.addAttribute("userApp", userApp);
-////        userApp.getRoles().clear();
-////        userApp.setRoles(new HashSet<>(listRoles));
-//        userService.edit(userApp);
-//        return "redirect:/users";
-//    }
-
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
@@ -129,31 +105,6 @@ public class UserController {
         modelAndView.setViewName("redirect:/users");
         return modelAndView;
     }
-
-
-    //////work
-
-//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
-//                                 @RequestParam(required = false) String[] idRoles) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        System.out.println(idRoles);
-//        userService.edit(userApp);
-//        modelAndView.setViewName("redirect:/users");
-//        return modelAndView;
-//    }
-
-    /////////work
-//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        userService.edit(userApp);
-//        modelAndView.setViewName("redirect:/users");
-//        return modelAndView;
-//    }
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////
 
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)

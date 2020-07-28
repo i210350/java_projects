@@ -28,8 +28,6 @@
                 <table>
                     <tr>
                         <td><input type="hidden" name="id" value="${userApp.id}"></td>
-<%--                                                <td><input type="text" name="idRoles" id="idRoles0" value=0></td>--%>
-<%--                                                <td><input type="text" name="idRoles" id="idRoles1" value=12></td>--%>
                     </tr>
                     <tr>
                         <td><label for="name">name</label></td>
@@ -66,14 +64,12 @@
 
                 <table>
                     <tr>
-                        <%--                        <td width="50px"></td>--%>
-
                         <td>
                                 <c:forEach items="${listRoles}" var="role2">
                                     <input type="checkbox" class="CheckBoxRole" id="chb${role2.id}" value="${role2.id}"
                                                                         onchange='changeRole(this.getAttribute("value"))'>
                                     <input type="text" class="TextFieldRole" id="tx${role2.id}" value="${role2.authority}" >
-                                    <input type="text" class="idFieldRole" name="idRoles" id="idR${role2.id}" value=0 ><br>
+                                    <input type="hidden" class="idFieldRole" name="idRoles" id="idR${role2.id}" value=0 ><br>
                                 </c:forEach>
 
 

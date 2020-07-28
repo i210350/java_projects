@@ -42,7 +42,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     @Transactional
     public UserApp add(UserApp userApp) {
-//        userApp.setRoles(new HashSet<Role>(userApp.getAuthorities()));
         userDAO.add(userApp);
         return userApp;
     }
