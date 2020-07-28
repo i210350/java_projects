@@ -1,6 +1,8 @@
 package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,6 +19,7 @@ import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -73,13 +76,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             throw new UsernameNotFoundException("Unknown user: " + username);
         }
 
-        UserDetails userDetails = User.builder()
-                .username(userApp.getName())
-                .password(userApp.getPassword())
-                .roles(userApp.getRoles().stream().map(Role::getName).toArray(String[]::new))
-                .build();
-        System.out.println(userApp.getAuthorities());
-        return userDetails;
+        Set<GrantedAuthority> roles = new HashSet<>();
+        roles.addAll(userApp.getRoles());
+        roles.addAll(userApp.getAuthorities());
+
+        return new User(userApp.getName(),     //org.springframework.security.core.userdetails.
+                userApp.getPassword(),
+                roles);
+
     }
 
 
