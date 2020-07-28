@@ -87,8 +87,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         // с помощью нашего сервиса UserService получаем User
 //        User user = userService.getUser("colibri");
         // указываем роли для этого пользователя
-        //        roles.add(new SimpleGrantedAuthority(UserRoleEnum.USER.name()));
-        Set<GrantedAuthority> roles = new HashSet<>(userApp.getAuthorities());
+        Set<GrantedAuthority> roles = new HashSet<>();
+//        roles.add(new SimpleGrantedAuthority(UserRoleEnum.USER.name()));
+        roles.addAll(userApp.getRoles());
+        roles.addAll(userApp.getAuthorities());
 
         // на основании полученных данных формируем объект UserDetails
         // который позволит проверить введенный пользователем логин и пароль
