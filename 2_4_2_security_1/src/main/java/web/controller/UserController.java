@@ -65,10 +65,10 @@ public class UserController {
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/login", method = RequestMethod.GET)
-//    public String login() {
-//        return  "login";
-//    }
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return  "login";
+    }
     ////////////////////////////////////////////////////////////////////
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
