@@ -23,7 +23,7 @@
     <br>
     <br>
     <br>
-    <a href="<c:url value="/logout" />">Logout</a>
+    <a href="<c:url value="/users" />"><-- Назад</a>
 
 </form>
 </body>

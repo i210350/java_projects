@@ -24,7 +24,7 @@
     <table>
         <tr>
             <td>
-                <a href="<c:url value="/users" />">Logout</a>
+                <a href="<c:url value="/users" />"><-- Назад</a>
 
             </td>
         </tr>
