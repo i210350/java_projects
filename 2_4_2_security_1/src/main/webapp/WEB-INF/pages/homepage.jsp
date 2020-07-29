@@ -15,7 +15,7 @@
     <p>Привет ${userApp.name} ${userApp.lastname}!</p>
     <p>Пароль  ${userApp.password}</p>
     <p>Возраст ${userApp.old}</p>
-    <p>E-mail: ${userApp.name}</p>
+    <p>E-mail: ${userApp.mail}</p>
 <br>
 <br>
 <br>
