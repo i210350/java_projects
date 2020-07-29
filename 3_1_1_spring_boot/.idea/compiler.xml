@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="2_4_2_security" />
+        <module name="3_1_1_spring_boot" />
+        <module name="2_4_2_security_1" />
+        <module name="2_3_1_crud" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
