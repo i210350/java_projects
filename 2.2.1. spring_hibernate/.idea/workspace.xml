@@ -48,7 +48,38 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21" />
+    <list default="true" id="88812e5b-9964-466f-bfdd-47df47b70fa8" name="Default" comment="9-21">
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/artifacts/spring_mvc_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/artifacts/spring_mvc_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_attoparser_attoparser_2_0_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_aop_5_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_beans_5_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_context_5_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_core_5_2_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_expression_5_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_web_5_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/libraries/Maven__org_unbescape_unbescape_1_1_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/RoleDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/RoleDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/dao/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/UserApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/model/UserApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/service/MySimpleUrlAuthenticationSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/service/MySimpleUrlAuthenticationSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2_4_2_security_1/src/main/java/web/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/spring-mvc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-mvc-master/2.2.2. spring_mvc/spring-mvc.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +116,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="C:/android-sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../filmCRUD" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -178,6 +209,7 @@
       <workItem from="1594328186384" duration="8010000" />
       <workItem from="1594405137987" duration="3112000" />
       <workItem from="1595010734551" duration="1730000" />
+      <workItem from="1596120952852" duration="806000" />
     </task>
     <task id="LOCAL-00001" summary="9-21">
       <created>1593498079641</created>
