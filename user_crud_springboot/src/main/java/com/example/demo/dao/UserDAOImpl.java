@@ -1,65 +1,37 @@
 package com.example.demo.dao;
 
+
 import com.example.demo.model.UserApp;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.TypedQuery;
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import javax.transaction.Transactional;
 
-@Repository("UserDAO")
-public class UserDAOImpl implements UserDAO {
-    private SessionFactory sessionFactory;
+@Repository
+@Transactional
+public class UserAppDAOImpl {
 
     @Autowired
-//    public void setSessionFactory(SessionFactory sessionFactory) {
-//        this.sessionFactory = sessionFactory;
-//    }
+    private EntityManager entityManager;
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<UserApp> allUsers() {
-//        Session session = sessionFactory.getCurrentSession();
-//        return session.createQuery("from UserApp").list();
-        return null;
+    public UserApp findById(Long id) {
+        return this.entityManager.find(UserApp.class, id);
     }
 
-    @Override
-    public UserApp add(UserApp userApp) {
-//        Session session = sessionFactory.getCurrentSession();
-//        session.save(userApp);
-//        return userApp;
-        return null;
+    public UserApp findUserAccount(String userName) {
+        try {
+            String sql = "Select e from " + UserApp.class.getName() + " e " //
+                    + " Where e.userName = :userName ";
+
+            Query query = entityManager.createQuery(sql, UserApp.class);
+            query.setParameter("userName", userName);
+
+            return (UserApp) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
-    @Override
-    public void delete(UserApp userApp) {
-//        Session session = sessionFactory.getCurrentSession();
-//        session.delete(userApp);
-    }
-
-    @Override
-    public void edit(UserApp userApp) {
-        Session session = sessionFactory.getCurrentSession();
-        session.update(userApp);
-    }
-
-    @Override
-    public UserApp getById(int id) {
-//        Session session = sessionFactory.getCurrentSession();
-//        return session.get(UserApp.class, id);
-        return null;
-    }
-
-    @Override
-    public UserApp getByName(String username) {
-//        Session session = sessionFactory.getCurrentSession();
-//        TypedQuery<UserApp> query = session.createQuery("from UserApp as u where u.name like :name ");
-//        query.setParameter("name", username);
-//        return query.getResultList().get(0);
-        return null;
-    }
-
-}
