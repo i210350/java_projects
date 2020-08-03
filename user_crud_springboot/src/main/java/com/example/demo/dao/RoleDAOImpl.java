@@ -38,12 +38,26 @@ public class RoleDAOImpl implements RoleDAO {
     @Override
     public Role getByName(String nameRole) {
         try {
+            String sql = "from UserApp  where name = :nameRole ";
+
+            Query query = entityManager.createQuery(sql, UserApp.class);
+            query.setParameter("nameRole", nameRole);
+
+            return (Role) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Role> getRoleNames(String nameUser) {
+        try {
             String sql = "from Role  where name = :userName ";
 
             Query query = entityManager.createQuery(sql, Role.class);
-            query.setParameter("userName", nameRole);
+            query.setParameter("userName", nameUser);
 
-            return (Role) query.getSingleResult();
+            return (List<Role>) query.getResultList();
         } catch (NoResultException e) {
             return null;
         }

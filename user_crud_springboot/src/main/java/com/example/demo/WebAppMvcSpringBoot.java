@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 //@SpringBootApplication
-//@PropertySource(value = "classpath:application.properties")
+@PropertySource(value = "classpath:application.properties")
 @SpringBootApplication
 @EnableJpaAuditing
 public class WebAppMvcSpringBoot {

@@ -11,4 +11,6 @@ public interface RoleService {
     Role getById(int id);
 
     Role getByName(String nameRole);
+
+    List<Role> getRoleNames(String nameUser);
 }
