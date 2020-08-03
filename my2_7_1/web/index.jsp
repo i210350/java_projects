@@ -7,10 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>First Page</title>
-  </head>
-  <body>
-  Any Text
-  </body>
+</head>
+<body>
+Any Text
+</body>
 </html>

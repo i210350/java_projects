@@ -40,10 +40,10 @@ public class CarService {
     }
 
     public boolean addCar(Car car) {
-        if (carService.getCarBySerial(car.getSerial()) == null ) {
-            car.setId(getMaxIdIncrement()*13);
+        if (carService.getCarBySerial(car.getSerial()) == null) {
+            car.setId(getMaxIdIncrement() * 13);
             dataBase.put(car.getId(), car);
-            return  true;
+            return true;
         }
         return false;
     }
@@ -57,10 +57,10 @@ public class CarService {
             Long id = entry.getKey();
             Car car = entry.getValue();
             if (car.getSerial().equals(email)) {
-                return car ;
+                return car;
             }
         }
-        return null ;
+        return null;
     }
 
     public Long getMaxIdIncrement() {

@@ -7,15 +7,15 @@ import javax.persistence.*;
 //@Table(name = "users")
 public class User {
 
-//    @Id
+    //    @Id
 //    @Column(name = "id")
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @Column(name = "name")
+    //    @Column(name = "name")
     private String name;
 
-//    @Column(name = "age")
+    //    @Column(name = "age")
     private Integer age;
 
     public User() {

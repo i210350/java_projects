@@ -19,15 +19,15 @@ public class CarController {
     @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model, HttpServletRequest request) {
         List<List<String>> messages = new ArrayList<>();
-        List<Car> carList =  CarService.getCarService().getAllCars();
+        List<Car> carList = CarService.getCarService().getAllCars();
         Iterator<Car> iterator = carList.iterator();
         while (iterator.hasNext()) {
             Car car = iterator.next();
-            messages.add(new ArrayList<String>(Arrays.asList(car.getId().toString(),car.getBrand(),car.getModel(),car.getSerial())));
+            messages.add(new ArrayList<String>(Arrays.asList(car.getId().toString(), car.getBrand(), car.getModel(), car.getSerial())));
         }
         model.addAttribute("messages", messages);
-        String localeCars ;
-        if (request.getParameter("locale").equals("ru")){
+        String localeCars;
+        if (request.getParameter("locale").equals("ru")) {
             localeCars = "МАШИНЫ";
         } else {
             localeCars = "CARS";

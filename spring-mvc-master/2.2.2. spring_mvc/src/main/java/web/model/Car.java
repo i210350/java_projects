@@ -20,7 +20,7 @@ public class Car {
     public String toString() {
         return "brand = " + getBrand() + "\n\r" +
                 "model = " + getModel() + "\n\r" +
-                "serial = " + getSerial() + "\n\r" ;
+                "serial = " + getSerial() + "\n\r";
     }
 
     public Long getId() {
@@ -30,7 +30,6 @@ public class Car {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
     public String getBrand() {

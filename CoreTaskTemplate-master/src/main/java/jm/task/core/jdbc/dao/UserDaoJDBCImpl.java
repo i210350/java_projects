@@ -21,10 +21,10 @@ public class UserDaoJDBCImpl implements UserDao {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 String query = "create table if not exists users (" +
-                                                                    "id bigint primary key not null auto_increment, " +
-                                                                    "name varchar(20), " +
-                                                                    "lastName varchar(30), " +
-                                                                    "age tinyint)";
+                        "id bigint primary key not null auto_increment, " +
+                        "name varchar(20), " +
+                        "lastName varchar(30), " +
+                        "age tinyint)";
                 Statement statement = conn.createStatement();
                 statement.executeUpdate(query);
             }
@@ -83,32 +83,30 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public List<User> getAllUsers() {
         ArrayList<User> list = new ArrayList<>();
-        try{
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+            try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery("SELECT name, lastName, age FROM users");
-                while(resultSet.next()){
+                while (resultSet.next()) {
                     User user = new User(resultSet.getString(1), resultSet.getString(2), resultSet.getByte(3));
                     list.add(user);
                 }
             }
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
         return list;
     }
 
     public void cleanUsersTable() {
-        try{
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+            try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery("DELETE FROM users");
             }
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }

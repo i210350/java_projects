@@ -14,7 +14,7 @@ public class UserService {
 
     private SessionFactory sessionFactory;
 
-    private static UserService userService ;
+    private static UserService userService;
 
     public static UserService getInstance() {
         if (userService == null) {

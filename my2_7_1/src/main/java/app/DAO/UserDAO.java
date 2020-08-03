@@ -22,13 +22,13 @@ public class UserDAO {
 
     public List<User> getAllUsers() {
         ArrayList<User> list = new ArrayList<>();
-        try{
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = DriverManager.getConnection(url, username, password)){
+            try (Connection conn = DriverManager.getConnection(url, username, password)) {
 
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
-                while(resultSet.next()){
+                while (resultSet.next()) {
 
                     int id = resultSet.getInt(1);
                     String name = resultSet.getString(2);
@@ -37,8 +37,7 @@ public class UserDAO {
                     list.add(user);
                 }
             }
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
         return list;

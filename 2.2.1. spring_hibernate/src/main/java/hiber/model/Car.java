@@ -21,7 +21,8 @@ public class Car {
     @OneToOne(mappedBy = "car")
     private User user;
 
-    public Car() {}
+    public Car() {
+    }
 
     public Car(String name, int series) {
         this.name = name;

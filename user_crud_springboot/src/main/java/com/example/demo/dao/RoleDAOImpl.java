@@ -1,0 +1,46 @@
+package com.example.demo.dao;
+
+import com.example.demo.model.Role;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.TypedQuery;
+import java.util.List;
+
+@Repository("RoleDAO")
+public class RoleDAOImpl implements RoleDAO {
+    private SessionFactory sessionFactory;
+
+    @Autowired
+//    public void setSessionFactory(SessionFactory sessionFactory) {
+//        this.sessionFactory = sessionFactory;
+//    }
+
+    @Override
+    public List<Role> allRolesExist() {
+
+//        Session session = sessionFactory.getCurrentSession();
+//        TypedQuery<Role> query = session.createQuery("from Role ");
+//        return query.getResultList();
+        return null;
+    }
+
+    @Override
+    public Role getById(int id) {
+//        Session session = sessionFactory.getCurrentSession();
+//        return session.get(Role.class, id);
+        return null;
+    }
+
+    @Override
+    public Role getByName(String nameRole) {
+//        Session session = sessionFactory.getCurrentSession();
+//        TypedQuery<Role> query = session.createQuery("from Role as r where r.name like :name ");
+//        query.setParameter("name", nameRole);
+//        return query.getResultList().get(0);
+        return null;
+    }
+
+}

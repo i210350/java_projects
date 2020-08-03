@@ -9,9 +9,10 @@ import org.hibernate.SessionFactory;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-///
+    ///
     private SessionFactory sessionFactory;
-    private static UserServiceImpl userServiceImpl ;
+    private static UserServiceImpl userServiceImpl;
+
     public static UserServiceImpl getInstance() {
         if (userServiceImpl == null) {
             userServiceImpl = new UserServiceImpl(Util.getSessionFactory());

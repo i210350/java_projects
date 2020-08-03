@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-public class CarDaoImp implements CarDao{
+public class CarDaoImp implements CarDao {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -22,7 +22,7 @@ public class CarDaoImp implements CarDao{
     @Override
     @SuppressWarnings("unchecked")
     public List<Car> listCars() {
-        TypedQuery<Car> query=sessionFactory.getCurrentSession().createQuery("from Car");
+        TypedQuery<Car> query = sessionFactory.getCurrentSession().createQuery("from Car");
         return query.getResultList();
     }
 }
