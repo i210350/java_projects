@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
 
     @Autowired
     private EntityManager entityManager;
@@ -26,8 +26,9 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public void add(UserApp userApp) {
+    public UserApp add(UserApp userApp) {
         entityManager.persist(userApp);
+        return userApp;
     }
 
     @Override
@@ -54,7 +55,7 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public UserApp getByName(String username) {
         try {
-            String sql = "select e from UserApp where name = :userName ";
+            String sql = "from UserApp  where name = :userName ";
 
             Query query = entityManager.createQuery(sql, UserApp.class);
             query.setParameter("userName", username);
