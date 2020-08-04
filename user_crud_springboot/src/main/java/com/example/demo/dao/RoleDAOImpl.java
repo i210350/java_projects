@@ -11,9 +11,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository("RoleDAO")
+@Transactional
 public class RoleDAOImpl implements RoleDAO {
 //    private SessionFactory sessionFactory;
 
