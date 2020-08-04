@@ -58,7 +58,7 @@ public class UserController {
         return model;
     }
 
-    @RequestMapping(value= {"/home"}, method=RequestMethod.GET)
+    @RequestMapping(value= {"/home/home"}, method=RequestMethod.GET)
     public ModelAndView home() {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
