@@ -2,8 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Role;
 import com.example.demo.model.UserApp;
-import com.example.demo.service.RoleService;
-import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;

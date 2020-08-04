@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.service;
 
 import com.example.demo.dao.RoleDAO;
 import com.example.demo.dao.UserDAO;
