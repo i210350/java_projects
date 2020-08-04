@@ -4,7 +4,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "users_roles")
+@Table(name = "users_roles",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "USER_ROLE_UK", columnNames = { "users_id", "roles_id" }) })
 public class Users_Roles implements Serializable {
 
     @Id
@@ -12,11 +14,13 @@ public class Users_Roles implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "users_id")
-    private int users_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "users_Id", nullable = false)
+    private UserApp userApp;
 
-    @Column(name = "roles_id")
-    private int roles_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "roles_Id", nullable = false)
+    private Role role;
 
     public Users_Roles() {
     }
@@ -29,19 +33,19 @@ public class Users_Roles implements Serializable {
         this.id = id;
     }
 
-    public int getUsers_id() {
-        return users_id;
+    public UserApp getUserApp() {
+        return userApp;
     }
 
-    public void setUsers_id(int users_id) {
-        this.users_id = users_id;
+    public void setUserApp(UserApp userApp) {
+        this.userApp = userApp;
     }
 
-    public int getRoles_id() {
-        return roles_id;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles_id(int roles_id) {
-        this.roles_id = roles_id;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
