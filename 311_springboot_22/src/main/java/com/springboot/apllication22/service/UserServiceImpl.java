@@ -3,6 +3,7 @@ package com.springboot.apllication22.service;
 import com.springboot.apllication22.model.User;
 import com.springboot.apllication22.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,11 @@ import java.util.HashSet;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
+    @Qualifier("userRepository")
     @Autowired
     private UserRepository userRepository;
 
+    @Qualifier("roleRepository")
     @Autowired
     private RoleRepository roleRespository;
 
