@@ -65,7 +65,7 @@ public class UserController {
         User user = userService.findUserByEmail(auth.getName());
 
         model.addObject("userName", user.getFirstname() + " " + user.getLastname());
-        model.setViewName("home/home");
+        model.setViewName("admin_home");
         return model;
     }
 
