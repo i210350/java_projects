@@ -4,6 +4,11 @@ import com.springboot.apllication22.model.User;
 import com.springboot.apllication22.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +16,12 @@ import com.springboot.apllication22.model.Role;
 import com.springboot.apllication22.model.User;
 import com.springboot.apllication22.repository.RoleRepository;
 import com.springboot.apllication22.repository.UserRepository;
-import java.util.Arrays;
-import java.util.HashSet;
+
+import javax.transaction.Transactional;
+import java.util.*;
 
 @Service("userService")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Qualifier("userRepository")
     @Autowired
@@ -28,9 +34,34 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+
     @Override
-    public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+    @Transactional
+    public User findUserByEmail(String mail) {
+        return userRepository.findByEmail(mail);
+    }
+
+
+    @Override
+    @Transactional
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+        User userApp = findUserByEmail(email);
+
+        if (userApp == null) {
+            throw new UsernameNotFoundException("Unknown mail: " + email);
+        }
+
+        List<GrantedAuthority> grantList = new ArrayList<>();
+        if (userApp.getRoles() != null) {
+            for (Role role : userApp.getRoles()) {
+                GrantedAuthority authority = new SimpleGrantedAuthority(role.getRole());
+                grantList.add(authority);
+            }
+        }
+
+        return new org.springframework.security.core.userdetails.
+                                    User(userApp.getFirstname(), userApp.getPassword(), grantList);
     }
 
     @Override

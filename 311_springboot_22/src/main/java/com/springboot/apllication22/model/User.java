@@ -1,5 +1,8 @@
 package com.springboot.apllication22.model;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
