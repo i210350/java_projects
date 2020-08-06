@@ -60,14 +60,25 @@ public class UserController {
         return model;
     }
 
-    @RequestMapping(value= {"/home"}, method=RequestMethod.GET)
-    public ModelAndView home() {
+    @RequestMapping(value= {"/admin"}, method=RequestMethod.GET)
+    public ModelAndView admin_home() {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
 
         model.addObject("userName", user.getFirstname() + " " + user.getLastname());
         model.setViewName("admin_home");
+        return model;
+    }
+
+    @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
+    public ModelAndView user_home() {
+        ModelAndView model = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+
+        model.addObject("userName", user.getFirstname() + " " + user.getLastname());
+        model.setViewName("user_home");
         return model;
     }
 
