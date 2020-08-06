@@ -1,14 +1,27 @@
 package com.springboot.model;
 
-public class User {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
+public class UserApp {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "mail")
     private String mail;
 
-    private User(){}
+    public UserApp(){}
 
-    public User(String name, String password, String mail) {
+    public UserApp(String name, String password, String mail) {
         this.name = name;
         this.password = password;
         this.mail = mail;
