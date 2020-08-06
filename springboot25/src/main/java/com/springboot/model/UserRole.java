@@ -1,48 +1,47 @@
-package com.example.demo.entity;
+package com.springboot.model;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User_Role", //
-        uniqueConstraints = { //
-                @UniqueConstraint(name = "USER_ROLE_UK", columnNames = { "User_Id", "Role_Id" }) })
+@Table(name = "UserRole",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "USERROLE_UK", columnNames = { "user_id", "role_id" }) })
 public class UserRole {
 
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
-    private Long id;
+    private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private AppUser appUser;
+    private UserApp appUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", nullable = false)
-    private AppRole appRole;
+    private RoleApp appRole;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public AppUser getAppUser() {
+    public UserApp getAppUser() {
         return appUser;
     }
 
-    public void setAppUser(AppUser appUser) {
+    public void setAppUser(UserApp appUser) {
         this.appUser = appUser;
     }
 
-    public AppRole getAppRole() {
+    public RoleApp getAppRole() {
         return appRole;
     }
 
-    public void setAppRole(AppRole appRole) {
+    public void setAppRole(RoleApp appRole) {
         this.appRole = appRole;
     }
-
 }

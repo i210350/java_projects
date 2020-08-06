@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="roles")
-public class Role {
+public class RoleApp {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name="role_id")
     private int id;
 
     @Column(name="name")

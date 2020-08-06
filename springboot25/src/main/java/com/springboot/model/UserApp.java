@@ -2,30 +2,26 @@ package com.springboot.model;
 
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "users")
+@Table(name = "users", //
+        uniqueConstraints = { //
+                @UniqueConstraint(name = "users_UK", columnNames = "mail") })
 public class UserApp {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
+    @Column(name = "user_id", nullable = false)
     private int id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "name", length = 36, nullable = false)
+    private String userName;
 
-    @Column(name = "password")
+    @Column(name = "password", length = 128, nullable = false)
     private String password;
 
-    @Column(name = "mail")
+    @Column(name = "mail", length = 128, nullable = false)
     private String mail;
-
-    public UserApp(){}
-
-    public UserApp(String name, String password, String mail) {
-        this.name = name;
-        this.password = password;
-        this.mail = mail;
-    }
 
     public int getId() {
         return id;
@@ -35,12 +31,12 @@ public class UserApp {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
