@@ -1,7 +1,8 @@
-package com.springboot.apllication22.security;
+package com.springboot.apllication22.config;
 
 import javax.sql.DataSource;
 
+import com.springboot.apllication22.handler.UrlAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Bean
-    public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
+    public AuthenticationSuccessHandler UrlAuthenticationSuccessHandler() {
         return new UrlAuthenticationSuccessHandler();
     }
 
@@ -48,11 +49,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signup").permitAll()
+        // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
+        // If no login, it will redirect to /login page.
+                .antMatchers("/home/user").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+
+        // For ADMIN only.
+//                .antMatchers("/home/**").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/home/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable()
                 .formLogin().loginPage("/login").failureUrl("/login?error=true")
                 .defaultSuccessUrl("/home")
-          //      .successHandler(myAuthenticationSuccessHandler())
+                .successHandler(UrlAuthenticationSuccessHandler())
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and().logout()
