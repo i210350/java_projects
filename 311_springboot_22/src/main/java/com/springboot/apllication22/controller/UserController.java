@@ -24,16 +24,18 @@ public class UserController {
     public ModelAndView login() {
         ModelAndView model = new ModelAndView();
 
-        model.setViewName("user/login");
+        model.setViewName("login");
         return model;
     }
+
+
 
     @RequestMapping(value= {"/signup"}, method=RequestMethod.GET)
     public ModelAndView signup() {
         ModelAndView model = new ModelAndView();
         User user = new User();
         model.addObject("user", user);
-        model.setViewName("user/signup");
+        model.setViewName("signup");
 
         return model;
     }
@@ -47,12 +49,12 @@ public class UserController {
             bindingResult.rejectValue("email", "error.user", "This email already exists!");
         }
         if(bindingResult.hasErrors()) {
-            model.setViewName("user/signup");
+            model.setViewName("signup");
         } else {
             userService.saveUser(user);
             model.addObject("msg", "User has been registered successfully!");
             model.addObject("user", new User());
-            model.setViewName("user/signup");
+            model.setViewName("signup");
         }
 
         return model;
@@ -65,14 +67,14 @@ public class UserController {
         User user = userService.findUserByEmail(auth.getName());
 
         model.addObject("userName", user.getFirstname() + " " + user.getLastname());
-        model.setViewName("home/admin_home");
+        model.setViewName("admin_home");
         return model;
     }
 
     @RequestMapping(value= {"/access_denied"}, method=RequestMethod.GET)
     public ModelAndView accessDenied() {
         ModelAndView model = new ModelAndView();
-        model.setViewName("errors/access_denied");
+        model.setViewName("access_denied");
         return model;
     }
 }

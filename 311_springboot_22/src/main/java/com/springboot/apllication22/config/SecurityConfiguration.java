@@ -51,14 +51,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .antMatchers("/signup").permitAll()
         // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
         // If no login, it will redirect to /login page.
-                .antMatchers("/home/user").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+                .antMatchers("/user").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
 
         // For ADMIN only.
-//                .antMatchers("/home/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/home/**").hasAuthority("ADMIN").anyRequest()
+//                .antMatchers("/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/**").hasAuthority("ADMIN").anyRequest()
                 .authenticated().and().csrf().disable()
                 .formLogin().loginPage("/login").failureUrl("/login?error=true")
-                .defaultSuccessUrl("/home")
+//                .defaultSuccessUrl("/home")
                 .successHandler(UrlAuthenticationSuccessHandler())
                 .usernameParameter("email")
                 .passwordParameter("password")
