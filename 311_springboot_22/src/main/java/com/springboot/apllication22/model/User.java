@@ -98,4 +98,13 @@ public class User  {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public String getStingRoles() {
+        StringBuilder strR = new StringBuilder();
+        for (Role r : getRoles()) {
+            strR.append(r.getRole());
+            strR.append(" ");
+        }
+        return strR.toString();
+    }
 }

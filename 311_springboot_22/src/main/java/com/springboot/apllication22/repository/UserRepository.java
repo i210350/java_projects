@@ -5,9 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import com.springboot.apllication22.model.User;
 
+import java.util.List;
+
 @Repository("userRepository")
 public
 interface UserRepository extends JpaRepository<User, Integer> {
 
     User findByEmail(String email);
+    List<User> getAllByActive(int active);
 }

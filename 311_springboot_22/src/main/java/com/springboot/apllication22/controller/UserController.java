@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.springboot.apllication22.model.User;
 import com.springboot.apllication22.service.UserService;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -64,9 +66,8 @@ public class UserController {
     public ModelAndView admin_home() {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByEmail(auth.getName());
-
-        model.addObject("userName", user.getFirstname() + " " + user.getLastname());
+        List<User> usersList = userService.getAllByActive(1);
+        model.addObject("usersList", usersList);
         model.setViewName("admin_home");
         return model;
     }

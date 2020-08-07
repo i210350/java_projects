@@ -9,10 +9,62 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container">
-    <h2>Hi <span th:utext="${userName}"></span>, this is the home page.</h2>
-    <h1>Hi <span th:utext="${userName}"></span>, this is the home page.</h1>
-    <a th:href="@{/logout}">Sign out</a>
+<!--<div class="container">-->
+<!--    <h2>Hi <span th:utext="${userName}"></span>, this is the home page.</h2>-->
+<!--    <h1>Hi <span th:utext="${userName}"></span>, this is the home page.</h1>-->
+<!--    <a th:href="@{/logout}">Sign out</a>-->
+<!--</div>-->
+
+<h2>Users</h2>
+<div>
+<table>
+    <tr>
+        <td><th>id</th></td>
+        <td><th>firstname</th></td>
+        <td><th>lastName</th></td>
+<!--        <td><th>password</th></td>-->
+<!--        <th>old</th>-->
+        <td><th>mail</th></td>
+        <td><th>role</th></td>
+        <td><th>activ</th></td>
+    </tr>
+    <tr th:each = " user : ${usersList}">
+        <td><th th:utext="${user.getId()}"></th></td>
+        <td><th th:utext="${user.getFirstname()}"></th></td>
+        <td><th th:utext="${user.getLastname()}"></th></td>
+        <td><th th:utext="${user.getEmail()}"></th></td>
+        <td><th th:utext="${user.getStingRoles()}"></th></td>
+        <td><th th:utext="${user.getActive()}"></th></td>
+<!--        </tr>-->
+
+
+<!--            <td>${user.firstname}</td>-->
+<!--            <td>${user.lastname}</td>-->
+<!--            <td>${user.password}</td>-->
+<!--&lt;!&ndash;            <td>${user.old}</td>&ndash;&gt;-->
+<!--            <td>${user.mail}</td>-->
+<!--            <td>-->
+<!--                <c:forEach var="rUser" items="${user.roles}">-->
+<!--                    <c:out value="${rUser.name}"></c:out>-->
+<!--                </c:forEach>-->
+<!--            </td>-->
+            <td>
+                <a href="/edit/${user.id}">edit</a>
+                <a href="/delete/${user.id}">delete</a>
+            </td>
+    </tr>
+
+
+    </th:block>
+</table>
 </div>
+
+<!--<h2>Add</h2>-->
+<!--<c:url value="/add" var="add"/>-->
+<!--<a href="${add}">Add new user</a><br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<a href="<c:url value="/logout" />">Logout</a>-->
 </body>
 </html>

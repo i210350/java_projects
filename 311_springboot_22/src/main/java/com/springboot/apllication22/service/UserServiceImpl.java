@@ -41,6 +41,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.findByEmail(mail);
     }
 
+    @Override
+    public List<User> getAllByActive(int active) {
+        return userRepository.getAllByActive(active);
+    }
+
 
     @Override
     @Transactional
