@@ -30,6 +30,13 @@ public class UserController {
         return model;
     }
 
+    @RequestMapping(value= {"/add"}, method=RequestMethod.GET)
+    public ModelAndView add() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("addUser");
+        return model;
+    }
+
 
 
     @RequestMapping(value= {"/signup"}, method=RequestMethod.GET)
