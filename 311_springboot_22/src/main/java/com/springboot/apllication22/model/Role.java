@@ -3,12 +3,9 @@ package com.springboot.apllication22.model;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="role")
@@ -19,14 +16,17 @@ public class Role implements GrantedAuthority {
     @Column(name="role_id")
     private int id;
 
+    @Column(name="role")
+    private String name;
+
+    @ManyToMany(mappedBy = "roles", cascade = {CascadeType.ALL})
+    private Set<User> userApps = new HashSet<>();
+
     public Role() {}
 
     public Role(String name) {
         this.name = name;
     }
-
-    @Column(name="role")
-    private String name;
 
     public int getId() {
         return id;
