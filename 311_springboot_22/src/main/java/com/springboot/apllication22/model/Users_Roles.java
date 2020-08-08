@@ -17,19 +17,9 @@ public class Users_Roles implements Serializable {
 
     @Column(name = "role_id")
     private int role_id;
-//    @Id
-//    private String id;
 
     public Users_Roles() {
     }
-
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
 
     public int getUser_id() {
         return user_id;
