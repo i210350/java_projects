@@ -102,7 +102,7 @@ public class User  {
     public String getStingRoles() {
         StringBuilder strR = new StringBuilder();
         for (Role r : getRoles()) {
-            strR.append(r.getRole());
+            strR.append(r.getName());
             strR.append(" ");
         }
         return strR.toString();
