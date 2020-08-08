@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.springboot.apllication22.model.User;
 import com.springboot.apllication22.service.UserService;
 
+import java.util.HashSet;
 import java.util.List;
 
 @Controller
@@ -42,7 +43,9 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") User userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        Role role = new Role(roleCurrent);
+        Role role = new Role("User");
+        HashSet<Role> hashSet = new HashSet<>();
+        hashSet.add(role);
         userApp.getRoles().add(role);
         userService.saveUser(userApp);
         modelAndView.setViewName("redirect:/admin_home");

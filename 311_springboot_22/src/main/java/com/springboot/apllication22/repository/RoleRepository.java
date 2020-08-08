@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springboot.apllication22.model.Role;
 
-@Repository //("roleRepository")
+@Repository ("roleRepository")
 public
 interface RoleRepository extends JpaRepository<Role, Integer> {
 
