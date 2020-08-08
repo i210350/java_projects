@@ -25,9 +25,6 @@ public class User  {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "firstname")
     private String firstname;
 
@@ -36,6 +33,9 @@ public class User  {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "active")
     private int active;
