@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "users_roles")
+@Table(name = "user_role")
 public class Users_Roles implements Serializable {
 
     @Id
@@ -12,11 +12,11 @@ public class Users_Roles implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "users_id")
-    private int users_id;
+    @Column(name = "user_id")
+    private int user_id;
 
-    @Column(name = "roles_id")
-    private int roles_id;
+    @Column(name = "role_id")
+    private int role_id;
 
     public Users_Roles() {
     }
@@ -29,19 +29,19 @@ public class Users_Roles implements Serializable {
         this.id = id;
     }
 
-    public int getUsers_id() {
-        return users_id;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUsers_id(int users_id) {
-        this.users_id = users_id;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public int getRoles_id() {
-        return roles_id;
+    public int getRole_id() {
+        return role_id;
     }
 
-    public void setRoles_id(int roles_id) {
-        this.roles_id = roles_id;
+    public void setRole_id(int role_id) {
+        this.role_id = role_id;
     }
 }
