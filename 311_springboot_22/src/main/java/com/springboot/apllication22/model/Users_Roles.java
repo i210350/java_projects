@@ -17,17 +17,19 @@ public class Users_Roles implements Serializable {
 
     @Column(name = "role_id")
     private int role_id;
+//    @Id
+//    private String id;
 
     public Users_Roles() {
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public int getUser_id() {
         return user_id;
@@ -43,5 +45,13 @@ public class Users_Roles implements Serializable {
 
     public void setRole_id(int role_id) {
         this.role_id = role_id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 }
