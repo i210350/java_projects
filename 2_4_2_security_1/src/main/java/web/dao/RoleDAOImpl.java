@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository("RoleDAO")
-public class RoleDAOImpl implements RoleDAO {
+public class RoleDAOImpl implements RoleDAO{
     private SessionFactory sessionFactory;
 
     @Autowired

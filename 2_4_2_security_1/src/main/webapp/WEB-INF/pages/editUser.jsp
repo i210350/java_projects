@@ -8,8 +8,8 @@
     <script type="text/javascript">
         function changeRole(idEl) {
 
-            chb = document.getElementById("chb" + idEl);
-            idR = document.getElementById("idR" + idEl);
+            chb = document.getElementById("chb"+idEl);
+            idR = document.getElementById("idR"+idEl);
             if (chb.checked) idR.setAttribute("value", chb.getAttribute("value"));
             else idR.setAttribute("value", "0");
         }
@@ -59,7 +59,7 @@
                     <tr></tr>
 
                     <tr>
-                        <td><input type="submit" value="Edit user"><br>
+                        <td><input type="submit"  value="Edit user"><br>
                         </td>
                     </tr>
 
@@ -72,12 +72,12 @@
                 <table>
                     <tr>
                         <td>
-                            <c:forEach items="${listRoles}" var="role2">
-                                <input type="checkbox" class="CheckBoxRole" id="chb${role2.id}" value="${role2.id}"
-                                       onchange='changeRole(this.getAttribute("value"))'>
-                                <input type="text" class="TextFieldRole" id="tx${role2.id}" value="${role2.authority}">
-                                <input type="hidden" class="idFieldRole" name="idRoles" id="idR${role2.id}" value=0><br>
-                            </c:forEach>
+                                <c:forEach items="${listRoles}" var="role2">
+                                    <input type="checkbox" class="CheckBoxRole" id="chb${role2.id}" value="${role2.id}"
+                                                                        onchange='changeRole(this.getAttribute("value"))'>
+                                    <input type="text" class="TextFieldRole" id="tx${role2.id}" value="${role2.authority}" >
+                                    <input type="hidden" class="idFieldRole" name="idRoles" id="idR${role2.id}" value=0 ><br>
+                                </c:forEach>
 
 
                             <script>
@@ -89,9 +89,9 @@
 
                                 function initRole() {
                                     <c:forEach items="${userApp.roles}" var="role1">
-                                    for (let i = 0; i < textfields.length; i++) {
+                                    for (let i = 0; i < textfields.length ; i++) {
                                         if (checks[i].getAttribute("value") === ${role1.id}+"") {
-                                            checks[i].setAttribute("checked", true);
+                                            checks[i].setAttribute("checked",true);
                                             idfields[i].setAttribute("value", checks[i].getAttribute("value"));
                                         }
                                     }

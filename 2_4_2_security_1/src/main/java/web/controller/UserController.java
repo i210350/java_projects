@@ -12,7 +12,6 @@ import web.model.UserApp;
 import web.service.RoleService;
 import web.service.UserService;
 import web.service.UsersRolesService;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -51,6 +50,7 @@ public class UserController {
     }
 
 
+
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView allUsers() {
         List<UserApp> users = userService.allUsers();
@@ -62,7 +62,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
-        return "login";
+        return  "login";
     }
 
     @RequestMapping(value = "/homepage_user", method = RequestMethod.GET)
@@ -85,6 +85,7 @@ public class UserController {
     }
 
 
+
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public ModelAndView editUser() {
         ModelAndView modelAndView = new ModelAndView();
@@ -105,12 +106,13 @@ public class UserController {
     }
 
 
+
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
                                  @RequestParam(required = false) Integer[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
         Set<Role> roleSet = new HashSet<>();
-        for (int idRole : idRoles) {
+        for (int idRole: idRoles) {
             roleSet.add(getRoleService().getById(idRole));
         }
         userApp.setRoles(new HashSet<>(roleSet));
@@ -137,7 +139,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteUser(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/users");

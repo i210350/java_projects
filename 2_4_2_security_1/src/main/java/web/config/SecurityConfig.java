@@ -25,12 +25,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService userDetailsService() {
         return new UserServiceImpl();
-    }
-
-    ;
+    };
 
     @Bean
-    public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
+    public AuthenticationSuccessHandler myAuthenticationSuccessHandler(){
         return new MySimpleUrlAuthenticationSuccessHandler();
     }
 

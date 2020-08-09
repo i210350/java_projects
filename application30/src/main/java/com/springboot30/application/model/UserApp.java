@@ -24,30 +24,28 @@ public class UserApp implements Serializable, UserDetails {
     @Column(name = "lastname")
     private String lastname;
 
-    @Column(name = "old")
-    private int old;
 
-    @Column(name = "mail")
-    private String mail;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "password")
     private String password;
 
+    @Column(name = "active")
+    private int active;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    //
-    @JoinTable(name = "users_roles",
-            joinColumns = {@JoinColumn(name = "users_id")},
-            inverseJoinColumns = {@JoinColumn(name = "roles_id")})
-    Set<web.model.Role> roles = new HashSet<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="users_roles", joinColumns=@JoinColumn(name="users_id"), inverseJoinColumns=@JoinColumn(name="roles_id"))
+    Set<Role> roles = new HashSet<>();
 
     public UserApp() {
     }
 
-    public UserApp(String name, String lastname, int old, String mail, String password, Set<web.model.Role> roles) {
+    public UserApp(String name, String lastname, int old, String mail, String password, Set<Role> roles) {
         this.name = name;
         this.lastname = lastname;
-        this.old = old;
-        this.mail = mail;
+        this.email = email;
         this.password = password;
         this.roles = roles;
     }
@@ -76,20 +74,12 @@ public class UserApp implements Serializable, UserDetails {
         this.lastname = lastname;
     }
 
-    public int getOld() {
-        return old;
-    }
-
-    public void setOld(int old) {
-        this.old = old;
-    }
-
     public String getMail() {
-        return mail;
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setMail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -131,19 +121,34 @@ public class UserApp implements Serializable, UserDetails {
         this.password = password;
     }
 
-    public void addRole(web.model.Role role) {
+    public void addRole(Role role) {
         roles.add(role);
     }
 
 
-    public Set<web.model.Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<web.model.Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles.addAll(roles);
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
 
     @Override
     public String toString() {
@@ -151,8 +156,7 @@ public class UserApp implements Serializable, UserDetails {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", old=" + old +
-                ", mail='" + mail + '\'' +
+                ", mail='" + email + '\'' +
                 '}';
     }
 }

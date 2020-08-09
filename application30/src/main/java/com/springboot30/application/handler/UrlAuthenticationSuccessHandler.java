@@ -1,13 +1,4 @@
-package web.service;
-
-import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+package com.springboot30.application.handler;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -18,12 +9,21 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     protected final Log logger = LogFactory.getLog(this.getClass());
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
-    public MySimpleUrlAuthenticationSuccessHandler() {
+    public UrlAuthenticationSuccessHandler() {
         super();
     }
 
@@ -53,14 +53,14 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 //        String userName = authentication.getName();
 
         Map<String, String> roleTargetUrlMap = new HashMap<>();
-        roleTargetUrlMap.put("ROLE_USER", "/homepage_user");
-        roleTargetUrlMap.put("ROLE_ADMIN", "/users");
+        roleTargetUrlMap.put("ROLE_ADMIN", "/admin");
+        roleTargetUrlMap.put("ROLE_USER", "/user");
 
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (final GrantedAuthority grantedAuthority : authorities) {
 
             String authorityName = grantedAuthority.getAuthority();
-            if(roleTargetUrlMap.containsKey(authorityName)) {
+            if (roleTargetUrlMap.containsKey(authorityName)) {
                 return roleTargetUrlMap.get(authorityName);
             }
         }

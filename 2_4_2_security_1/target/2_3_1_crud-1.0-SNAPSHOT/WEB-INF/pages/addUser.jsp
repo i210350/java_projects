@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <name>Add</name>
+        <name>Add</name>
 </head>
 <body>
 <form action="/add" method="POST">
@@ -16,8 +16,8 @@
     <input type="text" name="old" id="old" value="${userApp.old}">
     <label for="mail">mail</label>
     <input type="text" name="mail" id="mail" value="${userApp.mail}">
-    <%--    <label for="roleCurrent">role</label>--%>
-    <%--    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.getAuthority}">--%>
+<%--    <label for="roleCurrent">role</label>--%>
+<%--    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.getAuthority}">--%>
     <input type="submit" value="Add new user">
     <br>
     <br>

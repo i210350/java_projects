@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h2>Users</h2>
+<div>
+<table>
+    <tr>
+        <td><th>id</th></td>
+        <td><th>firstname</th></td>
+        <td><th>lastName</th></td>
+        <td><th>mail</th></td>
+        <td><th>role</th></td>
+        <td><th>activ</th></td>
+    </tr>
+    <tr th:each = " user : ${usersList}">
+        <td><th th:utext="${user.getId()}"></th></td>
+        <td><th th:utext="${user.getFirstname()}"></th></td>
+        <td><th th:utext="${user.getLastname()}"></th></td>
+        <td><th th:utext="${user.getEmail()}"></th></td>
+        <td><th th:utext="${user.getStingRoles()}"></th></td>
+        <td><th th:utext="${user.getActive()}"></th></td>
+        <td>
+            <a href="/edit/${user.id}">edit</a>
+            <a href="/delete/${user.id}">delete</a>
+        </td>
+    </tr>
+
+
+    </th:block>
+</table>
+</div>
+
+
+<br>
+<a th:href="@{/add}">Add new user</a><br>
+<br>
+<br>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>
