@@ -60,10 +60,11 @@ public class UserController {
         Role role = roleServiceImpl.findByName("USER");
         HashSet<Role> hashSet = new HashSet<>();
         hashSet.add(role);
+//        userApp.setActive(1);
         userApp.getRoles().add(role);
 //        userService.saveUser(userApp);
         userServiceImpl.saveUser(userApp);
-        modelAndView.setViewName("admin_home");
+        modelAndView.setViewName("redirect:/admin");
         return modelAndView;
     }
 

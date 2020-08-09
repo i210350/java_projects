@@ -83,7 +83,7 @@ public class UserApp implements Serializable, UserDetails {
         return active;
     }
 
-    public void setActive(int old) {
+    public void setActive(int active) {
         this.active = active;
     }
 

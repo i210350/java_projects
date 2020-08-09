@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-//@Qualifier("roleRepository")
-
 @Service
 public class RoleServiceImpl {
 
