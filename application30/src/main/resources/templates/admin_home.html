@@ -23,9 +23,9 @@
     </tr>
     <tr th:each = " user : ${usersList}">
         <td><th th:utext="${user.getId()}"></th></td>
-        <td><th th:utext="${user.getFirstname()}"></th></td>
+        <td><th th:utext="${user.getName()}"></th></td>
         <td><th th:utext="${user.getLastname()}"></th></td>
-        <td><th th:utext="${user.getEmail()}"></th></td>
+        <td><th th:utext="${user.getMail()}"></th></td>
         <td><th th:utext="${user.getStingRoles()}"></th></td>
         <td><th th:utext="${user.getActive()}"></th></td>
         <td>
@@ -35,7 +35,7 @@
     </tr>
 
 
-    </th:block>
+<!--    </th:block>-->
 </table>
 </div>
 

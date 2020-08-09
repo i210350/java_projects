@@ -18,8 +18,7 @@ public class Users_Roles implements Serializable {
     @Column(name = "roles_id")
     private int roles_id;
 
-    public Users_Roles() {
-    }
+    public Users_Roles() {}
 
     public int getId() {
         return id;

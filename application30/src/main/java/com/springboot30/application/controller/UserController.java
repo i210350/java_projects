@@ -5,11 +5,17 @@ package com.springboot30.application.controller;
 //import com.springboot30.apllication.service.UserService;
 import com.springboot30.application.model.Role;
 import com.springboot30.application.model.UserApp;
-import com.springboot30.application.service.UserService;
+import com.springboot30.application.repository.RoleRepository;
+import com.springboot30.application.repository.UserRepository;
+import com.springboot30.application.service.RoleServiceImpl;
+//import com.springboot30.application.service.UserService;
+import com.springboot30.application.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +23,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 //import javax.validation.Valid;
+import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
 
 @Controller
 public class UserController {
 
+//    @Qualifier("userRepository")
     @Autowired
-    private UserService userService;
+//    UserRepository userRepository;
+    private UserServiceImpl userServiceImpl;
+
+    @Autowired
+//    RoleRepository roleRepository;
+    private RoleServiceImpl roleServiceImpl;
 
     @RequestMapping(value= {"/", "/login"}, method=RequestMethod.GET)
     public ModelAndView login() {
@@ -44,12 +57,13 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        Role role = new Role("User");
+        Role role = roleServiceImpl.findByName("USER");
         HashSet<Role> hashSet = new HashSet<>();
         hashSet.add(role);
         userApp.getRoles().add(role);
-        userService.saveUser(userApp);
-        modelAndView.setViewName("redirect:/admin_home");
+//        userService.saveUser(userApp);
+        userServiceImpl.saveUser(userApp);
+        modelAndView.setViewName("admin_home");
         return modelAndView;
     }
 
@@ -64,9 +78,10 @@ public class UserController {
     }
 
     @RequestMapping(value= {"/signup"}, method=RequestMethod.POST)
-    public ModelAndView createUser( UserApp user, BindingResult bindingResult) {
+    public ModelAndView createUser(@Valid UserApp user, BindingResult bindingResult) {
         ModelAndView model = new ModelAndView();
-        UserApp userExists = userService.findUserByEmail(user.getEmail());
+//        UserApp userExists = userService.findUserByEmail(user.getMail());
+        UserApp userExists = userServiceImpl.findUserByEmail(user.getMail());
 
         if(userExists != null) {
             bindingResult.rejectValue("email", "error.user", "This email already exists!");
@@ -74,7 +89,7 @@ public class UserController {
         if(bindingResult.hasErrors()) {
             model.setViewName("signup");
         } else {
-            userService.saveUser(user);
+            userServiceImpl.saveUser(user);
             model.addObject("msg", "User has been registered successfully!");
             model.addObject("user", new UserApp());
             model.setViewName("signup");
@@ -87,8 +102,9 @@ public class UserController {
     public ModelAndView admin_home() {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        List<UserApp> usersList = userService.getAllByActive(1);
+        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         model.addObject("usersList", usersList);
+//        model.setViewName("admin_home");
         model.setViewName("admin_home");
         return model;
     }
@@ -97,7 +113,7 @@ public class UserController {
     public ModelAndView user_home() {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserApp user = userService.findUserByEmail(auth.getName());
+        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
 
         model.addObject("userName", user.getName() + " " + user.getLastname());
         model.setViewName("user_home");

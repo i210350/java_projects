@@ -3,6 +3,7 @@ package com.springboot.apllication22.controller;
 import javax.validation.Valid;
 
 import com.springboot.apllication22.model.Role;
+import com.springboot.apllication22.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,6 +26,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+    private RoleRepository roleRepository;
+
     @RequestMapping(value= {"/", "/login"}, method=RequestMethod.GET)
     public ModelAndView login() {
         ModelAndView model = new ModelAndView();
@@ -43,7 +47,8 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") User userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        Role role = new Role("User");
+//        Role role = new Role("USER");
+        Role role = roleRepository.findByName("USER");
         HashSet<Role> hashSet = new HashSet<>();
         hashSet.add(role);
         userApp.getRoles().add(role);

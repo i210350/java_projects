@@ -3,11 +3,9 @@ package com.springboot30.application.service;
 
 import com.springboot30.application.model.Role;
 import com.springboot30.application.model.UserApp;
-import com.springboot30.application.repository.RoleRepository;
 import com.springboot30.application.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service("userService")
-public class UserServiceImpl implements UserService, UserDetailsService {
+public class UserServiceImpl {  // implements UserService, UserDetailsService {
 
     @Qualifier("userRepository")
     @Autowired
@@ -36,23 +34,23 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-    @Override
+//    @Override
     @Transactional
     public UserApp findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.findByMail(email);
     }
 
-    @Override
+//    @Override
     public List<UserApp> getAllByActive(int active) {
         return userRepository.getAllByActive(active);
     }
 
 
-    @Override
+//    @Override
     @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        UserApp userApp = findUserByEmail(email);
+        UserApp userApp = userRepository.findByMail(email);
 
         if (userApp == null) {
             throw new UsernameNotFoundException("Unknown mail: " + email);
@@ -70,7 +68,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                                     User(userApp.getName(), userApp.getPassword(), grantList);
     }
 
-    @Override
+//    @Override
     public void saveUser(UserApp user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);

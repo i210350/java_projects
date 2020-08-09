@@ -24,28 +24,33 @@ public class UserApp implements Serializable, UserDetails {
     @Column(name = "lastname")
     private String lastname;
 
+    @Column(name = "active")
+    private int active;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "mail")
+    private String mail;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "active")
-    private int active;
 
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="users_roles", joinColumns=@JoinColumn(name="users_id"), inverseJoinColumns=@JoinColumn(name="roles_id"))
-    Set<Role> roles = new HashSet<>();
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    //
+//    @JoinTable(name = "users_roles",
+//        joinColumns = { @JoinColumn(name = "id") },
+//        inverseJoinColumns = { @JoinColumn(name = "users_id") })
+    @JoinTable(name = "users_roles",
+            joinColumns = { @JoinColumn(name = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "users_id") })
+    Set <Role> roles = new HashSet <> ();
 
     public UserApp() {
     }
 
-    public UserApp(String name, String lastname, int old, String mail, String password, Set<Role> roles) {
+    public UserApp(String name, String lastname, int active, String mail, String password, Set<Role> roles) {
         this.name = name;
         this.lastname = lastname;
-        this.email = email;
+        this.active = active;
+        this.mail = mail;
         this.password = password;
         this.roles = roles;
     }
@@ -74,12 +79,20 @@ public class UserApp implements Serializable, UserDetails {
         this.lastname = lastname;
     }
 
-    public String getMail() {
-        return email;
+    public int getActive() {
+        return active;
     }
 
-    public void setMail(String email) {
-        this.email = email;
+    public void setActive(int old) {
+        this.active = active;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     @Override
@@ -134,20 +147,13 @@ public class UserApp implements Serializable, UserDetails {
         this.roles.addAll(roles);
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getActive() {
-        return active;
-    }
-
-    public void setActive(int active) {
-        this.active = active;
+    public String getStingRoles() {
+        StringBuilder strR = new StringBuilder();
+        for (Role r : getRoles()) {
+            strR.append(r.getName());
+            strR.append(" ");
+        }
+        return strR.toString();
     }
 
     @Override
@@ -156,7 +162,8 @@ public class UserApp implements Serializable, UserDetails {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", mail='" + email + '\'' +
+                ", active=" + active +
+                ", mail='" + mail + '\'' +
                 '}';
     }
 }

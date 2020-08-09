@@ -19,15 +19,14 @@ public class Role implements Serializable, GrantedAuthority {
     @Column(name = "name")
     private String name;
 
-    public Role() {
-    }
+    public Role() {}
 
     public Role(String name) {
         this.name = name;
     }
 
-    @ManyToMany(mappedBy = "roles", cascade = {CascadeType.ALL})    
-    private Set<UserApp> userApps = new HashSet<>();
+    @ManyToMany(mappedBy = "roles", cascade = { CascadeType.ALL})    //
+        private Set<UserApp> userApps = new HashSet<>();
 
     public int getId() {
         return id;

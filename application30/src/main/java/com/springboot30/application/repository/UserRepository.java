@@ -10,6 +10,6 @@ import java.util.List;
 public
 interface UserRepository extends JpaRepository<UserApp, Integer> {
 
-    UserApp findByEmail(String email);
+    UserApp findByMail(String mail);
     List<UserApp> getAllByActive(int active);
 }
