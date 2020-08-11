@@ -26,8 +26,8 @@
 
     <!--    <link rel='stylesheet' href='/css/bootstrap.min.css' type='text/css' media='all'>-->
 
-    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -35,90 +35,103 @@
 
 <!-- HTML-код адаптивно-резинового контейнера -->
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="panel panel-default">
+                <div class="p-2 mb-2 bg-dark rounded">
+                    <div class="panel-body bg-dark text-white">admin@my.ru : ROLE_ADMIN</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-2">.col-md-2</div>
+        <div class="col-md-10 bg-light">.col-md-10
+
+            <h2>Users</h2>
+
+            <div class="navbar ">
+                <div class="navbar-inner">
+                    <a class="brand" href="#">Title</a>
+                    <ul class="nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Заголовок панели</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table>
+                            <tr>
+                                <td>
+                                <th>id</th>
+                                </td>
+                                <td>
+                                <th>firstname</th>
+                                </td>
+                                <td>
+                                <th>lastName</th>
+                                </td>
+                                <td>
+                                <th>mail</th>
+                                </td>
+                                <td>
+                                <th>role</th>
+                                </td>
+                                <td>
+                                <th>activ</th>
+                                </td>
+                            </tr>
+                            <tr th:each=" user : ${usersList}">
+                                <td>
+                                <th th:utext="${user.getId()}"></th>
+                                </td>
+                                <td>
+                                <th th:utext="${user.getName()}"></th>
+                                </td>
+                                <td>
+                                <th th:utext="${user.getLastname()}"></th>
+                                </td>
+                                <td>
+                                <th th:utext="${user.getMail()}"></th>
+                                </td>
+                                <td>
+                                <th th:utext="${user.getStingRoles()}"></th>
+                                </td>
+                                <td>
+                                <th th:utext="${user.getActive()}"></th>
+                                </td>
+                                <td>
+                                    <a href="/edit/${user.id}">edit</a>
+                                    <a href="/delete/${user.id}">delete</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+            <a th:href="@{/add}">Add new user</a><br>
+            <br>
+            <br>
+            <a th:href="@{/logout}">Logout</a>
+
+        </div>
+    </div>
 
     <!--    <div class="alert alert-success" role="alert">Вы отлично справились с половиной урока</div>-->
     <!--    <div class="alert alert-info" role="alert">Осталось еще немного</div>-->
     <!--    <div class="alert alert-warning" role="alert">Попробуйте все на практике</div>-->
     <!--    <div class="alert alert-danger" role="alert">Это серьезно</div>-->
 
-
-
-
-    <h2>Users</h2>
-
-    <div class="navbar">
-        <div class="navbar-inner">
-            <a class="brand" href="#">Title</a>
-            <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Заголовок панели</h3>
-            </div>
-            <div class="panel-body">
-                <table>
-                    <tr>
-                        <td>
-                        <th>id</th>
-                        </td>
-                        <td>
-                        <th>firstname</th>
-                        </td>
-                        <td>
-                        <th>lastName</th>
-                        </td>
-                        <td>
-                        <th>mail</th>
-                        </td>
-                        <td>
-                        <th>role</th>
-                        </td>
-                        <td>
-                        <th>activ</th>
-                        </td>
-                    </tr>
-                    <tr th:each=" user : ${usersList}">
-                        <td>
-                        <th th:utext="${user.getId()}"></th>
-                        </td>
-                        <td>
-                        <th th:utext="${user.getName()}"></th>
-                        </td>
-                        <td>
-                        <th th:utext="${user.getLastname()}"></th>
-                        </td>
-                        <td>
-                        <th th:utext="${user.getMail()}"></th>
-                        </td>
-                        <td>
-                        <th th:utext="${user.getStingRoles()}"></th>
-                        </td>
-                        <td>
-                        <th th:utext="${user.getActive()}"></th>
-                        </td>
-                        <td>
-                            <a href="/edit/${user.id}">edit</a>
-                            <a href="/delete/${user.id}">delete</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-
-
-    <br>
-    <a th:href="@{/add}">Add new user</a><br>
-    <br>
-    <br>
-    <a th:href="@{/logout}">Logout</a>
 
 </div>
 

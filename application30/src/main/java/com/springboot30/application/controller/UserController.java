@@ -106,7 +106,7 @@ public class UserController {
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         model.addObject("usersList", usersList);
 //        model.setViewName("admin_home");
-        model.setViewName("admin_home");
+        model.setViewName("admin_home1");
         return model;
     }
 
