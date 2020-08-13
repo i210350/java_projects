@@ -34,13 +34,10 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -77,16 +74,16 @@
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                       aria-controls="home" aria-selected="true">Home</a>
+                    <a class="nav-link active" id="users-tab" data-toggle="tab" href="#usersTab" role="tab"
+                       aria-controls="usersTab" aria-selected="true">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                       aria-controls="profile" aria-selected="false">Profile</a>
+                    <a class="nav-link" id="adduser-tab" data-toggle="tab" href="#adduserTab" role="tab"
+                       aria-controls="adduserTab" aria-selected="false">AddUser</a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="usersTab" role="tabpanel" aria-labelledby="users-tab">
                     <!--   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                     <h2>Users</h2>
                     <br>
@@ -144,11 +141,20 @@
                                             <td>
                                             <th th:utext="${user.getActive()}"></th>
                                             </td>
-                                            <td><a href="/edit/${user.id}" class="btn btn-info" role="button">edit</a>
+                                            <td><a href="@{/edit/{id}(id=${user.id})}" class="btn btn-info" role="button">edit</a>
                                             </td>
-                                            <td><a href="/delete/${user.id}" class="btn btn-danger"
-                                                   role="button">delete</a>
+                                            <td><<a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
+                                                    role="button">delete</a>
                                             </td>
+<!--                                            <td><a href="/edit/${user.id}" class="btn btn-info" role="button">edit</a>-->
+<!--                                            </td>-->
+<!--                                            <td><a th:href="/delete/${user.id}" class="btn btn-danger"-->
+<!--                                                   role="button">delete</a>-->
+<!--                                            </td>-->
+<!--                                            <td>        <a th:href="@{/order/details(id=3)}">                -->
+<!--                                                <a th:href="/edit/${user.getId()}">edit</a>-->
+<!--                                                <a th:href="/delete/${user.getId()}">delete</a>-->
+<!--                                            </td>-->
                                         </tr>
                                     </table>
                                 </div>
@@ -157,15 +163,17 @@
                     </div>
                     <!--   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h2>List2</h2>
+                <div class="tab-pane fade" id="adduserTab" role="tabpanel" aria-labelledby="adduser-tab">
+                    <form action="/add" method="POST">
+                        <input type="text" name="name" id="name">
+                        <input type="text" name="lastname" id="lastname" >
+                        <input type="text" name="password" id="password" >
+                        <input type="text" name="mail" id="mail" >
+                        <input type="submit" value="Add new user">
+                    </form>
                 </div>
 
-                <!--                <br>-->
-                <!--                &lt;!&ndash;            <a th:href="@{/add}">Add new user</a><br>&ndash;&gt;-->
-                <!--                <br>-->
-                <!--                <br>-->
-                <!--            <a th:href="@{/logout}">Logout</a>-->
+
 
             </div>
         </div>

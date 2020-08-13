@@ -40,7 +40,13 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
         return userRepository.findByMail(email);
     }
 
+    @Transactional
+    public void deleteById(int id) {
+        userRepository.deleteById(id);
+    }
+
 //    @Override
+    @Transactional
     public List<UserApp> getAllByActive(int active) {
         return userRepository.getAllByActive(active);
     }
@@ -69,6 +75,7 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
     }
 
 //    @Override
+    @Transactional
     public void saveUser(UserApp user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
