@@ -5,11 +5,11 @@
 
 <head>
     <title>Home</title>
-<!--        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"-->
-<!--              id="bootstrap-css">-->
-<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-<!--        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
-<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">-->
+    <!--        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"-->
+    <!--              id="bootstrap-css">-->
+    <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+    <!--        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+    <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">-->
 
     <!--    &lt;!&ndash; Кодировка веб-страницы &ndash;&gt;-->
     <!--    <meta charset="utf-8">-->
@@ -26,9 +26,9 @@
 
     <!--    <link rel='stylesheet' href='/css/bootstrap.min.css' type='text/css' media='all'>-->
 
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
-<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
-<!--        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+    <!--        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
     <!--    <link rel="stylesheet" href="/css/bootstrap.min.css">-->
     <!--    <script src="/js/bootstrap.min.js"></script>-->
 
@@ -141,20 +141,20 @@
                                             <td>
                                             <th th:utext="${user.getActive()}"></th>
                                             </td>
-                                            <td><a href="@{/edit/{id}(id=${user.id})}" class="btn btn-info" role="button">edit</a>
-                                            </td>
+                                            <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"
+                                                   role="button">edit</a></td>
                                             <td><<a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
                                                     role="button">delete</a>
                                             </td>
-<!--                                            <td><a href="/edit/${user.id}" class="btn btn-info" role="button">edit</a>-->
-<!--                                            </td>-->
-<!--                                            <td><a th:href="/delete/${user.id}" class="btn btn-danger"-->
-<!--                                                   role="button">delete</a>-->
-<!--                                            </td>-->
-<!--                                            <td>        <a th:href="@{/order/details(id=3)}">                -->
-<!--                                                <a th:href="/edit/${user.getId()}">edit</a>-->
-<!--                                                <a th:href="/delete/${user.getId()}">delete</a>-->
-<!--                                            </td>-->
+                                            <!--                                            <td><a href="/edit/${user.id}" class="btn btn-info" role="button">edit</a>-->
+                                            <!--                                            </td>-->
+                                            <!--                                            <td><a th:href="/delete/${user.id}" class="btn btn-danger"-->
+                                            <!--                                                   role="button">delete</a>-->
+                                            <!--                                            </td>-->
+                                            <!--                                            <td>        <a th:href="@{/order/details(id=3)}">                -->
+                                            <!--                                                <a th:href="/edit/${user.getId()}">edit</a>-->
+                                            <!--                                                <a th:href="/delete/${user.getId()}">delete</a>-->
+                                            <!--                                            </td>-->
                                         </tr>
                                     </table>
                                 </div>
@@ -164,15 +164,55 @@
                     <!--   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                 </div>
                 <div class="tab-pane fade" id="adduserTab" role="tabpanel" aria-labelledby="adduser-tab">
-                    <form action="/add" method="POST">
-                        <input type="text" name="name" id="name">
-                        <input type="text" name="lastname" id="lastname" >
-                        <input type="text" name="password" id="password" >
-                        <input type="text" name="mail" id="mail" >
-                        <input type="submit" value="Add new user">
-                    </form>
-                </div>
+                    <div class="container h-100">
+                        <div class="row h-100 justify-content-center align-items-center">
+                            <form class="col-12">
+                                <div class="form-group">
+                                    <label for="nameAdd">FirstName</label>
+                                    <input type="text" class="form-control" name="nameAdd" id="nameAdd">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastnameAdd">LastName</label>
+                                    <input type="text" class="form-control" name="lastnameAdd" id="lastnameAdd">
+                                </div>
+                                <div class="form-group">
+                                    <label for="passwordAdd">Password</label>
+                                    <input type="text" class="form-control" name="passwordAdd" id="passwordAdd">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mailAdd">Mail</label>
+                                    <input type="text" class="form-control" name="mailAdd" id="mailAdd">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Add new user">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
+<!--                            <form action="/add" method="POST">-->
+
+<!--                                <table>-->
+<!--                                    <tr>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td><input type="text" name="lastname" id="lastname"></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td><input type="text" name="password" id="password"></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td><input type="text" name="mail" id="mail"></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td><input type="submit" value="Add new user"></td>-->
+<!--                                    </tr>-->
+<!--                                </table>-->
+<!--                            </form>-->
+
+<!--                </div>-->
+                <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
 
             </div>

@@ -17,16 +17,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 //import javax.validation.Valid;
 import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class UserController {
@@ -67,17 +65,6 @@ public class UserController {
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/del", method = RequestMethod.POST)
-//    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        Role role = roleServiceImpl.findByName("USER");
-//        HashSet<Role> hashSet = new HashSet<>();
-//        hashSet.add(role);
-//        userApp.getRoles().add(role);
-//        userServiceImpl.saveUser(userApp);
-//        modelAndView.setViewName("redirect:/admin");
-//        return modelAndView;
-//    }
 
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteUser(@PathVariable("id") int id) {
@@ -87,13 +74,33 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editUser(@PathVariable("id") int id) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/admin");
-        userServiceImpl.deleteById(id);
-        return modelAndView;
-    }
+//    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+//    public ModelAndView editUser(@PathVariable("id") int id) {
+//        UserApp userApp = userService.getById(id);
+//        List<Role> listRoles = roleService.allRolesExist();
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("editUser");
+//        modelAndView.addObject("userApp", userApp);
+//        modelAndView.addObject("listRoles", listRoles);
+//        return modelAndView;
+//    }
+//
+//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
+//                                 @RequestParam(required = false) Integer[] idRoles) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        Set<Role> roleSet = new HashSet<>();
+//        for (int idRole: idRoles) {
+//            roleSet.add(getRoleService().getById(idRole));
+//        }
+//        userApp.setRoles(new HashSet<>(roleSet));
+//        userService.edit(userApp);
+//        userServiceImpl.saveUser(userApp);
+//        modelAndView.setViewName("redirect:/admin");
+//        return modelAndView;
+//    }
+
+
 
     @RequestMapping(value= {"/signup"}, method=RequestMethod.GET)
     public ModelAndView signup() {
