@@ -5,32 +5,7 @@
 
 <head>
     <title>Home</title>
-    <!--        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"-->
-    <!--              id="bootstrap-css">-->
-    <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
-    <!--        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
-    <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">-->
 
-    <!--    &lt;!&ndash; Кодировка веб-страницы &ndash;&gt;-->
-    <!--    <meta charset="utf-8">-->
-    <!--    &lt;!&ndash; Настройка viewport &ndash;&gt;-->
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-
-    <!--    &lt;!&ndash; Подключаем Bootstrap CSS &ndash;&gt;-->
-    <!--    <link rel="stylesheet" href="css/bootstrap.css" >-->
-
-    <!--    &lt;!&ndash; Подключаем jQuery &ndash;&gt;-->
-    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
-    <!--    &lt;!&ndash; Подключаем Bootstrap JS &ndash;&gt;-->
-    <!--    <script src="js/bootstrap.js"></script>-->
-
-    <!--    <link rel='stylesheet' href='/css/bootstrap.min.css' type='text/css' media='all'>-->
-
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
-    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
-    <!--        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
-    <!--    <link rel="stylesheet" href="/css/bootstrap.min.css">-->
-    <!--    <script src="/js/bootstrap.min.js"></script>-->
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -91,7 +66,6 @@
                     <br>
                     <br>
                     <!--            <a th:href="@{/add}">Add new user</a><br>-->
-
                     <div>
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -143,18 +117,10 @@
                                             </td>
                                             <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"
                                                    role="button">edit</a></td>
-                                            <td><<a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
+                                            <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
                                                     role="button">delete</a>
                                             </td>
-                                            <!--                                            <td><a href="/edit/${user.id}" class="btn btn-info" role="button">edit</a>-->
-                                            <!--                                            </td>-->
-                                            <!--                                            <td><a th:href="/delete/${user.id}" class="btn btn-danger"-->
-                                            <!--                                                   role="button">delete</a>-->
-                                            <!--                                            </td>-->
-                                            <!--                                            <td>        <a th:href="@{/order/details(id=3)}">                -->
-                                            <!--                                                <a th:href="/edit/${user.getId()}">edit</a>-->
-                                            <!--                                                <a th:href="/delete/${user.getId()}">delete</a>-->
-                                            <!--                                            </td>-->
+
                                         </tr>
                                     </table>
                                 </div>
