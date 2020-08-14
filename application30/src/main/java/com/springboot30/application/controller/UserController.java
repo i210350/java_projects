@@ -74,16 +74,17 @@ public class UserController {
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-//    public ModelAndView editUser(@PathVariable("id") int id) {
-//        UserApp userApp = userService.getById(id);
-//        List<Role> listRoles = roleService.allRolesExist();
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("editUser");
-//        modelAndView.addObject("userApp", userApp);
-//        modelAndView.addObject("listRoles", listRoles);
-//        return modelAndView;
-//    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editUser(@PathVariable("id") int id) {
+        UserApp userApp = userServiceImpl.getById(id);
+        List<Role> listRoles = roleService.allRolesExist();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editUser");
+        modelAndView.addObject("userApp", userApp);
+        modelAndView.addObject("listRoles", listRoles);
+        return modelAndView;
+    }
 //
 //    @RequestMapping(value = "/edit", method = RequestMethod.POST)
 //    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
