@@ -1,26 +1,18 @@
 package com.springboot30.application.controller;
 
-//import com.springboot30.apllication.model.Role;
-//import com.springboot30.apllication.model.User;
-//import com.springboot30.apllication.service.UserService;
 import com.springboot30.application.model.Role;
 import com.springboot30.application.model.UserApp;
-import com.springboot30.application.repository.RoleRepository;
-import com.springboot30.application.repository.UserRepository;
 import com.springboot30.application.service.RoleServiceImpl;
-//import com.springboot30.application.service.UserService;
 import com.springboot30.application.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-//import javax.validation.Valid;
+
 import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
@@ -57,8 +49,8 @@ public class UserController {
     public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
         Role role = roleServiceImpl.findByName("USER");
-        HashSet<Role> hashSet = new HashSet<>();
-        hashSet.add(role);
+//        HashSet<Role> hashSet = new HashSet<>();
+//        hashSet.add(role);
         userApp.getRoles().add(role);
         userServiceImpl.saveUser(userApp);
         modelAndView.setViewName("redirect:/admin");

@@ -21,19 +21,19 @@
                 <div class="form-group">
                     <!--<label for="nameAdd" class="text-center">FirstName</label>-->
                     <label for="nameAdd"  class="text-center">Name</label>
-                    <input type="text" class="form-control" name="nameAdd" id="nameAdd">
+                    <input type="text" class="form-control" name="nameAdd" id="nameAdd"  th:value="${userApp.getName()}">
                 </div>
                 <div class="form-group">
                     <label for="lastnameAdd"  class="text-center">LastName</label>
-                    <input type="text" class="form-control" name="lastnameAdd" id="lastnameAdd">
+                    <input type="text" class="form-control" name="lastnameAdd" id="lastnameAdd" th:value="${userApp.getLastname()}">
                 </div>
                 <div class="form-group">
                     <label for="passwordAdd"  class="text-center">Password</label>
-                    <input type="text" class="form-control" name="passwordAdd" id="passwordAdd">
+                    <input type="text" class="form-control" name="passwordAdd" id="passwordAdd" th:value="${userApp.getPassword()}">
                 </div>
                 <div class="form-group">
                     <label for="mailAdd"  class="text-center">Mail</label>
-                    <input type="text" class="form-control" name="mailAdd" id="mailAdd">
+                    <input type="text" class="form-control" name="mailAdd" id="mailAdd" th:value="${userApp.getMail()}">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Add new user">
