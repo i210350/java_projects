@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,7 +47,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("userAdd") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
+    public ModelAndView addUser(@ModelAttribute("userAdd") UserApp userApp, @ModelAttribute("roleCurrent") HashSet<String> roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
         Role role = roleServiceImpl.findByName("ROLE_USER");
         userApp.getRoles().add(role);
@@ -131,7 +132,8 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         UserApp userAdd = new UserApp();
-        String roleCurrent = "ROLE_USER";
+        Set<String> roleCurrent = new HashSet<>();
+        roleCurrent.add("ROLE_USER");
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
         model.addObject("roleCurrent", roleCurrent);
