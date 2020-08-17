@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
+    public ModelAndView addUser(@ModelAttribute("userAdd") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
         Role role = roleServiceImpl.findByName("USER");
         userApp.getRoles().add(role);
@@ -128,7 +128,9 @@ public class UserController {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+        UserApp userAdd = new UserApp();
         model.addObject("usersList", usersList);
+        model.addObject("userAdd", userAdd);
 //        model.setViewName("admin_home");
         model.setViewName("admin_home1");
         return model;
