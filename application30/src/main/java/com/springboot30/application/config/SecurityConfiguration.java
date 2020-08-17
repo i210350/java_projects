@@ -34,6 +34,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     private final String USERS_QUERY = "select mail, password, active from users where mail=?";
     private final String ROLES_QUERY = "select u.mail, r.name from users u inner join users_roles ur on (u.id = ur.users_id) inner join roles r on (ur.roles_id=r.id) where u.mail=?";
 
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()

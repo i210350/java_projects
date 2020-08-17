@@ -16,7 +16,7 @@ public class UserApp implements Serializable, UserDetails {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -34,17 +34,17 @@ public class UserApp implements Serializable, UserDetails {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    //
-    @JoinTable(name = "users_roles",
-        joinColumns = { @JoinColumn(name = "id") },
-        inverseJoinColumns = { @JoinColumn(name = "users_id") })
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    //
+//    @JoinTable(name = "users_roles",
+//        joinColumns = { @JoinColumn(name = "id") },
+//        inverseJoinColumns = { @JoinColumn(name = "users_id") })
 //    @JoinTable(name = "users_roles",
 //            joinColumns = { @JoinColumn(name = "users_id") },
 //            inverseJoinColumns = { @JoinColumn(name = "roles_id") })
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    //
-//    @JoinTable(name = "users_roles",
-//        joinColumns = { @JoinColumn(name = "users_id") },
-//        inverseJoinColumns = { @JoinColumn(name = "roles_id") })
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)    //
+    @JoinTable(name = "users_roles",
+        joinColumns = { @JoinColumn(name = "users_id") },
+        inverseJoinColumns = { @JoinColumn(name = "roles_id") })
     Set <Role> roles = new HashSet <> ();
 
     public UserApp() {
@@ -59,11 +59,11 @@ public class UserApp implements Serializable, UserDetails {
         this.roles = roles;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

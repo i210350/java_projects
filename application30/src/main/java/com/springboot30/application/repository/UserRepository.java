@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository("userRepository")
 public
-interface UserRepository extends JpaRepository<UserApp, Integer> {
+interface UserRepository extends JpaRepository<UserApp, Long> {
 
     UserApp findByMail(String mail);
     List<UserApp> getAllByActive(int active);

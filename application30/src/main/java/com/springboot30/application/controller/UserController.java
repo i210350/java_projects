@@ -57,7 +57,7 @@ public class UserController {
 
 
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteUser(@PathVariable("id") int id) {
+    public ModelAndView deleteUser(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/admin");
         userServiceImpl.deleteById(id);
@@ -66,7 +66,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editUser(@PathVariable("id") int id) {
+    public ModelAndView editUser(@PathVariable("id") Long id) {
         UserApp userApp = userServiceImpl.getById(id);
 //        List<Role> listRoles = roleService.allRolesExist();
         ModelAndView modelAndView = new ModelAndView();
@@ -81,7 +81,7 @@ public class UserController {
 //                                 @RequestParam(required = false) Integer[] idRoles) {
 //        ModelAndView modelAndView = new ModelAndView();
 //        Set<Role> roleSet = new HashSet<>();
-//        for (int idRole: idRoles) {
+//        for (Long idRole: idRoles) {
 //            roleSet.add(getRoleService().getById(idRole));
 //        }
 //        userApp.setRoles(new HashSet<>(roleSet));
@@ -106,7 +106,6 @@ public class UserController {
     @RequestMapping(value= {"/signup"}, method=RequestMethod.POST)
     public ModelAndView createUser(@Valid UserApp user, BindingResult bindingResult) {
         ModelAndView model = new ModelAndView();
-//        UserApp userExists = userService.findUserByEmail(user.getMail());
         UserApp userExists = userServiceImpl.findUserByEmail(user.getMail());
 
         if(userExists != null) {

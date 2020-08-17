@@ -41,12 +41,12 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
     }
 
     @Transactional
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         userRepository.deleteById(id);
     }
 
     @Transactional
-    public UserApp getById(int id) {
+    public UserApp getById(Long id) {
         return userRepository.findById(id).get();
     }
 
