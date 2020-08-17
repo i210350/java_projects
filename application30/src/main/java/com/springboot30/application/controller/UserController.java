@@ -47,10 +47,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@ModelAttribute("userAdd") UserApp userApp, @ModelAttribute("roleCurrent") HashSet<String> roleCurrent) {
+    public ModelAndView addUser(@ModelAttribute("userAdd") UserApp userApp, @RequestParam(required = false) Long[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
-        Role role = roleServiceImpl.findByName("ROLE_USER");
-        userApp.getRoles().add(role);
+        for (Long idRole : idRoles) {
+            Role role = roleServiceImpl.getRoleById(idRole);
+            userApp.getRoles().add(role);
+        }
         userServiceImpl.saveUser(userApp);
         modelAndView.setViewName("redirect:/admin");
         return modelAndView;
@@ -132,11 +134,13 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         UserApp userAdd = new UserApp();
-        Set<String> roleCurrent = new HashSet<>();
-        roleCurrent.add("ROLE_USER");
+//        Set<String> roleCurrent = new HashSet<>();
+        List<Role> rolesAll = roleServiceImpl.findAllRoles();
+//        roleCurrent.add("ROLE_USER");
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
-        model.addObject("roleCurrent", roleCurrent);
+//        model.addObject("roleCurrent", roleCurrent);
+        model.addObject("rolesAll", rolesAll);
 //        model.setViewName("admin_home");
         model.setViewName("admin_home1");
         return model;

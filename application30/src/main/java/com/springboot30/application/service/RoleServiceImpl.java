@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class RoleServiceImpl {
@@ -19,6 +20,16 @@ public class RoleServiceImpl {
     @Transactional
     public Role findByName(String name) {
        return roleRespository.findByName(name);
+    }
+
+    @Transactional
+    public List<Role> findAllRoles() {
+        return roleRespository.findAll();
+    }
+
+    @Transactional
+    public Role getRoleById(Long id) {
+        return roleRespository.getRoleById(id);
     }
 
 }
