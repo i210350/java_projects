@@ -48,7 +48,7 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("userAdd") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
-        Role role = roleServiceImpl.findByName("USER");
+        Role role = roleServiceImpl.findByName("ROLE_USER");
         userApp.getRoles().add(role);
         userServiceImpl.saveUser(userApp);
         modelAndView.setViewName("redirect:/admin");
