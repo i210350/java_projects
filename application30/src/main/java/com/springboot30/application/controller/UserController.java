@@ -49,8 +49,6 @@ public class UserController {
     public ModelAndView addUser(@ModelAttribute("user") UserApp userApp, @ModelAttribute("roleCurrent") String roleCurrent) {
         ModelAndView modelAndView = new ModelAndView();
         Role role = roleServiceImpl.findByName("USER");
-//        HashSet<Role> hashSet = new HashSet<>();
-//        hashSet.add(role);
         userApp.getRoles().add(role);
         userServiceImpl.saveUser(userApp);
         modelAndView.setViewName("redirect:/admin");
