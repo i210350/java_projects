@@ -68,10 +68,12 @@ public class UserController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") Long id) {
         UserApp userApp = userServiceImpl.getById(id);
+        String roleCurrent = "ROLE_USER";
 //        List<Role> listRoles = roleService.allRolesExist();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
         modelAndView.addObject("userApp", userApp);
+        modelAndView.addObject("roleCurrent", roleCurrent);
 //        modelAndView.addObject("listRoles", listRoles);
         return modelAndView;
     }
@@ -129,8 +131,10 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         UserApp userAdd = new UserApp();
+        String roleCurrent = "ROLE_USER";
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
+        model.addObject("roleCurrent", roleCurrent);
 //        model.setViewName("admin_home");
         model.setViewName("admin_home1");
         return model;
