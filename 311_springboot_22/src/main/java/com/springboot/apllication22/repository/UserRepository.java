@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository("userRepository")
 public
-interface UserRepository extends JpaRepository<User, Integer> {
+interface UserRepository extends JpaRepository<User, Long> {
 
     User findByEmail(String email);
     List<User> getAllByActive(int active);
