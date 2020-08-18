@@ -12,4 +12,5 @@ interface UserRepository extends JpaRepository<UserApp, Long> {
 
     UserApp findByMail(String mail);
     List<UserApp> getAllByActive(int active);
+    void deleteById(Long id);
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,8 +20,9 @@ import java.util.*;
 @Service("userService")
 public class UserServiceImpl {  // implements UserService, UserDetailsService {
 
-    @Qualifier("userRepository")
-    @Autowired
+//    @Qualifier("userRepository")
+@Qualifier("userRepository")
+@Autowired
     private UserRepository userRepository;
 
 //    @Qualifier("roleRepository")
@@ -40,6 +42,7 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
 
     @Transactional
     public void deleteById(Long id) {
+//        userRepository.deleteById(id);
         userRepository.deleteById(id);
     }
 
@@ -82,8 +85,8 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
             }
         }
 
-        return new org.springframework.security.core.userdetails.
-                                    User(userApp.getName(), userApp.getPassword(), grantList);
+        return new
+                User(userApp.getName(), userApp.getPassword(), grantList);
     }
 
 //    @Override
