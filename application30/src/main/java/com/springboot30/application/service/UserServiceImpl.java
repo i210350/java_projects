@@ -42,13 +42,21 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
 
     @Transactional
     public void deleteById(Long id) {
-//        userRepository.deleteById(id);
-        userRepository.deleteById(id);
+        Optional<UserApp> userAppResponse =  userRepository.findById(id);
+        if(userAppResponse.isPresent()) {
+            userRepository.delete(userAppResponse.get());
+        }else {
+            throw new RuntimeException("No record found for given id: "+id);
+        }
+
+
     }
 
+
+
     @Transactional
-    public UserApp getById(Long id) {
-        return userRepository.findById(id).get();
+    public Optional<UserApp> getById(Long id) {
+        return userRepository.findById(id);
     }
 
 //    @Transactional

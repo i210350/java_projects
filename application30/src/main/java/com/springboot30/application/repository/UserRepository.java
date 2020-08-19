@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository("userRepository")
 public
@@ -12,5 +13,10 @@ interface UserRepository extends JpaRepository<UserApp, Long> {
 
     UserApp findByMail(String mail);
     List<UserApp> getAllByActive(int active);
-    void deleteById(Long id);
+
+    @Override
+    Optional<UserApp> findById(Long aLong);
+
+    @Override
+    void delete(UserApp userApp);
 }

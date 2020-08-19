@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository ("roleRepository")
 public
@@ -15,5 +16,7 @@ interface RoleRepository extends JpaRepository<Role, Long> {
     @Override
     List<Role> findAll();
 
-    Role getRoleById(Long id);
+
+    @Override
+    Optional<Role> findById(Long aLong);
 }
