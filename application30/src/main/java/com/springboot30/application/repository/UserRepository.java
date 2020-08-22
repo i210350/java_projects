@@ -19,4 +19,7 @@ interface UserRepository extends JpaRepository<UserApp, Long> {
 
     @Override
     void delete(UserApp userApp);
+
+    @Override
+    UserApp getOne(Long aLong);
 }
