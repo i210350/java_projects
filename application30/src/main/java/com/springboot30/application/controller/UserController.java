@@ -134,6 +134,7 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         UserApp userAdd = new UserApp();
+        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
 //        Set<String> roleCurrent = new HashSet<>();
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
 //        roleCurrent.add("ROLE_USER");
@@ -141,28 +142,13 @@ public class UserController {
         model.addObject("userAdd", userAdd);
 //        model.addObject("roleCurrent", roleCurrent);
         model.addObject("rolesAll", rolesAll);
+        model.addObject("userCurrent",user);
 //        model.setViewName("admin_home");
         model.setViewName("admin_home1");
         return model;
     }
 
-//    @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
-//    public ModelAndView user_home() {
-//        ModelAndView model = new ModelAndView();
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
-//        UserApp userAdd = new UserApp();
-////        Set<String> roleCurrent = new HashSet<>();
-//        List<Role> rolesAll = roleServiceImpl.findAllRoles();
-////        roleCurrent.add("ROLE_USER");
-//        model.addObject("usersList", usersList);
-//        model.addObject("userAdd", userAdd);
-////        model.addObject("roleCurrent", roleCurrent);
-//        model.addObject("rolesAll", rolesAll);
-////        model.setViewName("admin_home");
-//        model.setViewName("user_home1");
-//        return model;
-//    }
+
 
     @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
     public ModelAndView user_home() {
