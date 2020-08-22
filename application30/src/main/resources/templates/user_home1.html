@@ -24,11 +24,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 ">
-            <div class="panel panel-default">
-                <div class="p-2 mb-2 bg-dark rounded">
-                    <div class="panel-body bg-dark text-white">admin@my.ru : ROLE_ADMIN</div>
-                </div>
-            </div>
+            <div th:replace="fragments/topPanel.html :: topPanel"></div>
+<!--            <div class="panel panel-default">-->
+<!--                <div class="p-2 mb-2 bg-dark rounded">-->
+<!--                    <div class="panel-body bg-dark text-white">admin@my.ru : ROLE_ADMIN</div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
     <div class="row ">

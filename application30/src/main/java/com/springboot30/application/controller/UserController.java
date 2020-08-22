@@ -170,15 +170,9 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
         String isAdmin = null;
-//        Role[]a = (Role[]) user.getRoles().toArray();
-        String s = user.getStingRoles();
         if (user.getStingRoles().contains("ADMIN")) {
             isAdmin = "ADMIN";
         }
-//        if (user.getAuthorities().contains("Admin")) {
-//            isAdmin = "100";
-//        }
-//        model.addObject("userName", user.getName() + " " + user.getLastname());
         model.addObject("userCurrent",user);
         model.addObject("isAdmin",isAdmin);
         model.setViewName("user_home1");
