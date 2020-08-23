@@ -70,7 +70,7 @@ public class UserController {
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") Long id) {
-        userServiceImpl.deleteById(id);
+//        userServiceImpl.deleteById(id);
         String roleCurrent = "ROLE_USER";
 //        List<Role> listRoles = roleService.allRolesExist();
         ModelAndView modelAndView = new ModelAndView();
