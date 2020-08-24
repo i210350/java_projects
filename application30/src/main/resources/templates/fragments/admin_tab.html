@@ -199,16 +199,22 @@
                                                                 <br>
                                                                 <br>
 
-                                                                <!--                                                                                <div class="form-group">-->
-                                                                <!--                                                                                    <input type="submit" class="btn-success" value="Add new user">-->
-                                                                <!--                                                                                </div>-->
+<!--                                                                                <div class="form-group">-->
+<!--                                                                                    <input type="submit" class="btn-success" value="Add new user">-->
+<!--                                                                                </div>-->
                                                             </form>
                                                         </div>
+
+
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                     data-dismiss="modal">Close
                                                             </button>
-                                                            <button type="button" class="btn btn-primary">edit</button>
+<!--                                                            <button type="button" class="btn btn-primary">edit</button>-->
+                                                            <input th:action="@{/changenickname}" th:method="post" class="button button-block" type="submit" value="Изменить никнейм"/>
+
+                                                            </form>
+
                                                         </div>
                                                     </div>
                                                 </div>
