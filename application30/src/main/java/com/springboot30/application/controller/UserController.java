@@ -71,20 +71,20 @@ public class UserController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") Long id) {
 //        userServiceImpl.deleteById(id);
-        String roleCurrent = "ROLE_USER";
-//        List<Role> listRoles = roleService.allRolesExist();
+//        String roleCurrent = "ROLE_USER";
+        UserApp editUser = userServiceImpl.getUserById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editUser");
-//        modelAndView.addObject("userApp", userApp);
-        modelAndView.addObject("roleCurrent", roleCurrent);
+        modelAndView.addObject("editUser", editUser);
+//        modelAndView.addObject("roleCurrent", roleCurrent);
 //        modelAndView.addObject("listRoles", listRoles);
         return modelAndView;
     }
-//
-//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
-//                                 @RequestParam(required = false) Integer[] idRoles) {
-//        ModelAndView modelAndView = new ModelAndView();
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ModelAndView editUser(@ModelAttribute("userApp") UserApp editUser,
+                                 @RequestParam(required = false) Integer[] idRoles) {
+        ModelAndView modelAndView = new ModelAndView();
 //        Set<Role> roleSet = new HashSet<>();
 //        for (Long idRole: idRoles) {
 //            roleSet.add(getRoleService().getById(idRole));
@@ -92,9 +92,9 @@ public class UserController {
 //        userApp.setRoles(new HashSet<>(roleSet));
 //        userService.edit(userApp);
 //        userServiceImpl.saveUser(userApp);
-//        modelAndView.setViewName("redirect:/admin");
-//        return modelAndView;
-//    }
+        modelAndView.setViewName("redirect:/admin");
+        return modelAndView;
+    }
 
 
 

@@ -52,6 +52,16 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
 
     }
 
+    @Transactional
+    public UserApp getUserById(Long id) {
+        Optional<UserApp> userAppResponse =  userRepository.findById(id);
+        if(userAppResponse.isPresent()) {
+            return userAppResponse.get();
+        }else {
+            throw new RuntimeException("No record found for given id: "+id);
+        }
+    }
+
 
 
     @Transactional

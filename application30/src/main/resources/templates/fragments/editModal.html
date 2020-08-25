@@ -1,0 +1,131 @@
+<div th:fragment="editModal">
+
+<div class="modal bd-example-modal-lg" id="myModal"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!--                                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+            </div>
+            <div class="modal-body">
+                <form class="col-3" th:action="@{/edit}"
+                      th:object="${userCurrent}"
+                      method="POST">
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <div class="form-group">
+                                <!--                                    <label for="nameAdd" class="text-center">FirstName</label>-->
+
+                                <label for="idEdit"
+                                       class="center-block font-weight-bold">Id</label>
+                                <input type="text"
+                                       class="form-control bg-warning"
+                                       name="idEdit"
+                                       id="idEdit"
+                                       th:field="*{id}">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <div class="form-group">
+                                <!--                                    <label for="nameAdd" class="text-center">FirstName</label>-->
+
+                                <label for="nameEdit"
+                                       class="center-block  font-weight-bold">Name</label>
+                                <input type="text"
+                                       class="form-control bg-warning"
+                                       name="nameEdit"
+                                       id="nameEdit"
+                                       th:field="*{name}">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <div class="form-group">
+                                <label for="lastnameEdit"
+                                       class="center-block  font-weight-bold">LastName</label>
+                                <input type="text"
+                                       class="form-control bg-warning"
+                                       name="lastnameEdit"
+                                       id="lastnameEdit"
+                                       th:field="*{lastname}">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <div class="form-group">
+                                <label for="passwordEdit"
+                                       class="center-block  font-weight-bold">Password</label>
+                                <input type="text"
+                                       class="form-control bg-warning"
+                                       name="passwordEdit"
+                                       id="passwordEdit"
+                                       th:field="*{password}"
+                                       value="">
+                                <!--                                            th:value="*{password}"-->
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <div class="form-group">
+                                <label for="mailEdit"
+                                       class="center-block  font-weight-bold">Mail</label>
+                                <input type="text"
+                                       class="form-control bg-warning"
+                                       name="mailEdit"
+                                       id="mailEdit"
+                                       th:field="*{mail}">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4 offset-4">
+                            <div class="form-group">
+                                <label for="roleEdit"
+                                       class="center-block  font-weight-bold">Role</label>
+                                <select class="custom-select"
+                                        multiple="multiple"
+                                        id="idRoles"
+                                        name="idRoles">
+                                    <option selected
+                                            th:value="${rolesAll.get(0).getId()}"
+                                            th:text="ADMIN"></option>
+                                    <option value="1"
+                                            th:value="${rolesAll.get(1).getId()}"
+                                            th:text="USER"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+
+                    <!--                                                               <div class="form-group">-->
+                    <!--                                                                 <input type="submit" class="btn-success" value="Add new user">-->
+                    <!--                                                               </div>-->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">edit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
