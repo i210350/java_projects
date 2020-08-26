@@ -76,11 +76,31 @@
                                             <td>
                                             <th th:utext="${user.getActive()}"></th>
                                             </td>
-                                            <!--                                            <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"-->
-                                            <!--                                                   role="button"  data-toggle="modal" data-target="#myModal">edit</a></td>-->
+                                            <!--    <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"-->
+                                            <!--    role="button"  data-toggle="modal" data-target="#myModal">edit</a></td>-->
+
+<!--                                            <script type="text/javascript">-->
+<!--                                                $(window).on('load',function(){-->
+<!--                                                    $('#myModal').modal('show');-->
+<!--                                                });-->
+<!--                                            </script>-->
+
+
+<!--                                            <td>-->
+<!--                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"-->
+<!--                                                        data-target="#myModal" id="editButton">-->
+<!--                                                    edit-->
+<!--                                                </button>-->
+<!--                                            </td>-->
+
+<!--                                                <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"-->
+<!--                                                role="button"  id="editButton">edit</a></td>-->
+
+
+
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                        data-target="#myModal">
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                         id="editButton" >
                                                     edit
                                                 </button>
                                             </td>

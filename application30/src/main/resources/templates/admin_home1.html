@@ -17,6 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
+
 </head>
 <body>
 
@@ -50,7 +51,25 @@
 </div>
 
 
-
+<script>
+    $('body').on('click', '#editButton', function() {
+        // alert(this.idEdit);  +this.get.getAttribute("value");
+        var strUrl = '/edit/' + this.valueAsString ;
+        alert(strUrl);
+        $.get(
+            strUrl,          // адрес отправки запроса
+            {par1:100,  // передача с запросом каких-нибудь данных
+            function(data) {
+                // какие-то действия с полученными от сервера данными data
+                // alert(data);
+                // $(window).on('load',function(){
+                    $('#myModal').modal('show');
+                // });
+            }}
+        );
+    });
+    // $('body').on('click', function() { ... });
+</script>
 
 
 </body>

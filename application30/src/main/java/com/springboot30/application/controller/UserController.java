@@ -74,8 +74,10 @@ public class UserController {
 //        String roleCurrent = "ROLE_USER";
         UserApp editUser = userServiceImpl.getUserById(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editUser");
+//        modelAndView.setViewName("editUser");
+        modelAndView.setViewName("admin_home1");
         modelAndView.addObject("editUser", editUser);
+//        modelAndView.addObject("userCurrent", userCurrent);
 //        modelAndView.addObject("roleCurrent", roleCurrent);
 //        modelAndView.addObject("listRoles", listRoles);
         return modelAndView;
@@ -135,6 +137,7 @@ public class UserController {
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         UserApp userAdd = new UserApp();
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+        UserApp editUser = user;
 //        Set<String> roleCurrent = new HashSet<>();
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
 //        roleCurrent.add("ROLE_USER");
@@ -143,6 +146,7 @@ public class UserController {
 //        model.addObject("roleCurrent", roleCurrent);
         model.addObject("rolesAll", rolesAll);
         model.addObject("userCurrent",user);
+        model.addObject("editUser", editUser);
 //        model.setViewName("admin_home");
         model.setViewName("admin_home1");
         return model;
