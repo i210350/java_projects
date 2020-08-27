@@ -107,15 +107,14 @@ public class UserController {
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp editUser,
-                                 @RequestParam(required = false) Integer[] idRoles) {
+                                 @RequestParam(required = false) Long[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
-//        Set<Role> roleSet = new HashSet<>();
-//        for (Long idRole: idRoles) {
-//            roleSet.add(getRoleService().getById(idRole));
-//        }
-//        userApp.setRoles(new HashSet<>(roleSet));
-//        userService.edit(userApp);
-//        userServiceImpl.saveUser(userApp);
+        Set<Role> roleSet = new HashSet<>();
+        for (Long idRole: idRoles) {
+            roleSet.add(roleServiceImpl.getRoleById(idRole));
+        }
+        editUser.setRoles(new HashSet<>(roleSet));
+        userServiceImpl.saveUser(editUser);
         modelAndView.setViewName("redirect:/admin");
         return modelAndView;
     }

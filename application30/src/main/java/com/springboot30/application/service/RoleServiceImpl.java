@@ -24,6 +24,8 @@ public class RoleServiceImpl {
        return roleRespository.findByName(name);
     }
 
+
+
     @Transactional
     public List<Role> findAllRoles() {
         return roleRespository.findAll();
