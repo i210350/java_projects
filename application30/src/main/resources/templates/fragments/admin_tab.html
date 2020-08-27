@@ -80,10 +80,13 @@
                                             <div th:replace="fragments/editModal.html :: editModal"></div>
 
 
-                                            <td><a th:href="@{/delete/{id}(id=${user.id})}"
-                                                   class="btn btn-danger"
-                                                   role="button">delete</a>
-                                            </td>
+<!--                                            <td><a th:href="@{/delete/{id}(id=${user.id})}"-->
+<!--                                                   class="btn btn-danger"-->
+<!--                                                   role="button">delete</a>-->
+<!--                                            </td>-->
+                                            <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
+                                                   role="button"  id="deleteButton">delete</a></td>
+
                                         </tr>
                                     </table>
                                 </div>
