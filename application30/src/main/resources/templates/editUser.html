@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+
+
 <head>
-    <name>Add</name>
+    <title>Home</title>
+
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -12,155 +15,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
 
+<!-- HTML-код адаптивно-резинового контейнера -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div th:replace="fragments/topPanel.html :: topPanel"></div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-2" id="md2">
 
-
-<!--<div class="modal fade">-->
-<!--    <div class="modal-dialog" role="document">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                    <span aria-hidden="true">&times;</span>-->
-<!--                </button>-->
-<!--                <h4 class="modal-title">Modal title</h4>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--                <p>One fine body&hellip;</p>-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
-<!--            </div>-->
-<!--        </div>&lt;!&ndash; /.модальное окно-Содержание &ndash;&gt;-->
-<!--    </div>&lt;!&ndash; /.модальное окно-диалог &ndash;&gt;-->
-<!--</div>&lt;!&ndash; /.модальное окно &ndash;&gt;-->
-
-<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
-<!--    Launch demo modal-->
-<!--</button>-->
-
-<!-- Модальное окно -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <div class="btn-group-vertical btn-group-toggle btn-block" id="radioTab" data-toggle="buttons">
+                <label class="btn btn-light btn-outline-primary active">
+                    <input type="radio" name="options" id="option1" value="optionAdmin"
+                           onclick="location.href = '/admin';" checked>ADMIN
+                </label>
+                <label class="btn btn-outline-primary btn-light">
+                    <input type="radio" name="options" value="optionUser" id="option2"
+                           onclick="location.href = '/user';">USER
+                </label>
             </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
+
+        </div>
+        <div class="col-md-10 bg-light">
+
+            <div th:replace="fragments/admin_tab.html :: tab1"></div>
+
         </div>
     </div>
 </div>
 
 
 
-<!--<div class="tab-pane fade" id="adduserTab" role="tabpanel" aria-labelledby="adduser-tab">-->
-<!--    <div class="container h-100">-->
-<!--        <div class="row h-100 justify-content-center align-items-center">-->
-<!--            <form class="col-3">-->
-<!--                <div class="form-group">-->
-<!--                    &lt;!&ndash;<label for="nameAdd" class="text-center">FirstName</label>&ndash;&gt;-->
-<!--                    <label for="nameAdd"  class="text-center">Name</label>-->
-<!--                    <input type="text" class="form-control" name="nameAdd" id="nameAdd"  th:value="${userApp.getName()}">-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="lastnameAdd"  class="text-center">LastName</label>-->
-<!--                    <input type="text" class="form-control" name="lastnameAdd" id="lastnameAdd" th:value="${userApp.getLastname()}">-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="passwordAdd"  class="text-center">Password</label>-->
-<!--                    <input type="text" class="form-control" name="passwordAdd" id="passwordAdd" th:value="${userApp.getPassword()}">-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="mailAdd"  class="text-center">Mail</label>-->
-<!--                    <input type="text" class="form-control" name="mailAdd" id="mailAdd" th:value="${userApp.getMail()}">-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <input type="submit" value="Add new user">-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
-<!--    </div>-->
+<script type="text/javascript">
+    $(window).on('load', function () {
+        $('#myModal').modal('show');
+    });
+</script>
 
-    <!--                            <form action="/add" method="POST">-->
-
-    <!--                                <table>-->
-    <!--                                    <tr>-->
-    <!--                                        <td></td>-->
-    <!--                                    </tr>-->
-    <!--                                    <tr>-->
-    <!--                                        <td><input type="text" name="lastname" id="lastname"></td>-->
-    <!--                                    </tr>-->
-    <!--                                    <tr>-->
-    <!--                                        <td><input type="text" name="password" id="password"></td>-->
-    <!--                                    </tr>-->
-    <!--                                    <tr>-->
-    <!--                                        <td><input type="text" name="mail" id="mail"></td>-->
-    <!--                                    </tr>-->
-    <!--                                    <tr>-->
-    <!--                                        <td><input type="submit" value="Add new user"></td>-->
-    <!--                                    </tr>-->
-    <!--                                </table>-->
-    <!--                            </form>-->
-
-    <!--                </div>-->
-    <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-
-
-<!--</div>-->
-<!--<form action="/add" method="POST">-->
-<!--    &lt;!&ndash;    <label for="name">name</label>&ndash;&gt;-->
-<!--    &lt;!&ndash;    <input th:type="text" name="name" id="name" value="${userApp.name}">&ndash;&gt;-->
-<!--    &lt;!&ndash;    <input type="text" name="id" id="id">&ndash;&gt;-->
-<!--    <div class="panel panel-default">-->
-<!--        &lt;!&ndash; Обычное содержимое панели &ndash;&gt;-->
-<!--        <div class="panel-heading"></div>-->
-<!--        <table class="table">-->
-<!--            <tr>-->
-<!--                <td><input type="text" name="name" id="name"></td>-->
-<!--            </tr>-->
-<!--                &lt;!&ndash;    <label for="lastname">lastname</label>&ndash;&gt;-->
-<!--                &lt;!&ndash;    <input type="text" name="lastname" id="lastname" value="${userApp.lastname}">&ndash;&gt;-->
-<!--            <tr>-->
-<!--                <td><input type="text" name="lastname" id="lastname"></td>-->
-<!--            </tr>-->
-<!--                &lt;!&ndash;    <label for="password">password</label>&ndash;&gt;-->
-<!--                &lt;!&ndash;    <input type="text" name="password" id="password" value="${userApp.password}">&ndash;&gt;-->
-<!--            <tr>-->
-<!--                <td><input type="text" name="password" id="password"></td>-->
-<!--            </tr>-->
-<!--                &lt;!&ndash;    <label for="old">old</label>&ndash;&gt;-->
-<!--                &lt;!&ndash;    <input type="text" name="old" id="old" value="${userApp.old}">&ndash;&gt;-->
-<!--                &lt;!&ndash;    <label for="mail">mail</label>&ndash;&gt;-->
-<!--                &lt;!&ndash;    <input type="text" name="mail" id="mail" value="${userApp.mail}">&ndash;&gt;-->
-<!--            <tr>-->
-<!--                <td><input type="text" name="mail" id="mail"></td>-->
-
-<!--                &lt;!&ndash;    <%&#45;&#45;    <label for="roleCurrent">role</label>&#45;&#45;%>&ndash;&gt;-->
-<!--                &lt;!&ndash;    <%&#45;&#45;    <input type="text" name="roleCurrent" id="roleCurrent" value="${userApp.getAuthority}">&#45;&#45;%>&ndash;&gt;-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--    </div>-->
-
-<!--    <br>-->
-<!--    <br>-->
-<!--    <input type="submit" value="Add new user">-->
-<!--    <br>-->
-<!--    <br>-->
-<!--    <br>-->
-<!--    <br>-->
-<!--    &lt;!&ndash;    <a href="<c:url value="/users" />"><&#45;&#45; Назад</a>&ndash;&gt;-->
-
-<!--</form>-->
 </body>
 </html>

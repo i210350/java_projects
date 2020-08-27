@@ -68,19 +68,41 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editUser(@PathVariable("id") Long id) {
-//        userServiceImpl.deleteById(id);
-//        String roleCurrent = "ROLE_USER";
-        UserApp editUser = userServiceImpl.getUserById(id);
-        ModelAndView modelAndView = new ModelAndView();
+//    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+//    public ModelAndView editUser(@PathVariable("id") Long id) {
+////        userServiceImpl.deleteById(id);
+////        String roleCurrent = "ROLE_USER";
+//        UserApp editUser = userServiceImpl.getUserById(id);
+//        ModelAndView modelAndView = new ModelAndView();
+////        modelAndView.setViewName("editUser");
 //        modelAndView.setViewName("editUser");
-        modelAndView.setViewName("admin_home1");
-        modelAndView.addObject("editUser", editUser);
-//        modelAndView.addObject("userCurrent", userCurrent);
-//        modelAndView.addObject("roleCurrent", roleCurrent);
-//        modelAndView.addObject("listRoles", listRoles);
-        return modelAndView;
+//        modelAndView.addObject("editUser", editUser);
+////        modelAndView.addObject("userCurrent", userCurrent);
+////        modelAndView.addObject("roleCurrent", roleCurrent);
+////        modelAndView.addObject("listRoles", listRoles);
+//        return modelAndView;
+//    }
+
+    @RequestMapping(value= "/edit/{id}", method=RequestMethod.GET)
+    public ModelAndView editUser(@PathVariable("id") Long id) {
+        ModelAndView model = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+        UserApp userAdd = new UserApp();
+        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+        UserApp editUser = userServiceImpl.getUserById(id);
+//        Set<String> roleCurrent = new HashSet<>();
+        List<Role> rolesAll = roleServiceImpl.findAllRoles();
+//        roleCurrent.add("ROLE_USER");
+        model.addObject("usersList", usersList);
+        model.addObject("userAdd", userAdd);
+//        model.addObject("roleCurrent", roleCurrent);
+        model.addObject("rolesAll", rolesAll);
+        model.addObject("userCurrent",user);
+        model.addObject("editUser", editUser);
+//        model.setViewName("admin_home");
+        model.setViewName("editUser");
+        return model;
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
