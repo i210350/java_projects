@@ -87,6 +87,8 @@
                                             <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
                                                    role="button"  id="deleteButton">delete</a></td>
 
+                                            <div th:replace="fragments/deleteModal.html :: delete_Modal"></div>
+
                                         </tr>
                                     </table>
                                 </div>

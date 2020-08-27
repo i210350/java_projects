@@ -59,12 +59,34 @@ public class UserController {
     }
 
 
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+//    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+//    public ModelAndView deleteUser(@PathVariable("id") Long id) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("redirect:/admin");
+////        userServiceImpl.deleteById(id);
+//        return modelAndView;
+//    }
+
+    @RequestMapping(value= "/delete/{id}", method=RequestMethod.GET)
     public ModelAndView deleteUser(@PathVariable("id") Long id) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/admin");
-        userServiceImpl.deleteById(id);
-        return modelAndView;
+        ModelAndView model = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+        UserApp userAdd = new UserApp();
+        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+        UserApp deleteUser = userServiceImpl.getUserById(id);
+//        Set<String> roleCurrent = new HashSet<>();
+        List<Role> rolesAll = roleServiceImpl.findAllRoles();
+//        roleCurrent.add("ROLE_USER");
+        model.addObject("usersList", usersList);
+        model.addObject("userAdd", userAdd);
+//        model.addObject("roleCurrent", roleCurrent);
+        model.addObject("rolesAll", rolesAll);
+        model.addObject("userCurrent",user);
+        model.addObject("deleteUser", deleteUser);
+//        model.setViewName("admin_home");
+        model.setViewName("deleteUser");
+        return model;
     }
 
 

@@ -1,6 +1,6 @@
 <div th:fragment="delete_Modal">
 
-    <div class="modal bd-example-modal-lg" id="deleteModal"
+    <div class="modal bd-example-modal-lg" id="delete_Modal"
          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content ">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="col-3" th:action="@{/edit}"
-                          th:object="${editUser}"
+                          th:object="${deleteUser}"
                           method="POST">
                         <div class="row">
                             <div class="col-4 offset-4">
@@ -42,7 +42,7 @@
                                            class="form-control bg-warning"
                                            name="nameEdit"
                                            id="nameEdit"
-                                           th:field="*{name}">
+                                           th:field="*{name}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -56,26 +56,26 @@
                                            class="form-control bg-warning"
                                            name="lastnameEdit"
                                            id="lastnameEdit"
-                                           th:field="*{lastname}">
+                                           th:field="*{lastname}" disabled>
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-4 offset-4">
-                                <div class="form-group">
-                                    <label for="passwordEdit"
-                                           class="center-block  font-weight-bold">Password</label>
-                                    <input type="text"
-                                           class="form-control bg-warning"
-                                           name="passwordEdit"
-                                           id="passwordEdit"
-                                           th:field="*{password}"
-                                           value="">
-                                    <!--                                            th:value="*{password}"-->
-                                </div>
-                            </div>
-                        </div>
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-4 offset-4">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="passwordEdit"-->
+<!--                                           class="center-block  font-weight-bold">Password</label>-->
+<!--                                    <input type="text"-->
+<!--                                           class="form-control bg-warning"-->
+<!--                                           name="passwordEdit"-->
+<!--                                           id="passwordEdit"-->
+<!--                                           th:field="*{password}"-->
+<!--                                           value="" disabled>-->
+<!--                                    &lt;!&ndash;                                            th:value="*{password}"&ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <br>
                         <div class="row">
                             <div class="col-4 offset-4">
@@ -86,7 +86,7 @@
                                            class="form-control bg-warning"
                                            name="mailEdit"
                                            id="mailEdit"
-                                           th:field="*{mail}">
+                                           th:field="*{mail}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                                     <select class="custom-select"
                                             multiple="multiple"
                                             id="idRoles"
-                                            name="idRoles">
+                                            name="idRoles" disabled>
                                         <option selected
                                                 th:value="${rolesAll.get(0).getId()}"
                                                 th:text="ADMIN"></option>
@@ -121,7 +121,7 @@
                             <button type="button" class="btn btn-secondary"
                                     data-dismiss="modal">Close
                             </button>
-                            <button type="submit" class="btn btn-primary">edit
+                            <button type="submit" class="btn btn-primary">delete
                             </button>
                         </div>
                     </form>
