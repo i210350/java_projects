@@ -91,6 +91,7 @@ public class UserController {
         UserApp userAdd = new UserApp();
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
         UserApp editUser = userServiceImpl.getUserById(id);
+        editUser.setPassword("");
 //        Set<String> roleCurrent = new HashSet<>();
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
 //        roleCurrent.add("ROLE_USER");
