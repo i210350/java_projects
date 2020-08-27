@@ -1,10 +1,3 @@
-<!--<!DOCTYPE HTML>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:fragment="headerfiles">-->
-<!--    <meta charset="UTF-8" />-->
-<!--    <link th:href="@{/css/styles.css}" rel="stylesheet">-->
-<!--</head>-->
-<!--<body>-->
 
 <div th:fragment="tab1">
 
@@ -76,34 +69,12 @@
                                             <td>
                                             <th th:utext="${user.getActive()}"></th>
                                             </td>
-                                            <!--    <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"-->
-                                            <!--    role="button"  data-toggle="modal" data-target="#myModal">edit</a></td>-->
 
-<!--                                            <script type="text/javascript">-->
-<!--                                                $(window).on('load',function(){-->
-<!--                                                    $('#myModal').modal('show');-->
-<!--                                                });-->
-<!--                                            </script>-->
-
-
-<!--                                            <td>-->
-<!--                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"-->
-<!--                                                        data-target="#myModal" id="editButton">-->
-<!--                                                    edit-->
-<!--                                                </button>-->
-<!--                                            </td>-->
 
                                                 <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"
                                                 role="button"  id="editButton">edit</a></td>
 
 
-
-<!--                                            <td>-->
-<!--                                                <button type="button" class="btn btn-primary btn-sm"-->
-<!--                                                         id="editButton" >-->
-<!--                                                    edit-->
-<!--                                                </button>-->
-<!--                                            </td>-->
 
                                             <!-- Модальное окно -->
                                             <div th:replace="fragments/editModal.html :: editModal"></div>
@@ -158,7 +129,7 @@
                                            class="center-block  font-weight-bold">Password</label>
                                     <input type="text" class="form-control bg-warning" name="passwordAdd"
                                            id="passwordAdd" th:field="*{password}">
-                                    <!--                                            th:value="*{password}"-->
+                                    <!--                                       th:value="*{password}"-->
                                 </div>
                                 <div class="form-group">
                                     <label for="mailAdd" class="center-block  font-weight-bold">Mail</label>
