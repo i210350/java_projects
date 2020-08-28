@@ -17,7 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-
 </head>
 <body>
 
@@ -33,10 +32,12 @@
 
             <div class="btn-group-vertical btn-group-toggle btn-block" id="radioTab" data-toggle="buttons">
                 <label class="btn btn-light btn-outline-primary active">
-                    <input type="radio" name="options" id="option1" value="optionAdmin" onclick="location.href = '/admin';" checked>ADMIN
+                    <input type="radio" name="options" id="option1" value="optionAdmin"
+                           onclick="location.href = '/admin';" checked>ADMIN
                 </label>
                 <label class="btn btn-outline-primary btn-light">
-                    <input type="radio" name="options" value="optionUser" id="option2" onclick="location.href = '/user';">USER
+                    <input type="radio" name="options" value="optionUser" id="option2"
+                           onclick="location.href = '/user';">USER
                 </label>
             </div>
 
@@ -44,7 +45,7 @@
         </div>
         <div class="col-md-10 bg-light">
 
-                        <div th:replace="fragments/admin_tab.html :: tab1"></div>
+            <div th:replace="fragments/admin_tab.html :: tab1"></div>
 
         </div>
     </div>
