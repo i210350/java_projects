@@ -82,10 +82,37 @@
                                             <!--                                                   class="btn btn-danger"-->
                                             <!--                                                   role="button">delete</a>-->
                                             <!--                                            </td>-->
-                                            <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
-                                                   role="button" id="deleteButton">delete</a></td>
+<!--                                            <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"-->
+<!--                                                   role="button" id="deleteButton">delete</a></td>-->
 
-                                            <div th:replace="fragments/deleteModal.html :: deleteModal"></div>
+<!--                                            <div th:replace="fragments/deleteModal.html :: deleteModal"></div>-->
+
+<!--                                            <td><a onclick="openPersonModal(${user.id})" class="btn btn-danger"-->
+<!--                                                   role="button" id="deleteButton">delete</a></td>-->
+
+                                            <td>
+                                                <button type="button"
+                                                        class="btn btn-outline-danger"
+                                                        th:onclick="|openPersonModal('${user.id}');|"
+                                                >delete</button>
+                                            </td>
+
+                                            <div id="personModalHolder">
+
+                                            </div>
+
+<!--                                            <script>-->
+<!--                                            function openPersonModal(id) {-->
+<!--                                                alert(id);-->
+<!--                                                $.ajax({-->
+<!--                                                    url: "/delete/" + id,-->
+<!--                                                    success: function (data) {-->
+<!--                                                        $("#personModalHolder").html(data);-->
+<!--                                                        $("#deleteModal").modal("show");-->
+<!--                                                    }-->
+<!--                                                });-->
+<!--                                            }-->
+<!--                                            </script>-->
 
                                         </tr>
                                     </table>

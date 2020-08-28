@@ -51,5 +51,19 @@
 </div>
 
 
+<script>
+    function openPersonModal(id) {
+        $.ajax({
+            url: "/delete/" + id,
+            success: function (data) {
+                alert(data);
+                $("#personModalHolder").html(data);
+                $("#deleteModal").modal("show");
+            }
+        });
+    }
+</script>
+
+
 </body>
 </html>

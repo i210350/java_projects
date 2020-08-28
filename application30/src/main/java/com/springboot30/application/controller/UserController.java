@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -67,9 +68,31 @@ public class UserController {
 //        return modelAndView;
 //    }
 
+//    @RequestMapping(value= "/delete/{id}", method=RequestMethod.GET)
+//    public ModelAndView deleteUser(@PathVariable("id") Long id, ModelMap model) {
+//        ModelAndView model = new ModelAndView();
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+//        UserApp userAdd = new UserApp();
+//        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+//        UserApp deleteUser = userServiceImpl.getUserById(id);
+////        Set<String> roleCurrent = new HashSet<>();
+//        List<Role> rolesAll = roleServiceImpl.findAllRoles();
+////        roleCurrent.add("ROLE_USER");
+//        model.addObject("usersList", usersList);
+//        model.addObject("userAdd", userAdd);
+////        model.addObject("roleCurrent", roleCurrent);
+//        model.addObject("rolesAll", rolesAll);
+//        model.addObject("userCurrent",user);
+//        model.addObject("deleteUser", deleteUser);
+////        model.setViewName("admin_home");
+////        model.setViewName("deleteUser");
+//        model.setView();
+//        return model;
+//    }
+
     @RequestMapping(value= "/delete/{id}", method=RequestMethod.GET)
-    public ModelAndView deleteUser(@PathVariable("id") Long id) {
-        ModelAndView model = new ModelAndView();
+    public String deleteUser(@PathVariable("id") Long id, ModelMap model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         UserApp userAdd = new UserApp();
@@ -78,15 +101,16 @@ public class UserController {
 //        Set<String> roleCurrent = new HashSet<>();
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
 //        roleCurrent.add("ROLE_USER");
-        model.addObject("usersList", usersList);
-        model.addObject("userAdd", userAdd);
+        model.addAttribute("usersList", usersList);
+        model.addAttribute("userAdd", userAdd);
 //        model.addObject("roleCurrent", roleCurrent);
-        model.addObject("rolesAll", rolesAll);
-        model.addObject("userCurrent",user);
-        model.addObject("deleteUser", deleteUser);
+        model.addAttribute("rolesAll", rolesAll);
+        model.addAttribute("userCurrent",user);
+        model.addAttribute("deleteUser", deleteUser);
 //        model.setViewName("admin_home");
-        model.setViewName("deleteUser");
-        return model;
+//        model.setViewName("deleteUser");
+
+        return "/fragments/deleteModal :: deleteModal";
     }
 
 

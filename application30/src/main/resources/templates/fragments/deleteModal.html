@@ -1,8 +1,8 @@
 
-<div th:fragment="deleteModal">
+<!--<div th:fragment="deleteModal">-->
 
     <div class="modal bd-example-modal-lg" id="deleteModal"
-         role="dialog" aria-labelledby="deleteModalFrame" aria-hidden="true">
+         role="dialog" aria-labelledby="deleteModalFrame" aria-hidden="true" th:fragment="deleteModal">
         <div class="modal-dialog " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
@@ -29,6 +29,9 @@
                                            id="idDelete"
                                            th:field="*{id}">
 <!--                                           th:field="*{id}"-->
+                                    <script>
+                                        alert(${deleteUser});
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -131,4 +134,4 @@
             </div>
         </div>
     </div>
-</div>
+<!--</div>-->
