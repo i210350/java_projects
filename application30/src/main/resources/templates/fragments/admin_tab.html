@@ -1,4 +1,3 @@
-
 <div th:fragment="tab1">
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -71,23 +70,22 @@
                                             </td>
 
 
-                                                <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"
-                                                role="button"  id="editButton">edit</a></td>
-
+                                            <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"
+                                                   role="button" id="editButton">edit</a></td>
 
 
                                             <!-- Модальное окно -->
                                             <div th:replace="fragments/editModal.html :: editModal"></div>
 
 
-<!--                                            <td><a th:href="@{/delete/{id}(id=${user.id})}"-->
-<!--                                                   class="btn btn-danger"-->
-<!--                                                   role="button">delete</a>-->
-<!--                                            </td>-->
+                                            <!--                                            <td><a th:href="@{/delete/{id}(id=${user.id})}"-->
+                                            <!--                                                   class="btn btn-danger"-->
+                                            <!--                                                   role="button">delete</a>-->
+                                            <!--                                            </td>-->
                                             <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"
-                                                   role="button"  id="deleteButton">delete</a></td>
+                                                   role="button" id="deleteButton">delete</a></td>
 
-                                            <div th:replace="fragments/deleteModal.html :: delete_Modal"></div>
+                                            <div th:replace="fragments/deleteModal.html :: deleteModal"></div>
 
                                         </tr>
                                     </table>

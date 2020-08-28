@@ -1,7 +1,8 @@
-<div th:fragment="delete_Modal">
 
-    <div class="modal bd-example-modal-lg" id="delete_Modal"
-         role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div th:fragment="deleteModal">
+
+    <div class="modal bd-example-modal-lg" id="deleteModal"
+         role="dialog" aria-labelledby="deleteModalFrame" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content ">
                 <div class="modal-header">
@@ -20,43 +21,14 @@
                                 <div class="form-group">
                                     <!--                                    <label for="nameAdd" class="text-center">FirstName</label>-->
 
-                                    <label for="idEdit"
+                                    <label for="idDelete"
                                            class="center-block font-weight-bold">Id</label>
                                     <input type="text"
                                            class="form-control bg-secondary"
-                                           name="idEdit"
-                                           id="idEdit"
-                                           th:field="*{id}" disabled>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-4 offset-4">
-                                <div class="form-group">
-                                    <!--                                    <label for="nameAdd" class="text-center">FirstName</label>-->
-
-                                    <label for="nameEdit"
-                                           class="center-block  font-weight-bold">Name</label>
-                                    <input type="text"
-                                           class="form-control bg-warning"
-                                           name="nameEdit"
-                                           id="nameEdit"
-                                           th:field="*{name}" disabled>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-4 offset-4">
-                                <div class="form-group">
-                                    <label for="lastnameEdit"
-                                           class="center-block  font-weight-bold">LastName</label>
-                                    <input type="text"
-                                           class="form-control bg-warning"
-                                           name="lastnameEdit"
-                                           id="lastnameEdit"
-                                           th:field="*{lastname}" disabled>
+                                           name="idDelete"
+                                           id="idDelete"
+                                           th:field="*{id}">
+<!--                                           th:field="*{id}"-->
                                 </div>
                             </div>
                         </div>
@@ -64,58 +36,88 @@
 <!--                        <div class="row">-->
 <!--                            <div class="col-4 offset-4">-->
 <!--                                <div class="form-group">-->
-<!--                                    <label for="passwordEdit"-->
-<!--                                           class="center-block  font-weight-bold">Password</label>-->
+<!--                                    &lt;!&ndash;                                    <label for="nameAdd" class="text-center">FirstName</label>&ndash;&gt;-->
+
+<!--                                    <label for="nameDelete"-->
+<!--                                           class="center-block  font-weight-bold">Name</label>-->
 <!--                                    <input type="text"-->
 <!--                                           class="form-control bg-warning"-->
-<!--                                           name="passwordEdit"-->
-<!--                                           id="passwordEdit"-->
-<!--                                           th:field="*{password}"-->
-<!--                                           value="" disabled>-->
-<!--                                    &lt;!&ndash;                                            th:value="*{password}"&ndash;&gt;-->
+<!--                                           name="nameDelete"-->
+<!--                                           id="nameDelete"-->
+<!--                                           th:field="*{name}" >-->
 <!--                                </div>-->
 <!--                            </div>-->
 <!--                        </div>-->
-                        <br>
-                        <div class="row">
-                            <div class="col-4 offset-4">
-                                <div class="form-group">
-                                    <label for="mailEdit"
-                                           class="center-block  font-weight-bold">Mail</label>
-                                    <input type="text"
-                                           class="form-control bg-warning"
-                                           name="mailEdit"
-                                           id="mailEdit"
-                                           th:field="*{mail}" disabled>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-4 offset-4">
-                                <div class="form-group">
-                                    <label for="roleEdit"
-                                           class="center-block  font-weight-bold">Role</label>
-                                    <select class="custom-select"
-                                            multiple="multiple"
-                                            id="idRoles"
-                                            name="idRoles" disabled>
-                                        <option selected
-                                                th:value="${rolesAll.get(0).getId()}"
-                                                th:text="ADMIN"></option>
-                                        <option value="1"
-                                                th:value="${rolesAll.get(1).getId()}"
-                                                th:text="USER"></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-4 offset-4">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="lastnameDelete"-->
+<!--                                           class="center-block  font-weight-bold">LastName</label>-->
+<!--                                    <input type="text"-->
+<!--                                           class="form-control bg-warning"-->
+<!--                                           name="lastnameDelete"-->
+<!--                                           id="lastnameDelete"-->
+<!--                                           th:field="*{lastname}" >-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--&lt;!&ndash;                        <br>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="col-4 offset-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <label for="passwordEdit"&ndash;&gt;-->
+<!--&lt;!&ndash;                                           class="center-block  font-weight-bold">Password</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <input type="text"&ndash;&gt;-->
+<!--&lt;!&ndash;                                           class="form-control bg-warning"&ndash;&gt;-->
+<!--&lt;!&ndash;                                           name="passwordEdit"&ndash;&gt;-->
+<!--&lt;!&ndash;                                           id="passwordEdit"&ndash;&gt;-->
+<!--&lt;!&ndash;                                           th:field="*{password}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                           value="" disabled>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    &lt;!&ndash;                                            th:value="*{password}"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-4 offset-4">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="mailDelete"-->
+<!--                                           class="center-block  font-weight-bold">Mail</label>-->
+<!--                                    <input type="text"-->
+<!--                                           class="form-control bg-warning"-->
+<!--                                           name="mailDelete"-->
+<!--                                           id="mailDelete"-->
+<!--                                           th:field="*{mail}" >-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <br>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-4 offset-4">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label for="roleDelete"-->
+<!--                                           class="center-block  font-weight-bold">Role</label>-->
+<!--                                    <select class="custom-select"-->
+<!--                                            multiple="multiple"-->
+<!--                                            id="idRolesDelete"-->
+<!--                                            name="idRolesDelete" >-->
+<!--                                        <option selected-->
+<!--                                                th:value="${rolesAll.get(0).getId()}"-->
+<!--                                                th:text="ADMIN"></option>-->
+<!--                                        <option value="1"-->
+<!--                                                th:value="${rolesAll.get(1).getId()}"-->
+<!--                                                th:text="USER"></option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <br>-->
+<!--                        <br>-->
 
-                        <!--                                                               <div class="form-group">-->
-                        <!--                                                                 <input type="submit" class="btn-success" value="Add new user">-->
-                        <!--                                                               </div>-->
+<!--                                                                                       <div class="form-group">-->
+<!--                                                                                         <input type="submit" class="btn-success" value="Add new user">-->
+<!--                                                                                       </div>-->
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
@@ -129,3 +131,4 @@
             </div>
         </div>
     </div>
+</div>
