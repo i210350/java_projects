@@ -161,7 +161,7 @@ public class UserController {
         model.addObject("rolesAll", rolesAll);
         model.addObject("userCurrent",user);
         model.addObject("editUser", editUser);
-        model.setViewName("admin_home1");
+        model.setViewName("admin_home");
         return model;
     }
 
@@ -178,7 +178,7 @@ public class UserController {
         }
         model.addObject("userCurrent",user);
         model.addObject("isAdmin",isAdmin);
-        model.setViewName("user_home1");
+        model.setViewName("user_home");
         return model;
     }
 
