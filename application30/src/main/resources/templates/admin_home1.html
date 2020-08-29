@@ -57,7 +57,7 @@
         $.ajax({
             url: "/delete/" + id,
             success: function (data) {
-                alert(data);
+                // alert(data);
                 $("#personModalHolder").html(data);
                 $("#deleteModal").modal("show");
             }

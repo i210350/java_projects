@@ -113,6 +113,20 @@ public class UserController {
         return "/fragments/deleteModal :: deleteModal";
     }
 
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public ModelAndView deleteUser(@ModelAttribute("userApp") UserApp deleteUser,
+                                   @RequestParam(required = false) Long[] idRoles) {
+        ModelAndView modelAndView = new ModelAndView();
+//        Set<Role> roleSet = new HashSet<>();
+//        for (Long idRole: idRoles) {
+//            roleSet.add(roleServiceImpl.getRoleById(idRole));
+//        }
+//        deleteUser.setRoles(new HashSet<>(roleSet));
+        userServiceImpl.deleteUser(deleteUser);
+        modelAndView.setViewName("redirect:/admin");
+        return modelAndView;
+    }
+
 
 //    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 //    public ModelAndView editUser(@PathVariable("id") Long id) {
@@ -151,6 +165,8 @@ public class UserController {
         model.setViewName("editUser");
         return model;
     }
+
+
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp editUser,

@@ -40,16 +40,21 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
         return userRepository.findByMail(email);
     }
 
+//    @Transactional
+//    public void deleteById(Long id) {
+//        Optional<UserApp> userResponse =  userRepository.findById(id);
+//        if(userResponse.isPresent()) {
+//            userRepository.delete(userResponse.get());
+//        }else {
+//            throw new RuntimeException("No record found for given id: "+id);
+//        }
+//
+//
+
+
     @Transactional
-    public void deleteById(Long id) {
-        Optional<UserApp> userAppResponse =  userRepository.findById(id);
-        if(userAppResponse.isPresent()) {
-            userRepository.delete(userAppResponse.get());
-        }else {
-            throw new RuntimeException("No record found for given id: "+id);
-        }
-
-
+    public void deleteUser(UserApp delUser) {
+            userRepository.delete(delUser);
     }
 
     @Transactional
