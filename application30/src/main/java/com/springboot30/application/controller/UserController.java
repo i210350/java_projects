@@ -12,8 +12,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-
 import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.List;
@@ -161,11 +159,9 @@ public class UserController {
         model.addObject("rolesAll", rolesAll);
         model.addObject("userCurrent",user);
         model.addObject("editUser", editUser);
-        model.setViewName("admin_home1");
+        model.setViewName("admin_home");
         return model;
     }
-
-
 
     @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
     public ModelAndView user_home() {
@@ -178,7 +174,7 @@ public class UserController {
         }
         model.addObject("userCurrent",user);
         model.addObject("isAdmin",isAdmin);
-        model.setViewName("user_home1");
+        model.setViewName("user_home");
         return model;
     }
 
@@ -188,4 +184,5 @@ public class UserController {
         model.setViewName("access_denied");
         return model;
     }
+//    ------------------------------------------------------------------------------------
 }
