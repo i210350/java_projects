@@ -18,39 +18,19 @@ import javax.transaction.Transactional;
 import java.util.*;
 
 @Service("userService")
-public class UserServiceImpl {  // implements UserService, UserDetailsService {
+public class UserServiceImpl {
 
-//    @Qualifier("userRepository")
 @Qualifier("userRepository")
 @Autowired
     private UserRepository userRepository;
 
-//    @Qualifier("roleRepository")
-//    @Autowired
-//    private RoleRepository roleRespository;
-
-
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
-//    @Override
     @Transactional
     public UserApp findUserByEmail(String email) {
         return userRepository.findByMail(email);
     }
-
-//    @Transactional
-//    public void deleteById(Long id) {
-//        Optional<UserApp> userResponse =  userRepository.findById(id);
-//        if(userResponse.isPresent()) {
-//            userRepository.delete(userResponse.get());
-//        }else {
-//            throw new RuntimeException("No record found for given id: "+id);
-//        }
-//
-//
-
 
     @Transactional
     public void deleteUser(UserApp delUser) {
@@ -67,30 +47,16 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
         }
     }
 
-
-
     @Transactional
     public Optional<UserApp> getById(Long id) {
         return userRepository.findById(id);
     }
 
-//    @Transactional
-//    public void editUser(UserApp user) {
-////        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-////        user.setActive(1);
-////        Role userRole = roleRespository.findByName("ADMIN");
-////        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-//        userRepository.save(user);
-//    }
-
-//    @Override
     @Transactional
     public List<UserApp> getAllByActive(int active) {
         return userRepository.getAllByActive(active);
     }
 
-
-//    @Override
     @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
@@ -112,16 +78,11 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
                 User(userApp.getName(), userApp.getPassword(), grantList);
     }
 
-//    @Override
+
     @Transactional
     public void saveUser(UserApp user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-//        Role userRole = roleRespository.findByName("ADMIN");
-//        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
-
-
-
 }

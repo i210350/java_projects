@@ -9,36 +9,24 @@
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <!--                                                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
             </div>
             <div class="modal-body ">
                 <form class="col-6 offset-3" th:action="@{/delete} "
                       th:object="${deleteUser}"
                       method="POST">
                     <div class="row ">
-                        <!--                            <div class="col-4 offset-4 ">-->
                         <div class="form-group">
-                            <!--                                    <label for="nameAdd" class="text-center">FirstName</label>-->
-
-                            <!--                                <label for="idDelete"-->
-                            <!--                                       class="justify-content-center text-center font-weight-bold">Id</label>-->
                             <div class="col text-center font-weight-bold">ID</div>
                             <input type="text"
                                    class="form-control bg-light"
                                    name="idDelete"
                                    id="idDelete"
                                    th:field="*{id}">
-                            <!--                            </div>-->
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <!--                        <div class="col-4 offset-4">-->
                         <div class="form-group">
-                            <!--                                    <label for="nameAdd" class="text-center">FirstName</label>-->
-
-                            <!--                            <label for="nameDelete"-->
-                            <!--                                   class="center-block  font-weight-bold">Name</label>-->
                             <div class="col text-center font-weight-bold">Name</div>
                             <input type="text"
                                    class="form-control  bg-light"
@@ -46,14 +34,10 @@
                                    id="nameDelete"
                                    th:field="*{name}">
                         </div>
-                        <!--                        </div>-->
                     </div>
                     <br>
                     <div class="row">
-                        <!--                        <div class="col-4 offset-4">-->
                         <div class="form-group">
-                            <!--                            <label for="lastnameDelete"-->
-                            <!--                                   class="center-block  font-weight-bold">LastName</label>-->
                             <div class="col text-center font-weight-bold">LastName</div>
                             <input type="text"
                                    class="form-control  bg-light"
@@ -61,30 +45,10 @@
                                    id="lastnameDelete"
                                    th:field="*{lastname}">
                         </div>
-                        <!--                        </div>-->
                     </div>
-                    <!--                        <br>-->
-                    <!--                        <div class="row">-->
-                    <!--                            <div class="col-4 offset-4">-->
-                    <!--                                <div class="form-group">-->
-                    <!--                                    <label for="passwordEdit"-->
-                    <!--                                           class="center-block  font-weight-bold">Password</label>-->
-                    <!--                                    <input type="text"-->
-                    <!--                                           class="form-control bg-warning"-->
-                    <!--                                           name="passwordEdit"-->
-                    <!--                                           id="passwordEdit"-->
-                    <!--                                           th:field="*{password}"-->
-                    <!--                                           value="" disabled>-->
-                    <!--                                    &lt;!&ndash;                                            th:value="*{password}"&ndash;&gt;-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
                     <br>
                     <div class="row">
-                        <!--                        <div class="col-4 offset-4">-->
                         <div class="form-group">
-                            <!--                            <label for="mailDelete"-->
-                            <!--                                   class="center-block  font-weight-bold">Mail</label>-->
                             <div class="col text-center font-weight-bold">Mail</div>
                             <input type="text"
                                    class="form-control  bg-light"
@@ -92,16 +56,12 @@
                                    id="mailDelete"
                                    th:field="*{mail}">
                         </div>
-                        <!--                        </div>-->
                     </div>
                     <br>
                     <div class="row offset-1">
-                        <!--                        <div class="col-4 offset-4">-->
                         <div class="form-group ">
-                            <!--                            <label for="roleDelete"-->
-                            <!--                                   class="center-block  font-weight-bold">Role</label>-->
                             <div class="col text-center font-weight-bold ">Role</div>
-                            <div class="col text-center " >
+                            <div class="col text-center ">
                                 <select class="custom-select bg-light"
                                         multiple="multiple"
                                         id="idRolesDelete"
@@ -115,15 +75,9 @@
                                 </select>
                             </div>
                         </div>
-                        <!--</div>-->
                     </div>
                     <br>
                     <br>
-
-                    <!--                                                                                       <div class="form-group">-->
-                    <!--                                                                                         <input type="submit" class="btn-success" value="Add new user">-->
-                    <!--                                                                                       </div>-->
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
                                 data-dismiss="modal">Close
@@ -136,4 +90,3 @@
         </div>
     </div>
 </div>
-<!--</div>-->

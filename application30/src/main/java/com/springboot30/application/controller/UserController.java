@@ -15,21 +15,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Controller
 public class UserController {
-
-//    @Qualifier("userRepository")
     @Autowired
-//    UserRepository userRepository;
     private UserServiceImpl userServiceImpl;
 
     @Autowired
-//    RoleRepository roleRepository;
     private RoleServiceImpl roleServiceImpl;
 
     @RequestMapping(value= {"/", "/login"}, method=RequestMethod.GET)
@@ -60,37 +55,6 @@ public class UserController {
     }
 
 
-//    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-//    public ModelAndView deleteUser(@PathVariable("id") Long id) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("redirect:/admin");
-////        userServiceImpl.deleteById(id);
-//        return modelAndView;
-//    }
-
-//    @RequestMapping(value= "/delete/{id}", method=RequestMethod.GET)
-//    public ModelAndView deleteUser(@PathVariable("id") Long id, ModelMap model) {
-//        ModelAndView model = new ModelAndView();
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
-//        UserApp userAdd = new UserApp();
-//        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
-//        UserApp deleteUser = userServiceImpl.getUserById(id);
-////        Set<String> roleCurrent = new HashSet<>();
-//        List<Role> rolesAll = roleServiceImpl.findAllRoles();
-////        roleCurrent.add("ROLE_USER");
-//        model.addObject("usersList", usersList);
-//        model.addObject("userAdd", userAdd);
-////        model.addObject("roleCurrent", roleCurrent);
-//        model.addObject("rolesAll", rolesAll);
-//        model.addObject("userCurrent",user);
-//        model.addObject("deleteUser", deleteUser);
-////        model.setViewName("admin_home");
-////        model.setViewName("deleteUser");
-//        model.setView();
-//        return model;
-//    }
-
     @RequestMapping(value= "/delete/{id}", method=RequestMethod.GET)
     public String deleteUser(@PathVariable("id") Long id, ModelMap model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -98,50 +62,23 @@ public class UserController {
         UserApp userAdd = new UserApp();
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
         UserApp deleteUser = userServiceImpl.getUserById(id);
-//        Set<String> roleCurrent = new HashSet<>();
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
-//        roleCurrent.add("ROLE_USER");
         model.addAttribute("usersList", usersList);
         model.addAttribute("userAdd", userAdd);
-//        model.addObject("roleCurrent", roleCurrent);
         model.addAttribute("rolesAll", rolesAll);
         model.addAttribute("userCurrent",user);
         model.addAttribute("deleteUser", deleteUser);
-//        model.setViewName("admin_home");
-//        model.setViewName("deleteUser");
-
         return "/fragments/deleteModal :: deleteModal";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public ModelAndView deleteUser(@ModelAttribute("userApp") UserApp deleteUser,
-                                   @RequestParam(required = false) Long[] idRoles) {
+    public ModelAndView deleteUser(@ModelAttribute("userApp") UserApp deleteUser) {
         ModelAndView modelAndView = new ModelAndView();
-//        Set<Role> roleSet = new HashSet<>();
-//        for (Long idRole: idRoles) {
-//            roleSet.add(roleServiceImpl.getRoleById(idRole));
-//        }
-//        deleteUser.setRoles(new HashSet<>(roleSet));
         userServiceImpl.deleteUser(deleteUser);
         modelAndView.setViewName("redirect:/admin");
         return modelAndView;
     }
 
-
-//    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-//    public ModelAndView editUser(@PathVariable("id") Long id) {
-////        userServiceImpl.deleteById(id);
-////        String roleCurrent = "ROLE_USER";
-//        UserApp editUser = userServiceImpl.getUserById(id);
-//        ModelAndView modelAndView = new ModelAndView();
-////        modelAndView.setViewName("editUser");
-//        modelAndView.setViewName("editUser");
-//        modelAndView.addObject("editUser", editUser);
-////        modelAndView.addObject("userCurrent", userCurrent);
-////        modelAndView.addObject("roleCurrent", roleCurrent);
-////        modelAndView.addObject("listRoles", listRoles);
-//        return modelAndView;
-//    }
 
     @RequestMapping(value= "/edit/{id}", method=RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") Long id) {
@@ -152,16 +89,12 @@ public class UserController {
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
         UserApp editUser = userServiceImpl.getUserById(id);
         editUser.setPassword("");
-//        Set<String> roleCurrent = new HashSet<>();
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
-//        roleCurrent.add("ROLE_USER");
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
-//        model.addObject("roleCurrent", roleCurrent);
         model.addObject("rolesAll", rolesAll);
         model.addObject("userCurrent",user);
         model.addObject("editUser", editUser);
-//        model.setViewName("admin_home");
         model.setViewName("editUser");
         return model;
     }
@@ -222,16 +155,12 @@ public class UserController {
         UserApp userAdd = new UserApp();
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
         UserApp editUser = user;
-//        Set<String> roleCurrent = new HashSet<>();
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
-//        roleCurrent.add("ROLE_USER");
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
-//        model.addObject("roleCurrent", roleCurrent);
         model.addObject("rolesAll", rolesAll);
         model.addObject("userCurrent",user);
         model.addObject("editUser", editUser);
-//        model.setViewName("admin_home");
         model.setViewName("admin_home1");
         return model;
     }

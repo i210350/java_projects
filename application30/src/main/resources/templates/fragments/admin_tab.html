@@ -12,7 +12,6 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade show active" id="usersTab" role="tabpanel" aria-labelledby="users-tab">
-            <!--   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
             <h2>Users</h2>
             <br>
             <br>
@@ -26,7 +25,6 @@
                         <div class="panel-body bg-white">
                             <div class="panel-body">
                                 <div class="panel panel-default">
-                                    <!-- Обычное содержимое панели -->
                                     <div class="panel-heading"></div>
                                     <table class="table">
                                         <tr>
@@ -78,42 +76,17 @@
                                             <div th:replace="fragments/editModal.html :: editModal"></div>
 
 
-                                            <!--                                            <td><a th:href="@{/delete/{id}(id=${user.id})}"-->
-                                            <!--                                                   class="btn btn-danger"-->
-                                            <!--                                                   role="button">delete</a>-->
-                                            <!--                                            </td>-->
-<!--                                            <td><a th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger"-->
-<!--                                                   role="button" id="deleteButton">delete</a></td>-->
-
-<!--                                            <div th:replace="fragments/deleteModal.html :: deleteModal"></div>-->
-
-<!--                                            <td><a onclick="openPersonModal(${user.id})" class="btn btn-danger"-->
-<!--                                                   role="button" id="deleteButton">delete</a></td>-->
-
                                             <td>
                                                 <button type="button"
                                                         class="btn btn-outline-danger"
                                                         th:onclick="|openPersonModal('${user.id}');|"
-                                                >delete</button>
+                                                >delete
+                                                </button>
                                             </td>
 
                                             <div id="personModalHolder">
 
                                             </div>
-
-<!--                                            <script>-->
-<!--                                            function openPersonModal(id) {-->
-<!--                                                alert(id);-->
-<!--                                                $.ajax({-->
-<!--                                                    url: "/delete/" + id,-->
-<!--                                                    success: function (data) {-->
-<!--                                                        $("#personModalHolder").html(data);-->
-<!--                                                        $("#deleteModal").modal("show");-->
-<!--                                                    }-->
-<!--                                                });-->
-<!--                                            }-->
-<!--                                            </script>-->
-
                                         </tr>
                                     </table>
                                 </div>
@@ -122,7 +95,6 @@
                     </div>
                 </div>
             </div>
-            <!--   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
         </div>
         <div class="tab-pane fade" id="adduserTab" role="tabpanel" aria-labelledby="adduser-tab">
             <div class="container-fluid">
@@ -198,8 +170,6 @@
                 </div>
             </div>
         </div>
-        <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-
     </div>
 </div>
 
