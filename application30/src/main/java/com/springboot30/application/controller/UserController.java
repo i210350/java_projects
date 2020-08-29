@@ -8,27 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Controller
 public class UserController {
-
-//    @Qualifier("userRepository")
     @Autowired
-//    UserRepository userRepository;
     private UserServiceImpl userServiceImpl;
 
     @Autowired
-//    RoleRepository roleRepository;
     private RoleServiceImpl roleServiceImpl;
 
     @RequestMapping(value= {"/", "/login"}, method=RequestMethod.GET)
@@ -59,42 +55,65 @@ public class UserController {
     }
 
 
-    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteUser(@PathVariable("id") Long id) {
+    @RequestMapping(value= "/delete/{id}", method=RequestMethod.GET)
+    public String deleteUser(@PathVariable("id") Long id, ModelMap model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+        UserApp userAdd = new UserApp();
+        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+        UserApp deleteUser = userServiceImpl.getUserById(id);
+        List<Role> rolesAll = roleServiceImpl.findAllRoles();
+        model.addAttribute("usersList", usersList);
+        model.addAttribute("userAdd", userAdd);
+        model.addAttribute("rolesAll", rolesAll);
+        model.addAttribute("userCurrent",user);
+        model.addAttribute("deleteUser", deleteUser);
+        return "/fragments/deleteModal :: deleteModal";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public ModelAndView deleteUser(@ModelAttribute("userApp") UserApp deleteUser) {
         ModelAndView modelAndView = new ModelAndView();
+        userServiceImpl.deleteUser(deleteUser);
         modelAndView.setViewName("redirect:/admin");
-        userServiceImpl.deleteById(id);
         return modelAndView;
     }
 
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value= "/edit/{id}", method=RequestMethod.GET)
     public ModelAndView editUser(@PathVariable("id") Long id) {
-        UserApp userApp = userServiceImpl.getById(id);
-        String roleCurrent = "ROLE_USER";
-//        List<Role> listRoles = roleService.allRolesExist();
+        ModelAndView model = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+        UserApp userAdd = new UserApp();
+        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+        UserApp editUser = userServiceImpl.getUserById(id);
+        editUser.setPassword("");
+        List<Role> rolesAll = roleServiceImpl.findAllRoles();
+        model.addObject("usersList", usersList);
+        model.addObject("userAdd", userAdd);
+        model.addObject("rolesAll", rolesAll);
+        model.addObject("userCurrent",user);
+        model.addObject("editUser", editUser);
+        model.setViewName("editUser");
+        return model;
+    }
+
+
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public ModelAndView editUser(@ModelAttribute("userApp") UserApp editUser,
+                                 @RequestParam(required = false) Long[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editUser");
-        modelAndView.addObject("userApp", userApp);
-        modelAndView.addObject("roleCurrent", roleCurrent);
-//        modelAndView.addObject("listRoles", listRoles);
+        Set<Role> roleSet = new HashSet<>();
+        for (Long idRole: idRoles) {
+            roleSet.add(roleServiceImpl.getRoleById(idRole));
+        }
+        editUser.setRoles(new HashSet<>(roleSet));
+        userServiceImpl.saveUser(editUser);
+        modelAndView.setViewName("redirect:/admin");
         return modelAndView;
     }
-//
-//    @RequestMapping(value = "/edit", method = RequestMethod.POST)
-//    public ModelAndView editUser(@ModelAttribute("userApp") UserApp userApp,
-//                                 @RequestParam(required = false) Integer[] idRoles) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        Set<Role> roleSet = new HashSet<>();
-//        for (Long idRole: idRoles) {
-//            roleSet.add(getRoleService().getById(idRole));
-//        }
-//        userApp.setRoles(new HashSet<>(roleSet));
-//        userService.edit(userApp);
-//        userServiceImpl.saveUser(userApp);
-//        modelAndView.setViewName("redirect:/admin");
-//        return modelAndView;
-//    }
 
 
 
@@ -134,26 +153,32 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         List<UserApp> usersList = userServiceImpl.getAllByActive(1);
         UserApp userAdd = new UserApp();
-//        Set<String> roleCurrent = new HashSet<>();
+        UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+        UserApp editUser = user;
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
-//        roleCurrent.add("ROLE_USER");
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
-//        model.addObject("roleCurrent", roleCurrent);
         model.addObject("rolesAll", rolesAll);
-//        model.setViewName("admin_home");
+        model.addObject("userCurrent",user);
+        model.addObject("editUser", editUser);
         model.setViewName("admin_home1");
         return model;
     }
+
+
 
     @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
     public ModelAndView user_home() {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
-
-        model.addObject("userName", user.getName() + " " + user.getLastname());
-        model.setViewName("user_home");
+        String isAdmin = null;
+        if (user.getStingRoles().contains("ADMIN")) {
+            isAdmin = "ADMIN";
+        }
+        model.addObject("userCurrent",user);
+        model.addObject("isAdmin",isAdmin);
+        model.setViewName("user_home1");
         return model;
     }
 

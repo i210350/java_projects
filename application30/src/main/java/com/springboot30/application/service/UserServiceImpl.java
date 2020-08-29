@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,54 +18,45 @@ import javax.transaction.Transactional;
 import java.util.*;
 
 @Service("userService")
-public class UserServiceImpl {  // implements UserService, UserDetailsService {
+public class UserServiceImpl {
 
-    @Qualifier("userRepository")
-    @Autowired
+@Qualifier("userRepository")
+@Autowired
     private UserRepository userRepository;
-
-//    @Qualifier("roleRepository")
-//    @Autowired
-//    private RoleRepository roleRespository;
-
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
-//    @Override
     @Transactional
     public UserApp findUserByEmail(String email) {
         return userRepository.findByMail(email);
     }
 
     @Transactional
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
+    public void deleteUser(UserApp delUser) {
+            userRepository.delete(delUser);
     }
 
     @Transactional
-    public UserApp getById(Long id) {
-        return userRepository.findById(id).get();
+    public UserApp getUserById(Long id) {
+        Optional<UserApp> userAppResponse =  userRepository.findById(id);
+        if(userAppResponse.isPresent()) {
+            return userAppResponse.get();
+        }else {
+            throw new RuntimeException("No record found for given id: "+id);
+        }
     }
 
-//    @Transactional
-//    public void editUser(UserApp user) {
-////        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-////        user.setActive(1);
-////        Role userRole = roleRespository.findByName("ADMIN");
-////        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-//        userRepository.save(user);
-//    }
+    @Transactional
+    public Optional<UserApp> getById(Long id) {
+        return userRepository.findById(id);
+    }
 
-//    @Override
     @Transactional
     public List<UserApp> getAllByActive(int active) {
         return userRepository.getAllByActive(active);
     }
 
-
-//    @Override
     @Transactional
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
@@ -82,18 +74,15 @@ public class UserServiceImpl {  // implements UserService, UserDetailsService {
             }
         }
 
-        return new org.springframework.security.core.userdetails.
-                                    User(userApp.getName(), userApp.getPassword(), grantList);
+        return new
+                User(userApp.getName(), userApp.getPassword(), grantList);
     }
 
-//    @Override
+
     @Transactional
     public void saveUser(UserApp user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-//        Role userRole = roleRespository.findByName("ADMIN");
-//        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
-
 }
