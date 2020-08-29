@@ -163,8 +163,6 @@ public class UserController {
         return model;
     }
 
-
-
     @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
     public ModelAndView user_home() {
         ModelAndView model = new ModelAndView();
@@ -186,4 +184,5 @@ public class UserController {
         model.setViewName("access_denied");
         return model;
     }
+//    ------------------------------------------------------------------------------------
 }
