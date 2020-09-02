@@ -43,6 +43,20 @@ public class UserAPIController {
         return new ResponseEntity<UserApp>(userApp, new HttpHeaders(), HttpStatus.OK);
     }
 
+    @PostMapping("/add")
+    void addUser(@RequestBody UserApp newUser) {
+        userServiceImpl.saveUser(newUser);
+    }
+
+    @PutMapping("/edit")
+    void editUser(@RequestBody UserApp editUser) {
+        userServiceImpl.saveUser(editUser);
+    }
+
+    @DeleteMapping("/delete")
+    void deleteUser(@RequestBody UserApp deleteUser) {
+        userServiceImpl.deleteUser(deleteUser);
+    }
 
     @GetMapping("/users")
     public List<UserApp> getAllUsers() {
