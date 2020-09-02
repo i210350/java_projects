@@ -25,37 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f628686-046d-43a5-ab26-8e7b8d06d188" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/my2_7_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my2_7.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/WEB-INF/classes/app/DAO/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/WEB-INF/classes/app/entities/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/WEB-INF/classes/app/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/WEB-INF/classes/app/servlets/AddServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/WEB-INF/classes/app/servlets/ListServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/add.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/my2_7_war_exploded/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/DAO/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/servlets/AddServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/servlets/ListServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/DAO/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/entities/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/servlets/AddServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/app/servlets/ListServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/add.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../application313/src/main/java/com/springboot30/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../application313/src/main/java/com/springboot30/application/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +73,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../preProject/projects/java_projects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../web3_000" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RunManager">
@@ -181,6 +151,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -196,11 +167,12 @@
       <workItem from="1592635989607" duration="198000" />
       <workItem from="1592636477951" duration="2844000" />
       <workItem from="1592649101556" duration="2250000" />
+      <workItem from="1598820726339" duration="79000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -212,6 +184,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592510670638">
@@ -230,10 +203,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="468" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1592423274248" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1592655764868">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1598820801866">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1592655764868" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1598820801866" />
     <state width="1292" height="269" key="GridCell.Tab.0.bottom" timestamp="1592655798479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
