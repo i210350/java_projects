@@ -26,8 +26,8 @@ public class Role implements Serializable, GrantedAuthority {
     }
 
 //    @ManyToMany(mappedBy = "roles", cascade = { CascadeType.ALL})    //
-    @ManyToMany(mappedBy = "roles", cascade = { CascadeType.ALL})
-        private Set<UserApp> userApps = new HashSet<>();
+//    @ManyToMany(mappedBy = "roles", cascade = { CascadeType.ALL})
+//        private Set<UserApp> userApps = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -45,13 +45,13 @@ public class Role implements Serializable, GrantedAuthority {
         this.name = name;
     }
 
-    public Set<UserApp> getUserApps() {
-        return userApps;
-    }
-
-    public void setUserApps(Set<UserApp> userApps) {
-        this.userApps = userApps;
-    }
+//    public Set<UserApp> getUserApps() {
+//        return userApps;
+//    }
+//
+//    public void setUserApps(Set<UserApp> userApps) {
+//        this.userApps = userApps;
+//    }
 
     @Override
     public String getAuthority() {

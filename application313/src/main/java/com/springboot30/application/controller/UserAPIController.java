@@ -35,12 +35,21 @@ public class UserAPIController {
 //        return userRepository.save(userApp);
 //    }
 
+//    @GetMapping("/{id}")
+//    public ResponseEntity<UserApp> getUserById(@PathVariable("id") Long id) {
+////            throws RecordNotFoundException {
+//        UserApp userApp = userServiceImpl.getUserById(id);
+//
+//        return new ResponseEntity<UserApp>(userApp, new HttpHeaders(), HttpStatus.OK);
+//    }
+
+
     @GetMapping("/{id}")
-    public ResponseEntity<UserApp> getUserById(@PathVariable("id") Long id) {
+    public UserApp getUserById(@PathVariable("id") Long id) {
 //            throws RecordNotFoundException {
         UserApp userApp = userServiceImpl.getUserById(id);
 
-        return new ResponseEntity<UserApp>(userApp, new HttpHeaders(), HttpStatus.OK);
+        return userApp;
     }
 
     @GetMapping("/testUser")
