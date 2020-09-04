@@ -60,10 +60,7 @@ public class UserController {
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
         UserApp deleteUser = userServiceImpl.getUserById(id);
         List<Role> rolesAll = roleServiceImpl.findAllRoles();
-//        model.addAttribute("usersList", usersList);
-//        model.addAttribute("userAdd", userAdd);
         model.addAttribute("rolesAll", rolesAll);
-//        model.addAttribute("userCurrent",user);
         model.addAttribute("deleteUser", deleteUser);
         return "/fragments/deleteModal :: deleteModal";
     }
