@@ -64,12 +64,4 @@ public class UserAPIController {
         return usersApp;
     }
 
-    @GetMapping("/testUser")
-    public UserApp getUserTest() {
-        UserApp user = new UserApp();
-        user.setName("Сигизмунд");
-        user.setLastname("Петров");
-        user.setMail("kdkdkd@hjjdhj");
-        return user;
-    }
 }
