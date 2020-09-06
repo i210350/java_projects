@@ -40,8 +40,6 @@
                            onclick="location.href = '/user';">USER
                 </label>
             </div>
-
-
         </div>
         <div class="col-md-10 bg-light">
 
@@ -51,28 +49,69 @@
     </div>
 </div>
 
-
 <script>
     async function openDeleteModal(id) {
-        $.ajax({
-            url: "/delete/" + id,
-            success: function (data) {
-                // alert(data);
-                $("#personModalHolder").html(data);
-                $("#deleteModal").modal("show");
-            }
-        });
+        // alert("myCall1");
+        // // formElem.onsubmit = async (e) => {
+        // //     e.preventDefault();
+        //     alert("myCall2");
+        //
+        //     let response = await fetch('/delete' + id, {
+        //         method: 'GET',
+        //         body: new FormData(formElem)
+        //     });
+        //
+        //     let result = await response.json();
+        //
+        //     alert(result.message);
+        // };
 
-        // let response = await fetch("/delete/" + id);
-        // alert (response);
-        // if (response.ok) { // если HTTP-статус в диапазоне 200-299
-        //     // получаем тело ответа (см. про этот метод ниже)
-        //     let json = await response.json();
-        // } else {
-        //     alert("Ошибка HTTP: " + response.status);
-        // }
+
+
     }
 </script>
+
+<!--<script>-->
+<!--    // async function openDeleteModal(id) {-->
+<!--        // $.ajax({-->
+<!--        //     url: "/delete/" + id,-->
+<!--        //     success: function (data) {-->
+<!--        //         // alert(data);-->
+<!--        //         $("#personModalHolder").html(data);-->
+<!--        //         $("#deleteModal").modal("show");-->
+<!--        //     }-->
+<!--        // });-->
+
+<!--        // let response = await fetch("/delete/" + id);-->
+<!--        // alert (response);-->
+<!--        // if (response.ok) { // если HTTP-статус в диапазоне 200-299-->
+<!--        //     // получаем тело ответа (см. про этот метод ниже)-->
+<!--        //     let json = await response.json();-->
+<!--        // } else {-->
+<!--        //     alert("Ошибка HTTP: " + response.status);-->
+<!--        // }-->
+
+
+<!--        // var url = "/delete/" + id ;-->
+<!--        // alert(url);-->
+<!--        // var options = { method : 'GET' };-->
+<!--        //-->
+<!--        // var aPromise = fetch(url, options);-->
+<!--        // alert((await aPromise).status);-->
+<!--        //-->
+<!--        // aPromise-->
+<!--        //     .then(function(response) {-->
+<!--        //         alert (response.body.getReader());-->
+<!--        //         $("#personModalHolder").html(response);-->
+<!--        //         $("#deleteModal").modal("show");-->
+<!--        //     })-->
+<!--        //     .catch(function(error) {-->
+<!--        //-->
+<!--        //     });-->
+
+
+<!--    // }-->
+<!--</script>-->
 
 
 </body>

@@ -39,6 +39,23 @@ public class UserController {
         return model;
     }
 
+
+    @RequestMapping(value= {"/test100"}, method=RequestMethod.GET)
+    public ModelAndView testGET100() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("test100");
+        return model;
+    }
+
+    @RequestMapping(value= {"/test100"}, method=RequestMethod.POST)
+    public ModelAndView testPOST100() {
+        ModelAndView model = new ModelAndView();
+        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+        model.addObject("usersList", usersList);
+        model.setViewName("deleteModal");
+        return model;
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("userAdd") UserApp userApp, @RequestParam(required = false) Long[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
