@@ -43,7 +43,10 @@ public class UserController {
     @RequestMapping(value= {"/test100"}, method=RequestMethod.GET)
     public ModelAndView testGET100() {
         ModelAndView model = new ModelAndView();
-        model.setViewName("test100");
+        List<UserApp> usersList = userServiceImpl.getAllByActive(1);
+        model.addObject("usersList", usersList);
+        model.setViewName("deleteModal");
+//        model.setViewName("test100");
         return model;
     }
 
