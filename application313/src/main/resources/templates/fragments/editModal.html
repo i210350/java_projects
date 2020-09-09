@@ -1,6 +1,6 @@
 <div th:fragment="editModal">
 
-    <div class="modal bd-example-modal-lg" id="myModal"
+    <div class="modal bd-example-modal-lg" id="winModal"
          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content ">
@@ -11,11 +11,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="col-3" th:action="@{/edit}"
+                    <form class="col-6 offset-3" th:action="@{/edit}"
                           th:object="${editUser}"
                           method="POST">
                         <div class="row">
-                            <div class="col-4 offset-4">
+<!--                            <div class="col-4 offset-4">-->
                                 <div class="form-group">
                                     <label for="idEdit"
                                            class="center-block font-weight-bold">Id</label>
@@ -25,11 +25,11 @@
                                            id="idEdit"
                                            th:field="*{id}">
                                 </div>
-                            </div>
+<!--                            </div>-->
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-4 offset-4">
+<!--                            <div class="col-4 offset-4">-->
                                 <div class="form-group">
                                     <label for="nameEdit"
                                            class="center-block  font-weight-bold">Name</label>
@@ -39,11 +39,11 @@
                                            id="nameEdit"
                                            th:field="*{name}">
                                 </div>
-                            </div>
+<!--                            </div>-->
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-4 offset-4">
+<!--                            <div class="col-4 offset-4">-->
                                 <div class="form-group">
                                     <label for="lastnameEdit"
                                            class="center-block  font-weight-bold">LastName</label>
@@ -53,11 +53,11 @@
                                            id="lastnameEdit"
                                            th:field="*{lastname}">
                                 </div>
-                            </div>
+<!--                            </div>-->
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-4 offset-4">
+<!--                            <div class="col-4 offset-4">-->
                                 <div class="form-group">
                                     <label for="passwordEdit"
                                            class="center-block  font-weight-bold">Password</label>
@@ -69,11 +69,11 @@
                                            value="">
                                     <!--                                            th:value="*{password}"-->
                                 </div>
-                            </div>
+<!--                            </div>-->
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-4 offset-4">
+<!--                            <div class="col-4 offset-4">-->
                                 <div class="form-group">
                                     <label for="mailEdit"
                                            class="center-block  font-weight-bold">Mail</label>
@@ -83,11 +83,11 @@
                                            id="mailEdit"
                                            th:field="*{mail}">
                                 </div>
-                            </div>
+<!--                            </div>-->
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-4 offset-4">
+<!--                            <div class="col-4 offset-4">-->
                                 <div class="form-group">
                                     <label for="roleEdit"
                                            class="center-block  font-weight-bold">Role</label>
@@ -103,7 +103,7 @@
                                                 th:text="USER"></option>
                                     </select>
                                 </div>
-                            </div>
+<!--                            </div>-->
                         </div>
                         <br>
                         <br>

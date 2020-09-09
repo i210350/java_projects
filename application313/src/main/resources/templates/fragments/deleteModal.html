@@ -1,91 +1,121 @@
-<!--<div th:fragment="deleteModal">-->
+<div th:fragment="deleteModal">
 
-<div class="modal bd-example-modal-lg" id="deleteModal"
-     role="dialog" aria-labelledby="deleteModalFrame" aria-hidden="true" th:fragment="deleteModal">
-    <div class="modal-dialog " role="document">
-        <div class="modal-content ">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body ">
-                <form class="col-6 offset-3" th:action="@{/delete} "
-                      th:object="${deleteUser}"
-                      method="POST">
-                    <div class="row ">
-                        <div class="form-group">
-                            <div class="col text-center font-weight-bold">ID</div>
-                            <input type="text"
-                                   class="form-control bg-light"
-                                   name="idDelete"
-                                   id="idDelete"
-                                   th:field="*{id}">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col text-center font-weight-bold">Name</div>
-                            <input type="text"
-                                   class="form-control  bg-light"
-                                   name="nameDelete"
-                                   id="nameDelete"
-                                   th:field="*{name}">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col text-center font-weight-bold">LastName</div>
-                            <input type="text"
-                                   class="form-control  bg-light"
-                                   name="lastnameDelete"
-                                   id="lastnameDelete"
-                                   th:field="*{lastname}">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col text-center font-weight-bold">Mail</div>
-                            <input type="text"
-                                   class="form-control  bg-light"
-                                   name="mailDelete"
-                                   id="mailDelete"
-                                   th:field="*{mail}">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row offset-1">
-                        <div class="form-group ">
-                            <div class="col text-center font-weight-bold ">Role</div>
-                            <div class="col text-center ">
-                                <select class="custom-select bg-light"
-                                        multiple="multiple"
-                                        id="idRolesDelete"
-                                        name="idRolesDelete">
-                                    <option selected
-                                            th:value="${rolesAll.get(0).getId()}"
-                                            th:text="ADMIN"></option>
-                                    <option value="1"
-                                            th:value="${rolesAll.get(1).getId()}"
-                                            th:text="USER"></option>
-                                </select>
+    <div class="modal bd-example-modal-lg" id="delModal"
+         role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="col-3" th:action="@{/delete}"
+                          th:object="${deleteUser}"
+                          method="POST">
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <div class="form-group">
+                                    <label for="idDelete"
+                                           class="center-block font-weight-bold">Id</label>
+                                    <input type="text"
+                                           class="form-control bg-secondary"
+                                           name="idDelete"
+                                           id="idDelete"
+                                           th:field="*{id}">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                                data-dismiss="modal">Close
-                        </button>
-                        <button type="submit" class="btn btn-primary">delete
-                        </button>
-                    </div>
-                </form>
+                        <br>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <div class="form-group">
+                                    <label for="nameDelete"
+                                           class="center-block  font-weight-bold">Name</label>
+                                    <input type="text"
+                                           class="form-control bg-warning"
+                                           name="nameDelete"
+                                           id="nameDelete"
+                                           th:field="*{name}">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <div class="form-group">
+                                    <label for="lastnameDelete"
+                                           class="center-block  font-weight-bold">LastName</label>
+                                    <input type="text"
+                                           class="form-control bg-warning"
+                                           name="lastnameDelete"
+                                           id="lastnameDelete"
+                                           th:field="*{lastname}">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <div class="form-group">
+                                    <label for="passwordDelete"
+                                           class="center-block  font-weight-bold">Password</label>
+                                    <input type="text"
+                                           class="form-control bg-warning"
+                                           name="passwordDelete"
+                                           id="passwordDelete"
+                                           th:field="*{password}"
+                                           value="">
+                                    <!--                                            th:value="*{password}"-->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <div class="form-group">
+                                    <label for="mailDelete"
+                                           class="center-block  font-weight-bold">Mail</label>
+                                    <input type="text"
+                                           class="form-control bg-warning"
+                                           name="mailDelete"
+                                           id="mailDelete"
+                                           th:field="*{mail}">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                                <div class="form-group">
+                                    <label for="roleDelete"
+                                           class="center-block  font-weight-bold">Role</label>
+                                    <select class="custom-select"
+                                            multiple="multiple"
+                                            id="idRoles"
+                                            name="idRoles">
+                                        <option selected
+                                                th:value="${rolesAll.get(0).getId()}"
+                                                th:text="ADMIN"></option>
+                                        <option value="1"
+                                                th:value="${rolesAll.get(1).getId()}"
+                                                th:text="USER"></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Close
+                            </button>
+                            <button type="submit" class="btn btn-primary">delete
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
