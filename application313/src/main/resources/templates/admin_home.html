@@ -68,34 +68,43 @@
 
 <script>
 
-    $('#winModal').on('show.bs.modal', function (e) {
-        const fetchPromise = fetch("/api/" + id);
-        // let mainContent = '',
-        //     main = document.querySelector('#personModalHolder');
+    // $('#winModal').on('show.bs.modal', function (e) {
+    //     const fetchPromise = fetch("/api/" + id);
+    //     // let mainContent = '',
+    //     //     main = document.querySelector('#personModalHolder');
+    //
+    //     fetchPromise.then(response => {
+    //         return response.json();
+    //     }).then(editUser => {
+    //         // alert(id);
+    //      //   this.nameEdit.setAttribute("value","777777");
+    //     });
+    // });
 
-        fetchPromise.then(response => {
-            return response.json();
-        }).then(editUser => {
-            alert(${editUser.name});
-            this.nameEdit.setAttribute("value","777777");
-        });
-    });
+    // void ondeleteclick()
+    // {
+    //     $('#winModal').modal('show', function (event) {
+    //         // console.log("kkdk")
+    //         var button = $(event.relatedTarget) // Button that triggered the modal
+    //         var iduser = button.data('whatever') // Extract info from data-* attributes
+    //         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    //         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    //         // var modal = $(this)
+    //         // console.log(iduser)
+    //         // modal.find('.modal-title').text('New message to ' + recipient)
+    //         // modal.find('.modal-body input').val(recipient)
+    //     });
+    // }
 
-    function openDeleteModal(id) {
-
-
-
-
-        $('#winModal').modal('show');
-
-        // const fetchPromise = fetch("https://ghibliapi.herokuapp.com/films");
+        // const fetchPromise = fetch("/api/"+id);
         // fetchPromise.then(response => {
         //     return response.json();
-        // }).then(films => {
-        //     console.log(films);
+        // }).then(deluser => {
+        //     $('#winModal').modal('show');
+        //     console.log(deluser);
         // });
 
-        alert("myCall1");
+        // alert("myCall1");
         // $.ajax({
         //     url: "/delete/" + id,
         //     success: function (data) {
@@ -139,7 +148,7 @@
         // });
 
         // alert("myCall33");
-    }
+
     // $("#deleteModal").modal("show");
 
 

@@ -74,17 +74,47 @@
 
                                             <!-- Модальное окно -->
 <!--                                            <div th:replace="fragments/editModal.html :: editModal"></div>-->
+                                            <!--   th:onclick="|openDeleteModal('${user.id}');|"      data-toggle="modal" data-target="#winModal" -->
 
+<!--                                            <td>-->
+<!--                                                <button type="button"-->
+<!--                                                        class="btn btn-outline-danger"-->
+<!--                                                        th:data-parameter1="${user.id}"-->
+<!--                                                        th:onclick= "openDeleteModal(this.getAttribute('data-parameter1'))">-->
+
+<!--                                                    delete-->
+<!--                                                </button>-->
+<!--                                            </td>-->
 
                                             <td>
-                                                <button type="button"
-                                                        class="btn btn-outline-danger"
-                                                        th:onclick="|openDeleteModal('${user.id}');|" >
-<!--                                                        th:onclick="|openDeleteModal('${user.id}');|"-->
-
+                                                <button class="btn btn-outline-danger"
+                                                        th:data-target="#winModal"
+                                                        th:data-toggle="modal"
+                                                        th:data-uD="${user.id}"
+                                                        th:type="button">
                                                     delete
                                                 </button>
                                             </td>
+
+                                            <script>
+                                                // void ondeleteclick() {
+                                                    $('#winModal').modal('show', function (event) {
+                                                    var button = $(event.relatedTarget); // Button that triggered the modal
+                                                    var iduser3 = button.data('uD'); // Extract info from data-* attributes
+                                                        // var titleData = button.data("title");
+                                                        // $(this).find(".modal-title").text(titleData);
+                                                    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                                                    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                                                    var modal = $(this);
+                                                    modal.find('nameEdit').setAttribute('value',iduser3);
+                                                    console.log(iduser3);
+                                                    // modal.find('.modal-title').text('New message to ' + recipient)
+                                                    // modal.find('.modal-body input').val(recipient)
+                                                    });
+                                                // }
+                                            </script>
+
+<!--                                            data-whatever="{{dish.id}}"-->
 
                                             <div id="personModalHolder">
 <!--                                                <div id="films">-->
