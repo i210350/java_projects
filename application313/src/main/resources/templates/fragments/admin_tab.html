@@ -68,53 +68,43 @@
                                             </td>
 
 
-                                            <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"
-                                                   role="button" id="editButton">edit</a></td>
+                                            <!--                                            <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"-->
+                                            <!--                                                   role="button" id="editButton">edit</a></td>-->
+
+                                            <td>
+                                                <button class="btn btn-info"
+                                                        th:data-parameter1="${user.id}"
+                                                        id="btnEdit"
+                                                        onclick="oneditclick(this.getAttribute('data-parameter1'))">
+                                                    edit
+                                                </button>
+                                            </td>
+
+                                            <script>
+                                                function oneditclick(uid) {
+                                                    $('#winModal').modal('show');
+                                                    fetch('/api/' + uid)
+                                                        .then(function (response) {
+                                                            return response.json();
+                                                        })
+                                                        .then(function (editUser) {
+                                                            // console.log(editUser);
+                                                            document.getElementById("idEdit").setAttribute('value', editUser.id);
+                                                            document.getElementById("nameEdit").setAttribute('value', editUser.name);
+                                                            document.getElementById("lastnameEdit").setAttribute('value', editUser.lastname);
+                                                            document.getElementById("mailEdit").setAttribute('value', editUser.mail);
+                                                            document.getElementById("passwordEdit").setAttribute('value', editUser.password);
+                                                            document.querySelector("#btn_action").innerHTML = "Edit";
+                                                        });
+
+                                                }
+                                            </script>
 
 
                                             <!-- Модальное окно -->
                                             <!--                                            <div th:replace="fragments/editModal.html :: editModal"></div>-->
                                             <!--   th:onclick="|openDeleteModal('${user.id}');|"      data-toggle="modal" data-target="#winModal" -->
 
-                                            <!--                                            <td>-->
-                                            <!--                                                <button type="button"-->
-                                            <!--                                                        class="btn btn-outline-danger"-->
-                                            <!--                                                        th:data-parameter1="${user.id}"-->
-                                            <!--                                                        th:onclick="onDeleteModal(this.getAttribute('data-parameter1'))">-->
-
-                                            <!--                                                    delete-->
-                                            <!--                                                </button>-->
-                                            <!--                                            </td>-->
-
-                                            <!--                                            <script>-->
-                                            <!--                                                function onDeleteModal(idU) {-->
-                                            <!--                                                    // $('#winModal').modal('show', function (event) {-->
-                                            <!--                                                    //     const fetchPromise = fetch("/api/"+idU);-->
-                                            <!--                                                    //     fetchPromise.then(response => {-->
-                                            <!--                                                    //         return response.json();-->
-                                            <!--                                                    //     }).then(function(data) {-->
-                                            <!--                                                    //         console.log(${data.id});-->
-                                            <!--                                                    //     });-->
-                                            <!--                                                    // });-->
-
-<!--                                                                                                fetch('/api/' + idU)-->
-<!--                                                                                                    .then(function (response) {-->
-<!--                                                                                                        return response.json();-->
-<!--                                                                                                    })-->
-<!--                                                                                                    .then(function (json) {-->
-<!--                                                                                                        // $('#winModal').modal('show');-->
-<!--                                                                                                       $('#winModal').on('show.bs.modal', function (event) {-->
-<!--                                                                                                            // console.log(1);-->
-<!--                                                                                                            // console.log(json);-->
-<!--                                                                                                           alert('kdkdk');-->
-<!--                                                                                                       });-->
-<!--                                                                                                       console.log(2);-->
-<!--                                                                                                        console.log(json);-->
-<!--                                                                                                    });-->
-
-
-                                            <!--                                                }-->
-                                            <!--                                            </script>-->
 
                                             <td>
                                                 <button class="btn btn-outline-danger"
@@ -125,69 +115,24 @@
                                                 </button>
                                             </td>
 
-<!--                                            data-target="#winModal"-->
-<!--                                            data-toggle="modal"-->
-
                                             <script>
-                                                // // void ondeleteclick() {
-                                                //     $('#winModal').on('show.bs.modal', function (event) {
-                                                //     var button = $(event.relatedTarget); // Button that triggered the modal
-                                                //     var iduser3 = button.data('uD'); // Extract info from data-* attributes
-                                                //         console.log(iduser3);
-                                                //         // var titleData = button.data("title");
-                                                //         // $(this).find(".modal-title").text(titleData);
-                                                //     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                                                //     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-                                                //     var modal = $(this);
-                                                //     modal.find('nameEdit').setAttribute('value',iduser3);
-                                                //     console.log(iduser3);
-                                                //     // modal.find('.modal-title').text('New message to ' + recipient)
-                                                //     // modal.find('.modal-body input').val(recipient)
-                                                //     });
-                                                // // }
                                                 function ondeleteclick(uid) {
                                                     $('#winModal').modal('show');
-                                                    fetch('/api/'+uid)
+                                                    fetch('/api/' + uid)
                                                         .then(function (response) {
                                                             return response.json();
                                                         })
-                                                        .then(function (editUser) {
+                                                        .then(function (deleteUser) {
                                                             // console.log(editUser);
-                                                            document.getElementById("idEdit").setAttribute('value',editUser.id);
-                                                            document.getElementById("nameEdit").setAttribute('value',editUser.name);
-                                                            document.getElementById("lastnameEdit").setAttribute('value',editUser.lastname);
-                                                            document.getElementById("mailEdit").setAttribute('value',editUser.mail);
-                                                            document.getElementById("passwordEdit").setAttribute('value',editUser.password);
+                                                            document.getElementById("idEdit").setAttribute('value', deleteUser.id);
+                                                            document.getElementById("nameEdit").setAttribute('value', deleteUser.name);
+                                                            document.getElementById("lastnameEdit").setAttribute('value', deleteUser.lastname);
+                                                            document.getElementById("mailEdit").setAttribute('value', deleteUser.mail);
+                                                            document.getElementById("passwordEdit").setAttribute('value', deleteUser.password);
+                                                            document.querySelector("#btn_action").innerHTML = "Delete";
                                                         });
-
                                                 }
-
-                                                // $('#winModal').on('shown.bs.modal', function (event) {
-                                                //     // var button = $(event.relatedTarget) // Button that triggered the modal
-                                                //     // var recipient = button.data('uD') // Extract info from data-* attributes
-                                                //     // // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                                                //     // // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-                                                //     // var modal = $(this)
-                                                //     // // modal.find('.modal-title').text('New message to ' + recipient)
-                                                //     // // modal.find('.modal-body input').val(recipient)
-                                                //     console.log('22');
-                                                // });
-
                                             </script>
-
-                                            <!--                                            data-whatever="{{dish.id}}"-->
-
-                                            <div id="personModalHolder">
-                                                <!--                                                <div id="films">-->
-                                                <!--                                                    <div class="container">-->
-                                                <!--                                                        classNamelass="text-center mt-4"classNameku Films-->
-                                                <!--                                                        </h2>-->
-                                                <!--                                                        <div class="row">-->
-                                                <!--                                                        </div>-->
-                                                <!--                                                        className-->
-                                                <!--                                                    </div>-->
-                                                <!--                                                </div>-->
-                                            </div>
                                         </tr>
                                     </table>
                                 </div>
