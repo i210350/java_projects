@@ -95,6 +95,8 @@
                                                             document.getElementById("mailEdit").setAttribute('value', editUser.mail);
                                                             document.getElementById("passwordEdit").setAttribute('value', editUser.password);
                                                             document.querySelector("#btn_action").innerHTML = "Edit";
+                                                            // document.forms[0].action = "@{/edit}" ;
+                                                            $("#formModal").attr("action","/edit");
                                                         });
 
                                                 }
@@ -125,6 +127,8 @@
                                                             document.getElementById("mailEdit").setAttribute('value', deleteUser.mail);
                                                             document.getElementById("passwordEdit").setAttribute('value', deleteUser.password);
                                                             document.querySelector("#btn_action").innerHTML = "Delete";
+                                                            // document.forms[0].action = "@{/delete}";
+                                                            $("#formModal").attr("action","/delete");
                                                         });
                                                 }
                                             </script>

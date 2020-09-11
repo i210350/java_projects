@@ -1,6 +1,8 @@
 <div th:fragment="editModal">
 
 
+    <!--                        id="form_edit"-->
+    <!--                          name="form_edit"-->
 
     <div class="modal bd-example-modal-lg" id="winModal"
          role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -15,7 +17,7 @@
                 <div class="modal-body">
                     <form class="col-6 offset-3" th:action="@{/edit}"
                           th:object="${editUser}"
-                          method="POST" id="formModal">
+                          method="POST" id="formModal" name="formModal">
                         <div class="row">
                             <!--                            <div class="col-4 offset-4">-->
                             <div class="form-group">
