@@ -68,9 +68,6 @@
                                             </td>
 
 
-                                            <!--                                            <td><a th:href="@{/edit/{id}(id=${user.id})}" class="btn btn-info"-->
-                                            <!--                                                   role="button" id="editButton">edit</a></td>-->
-
                                             <td>
                                                 <button class="btn btn-info"
                                                         th:data-parameter1="${user.id}"
@@ -94,7 +91,6 @@
                                                             document.getElementById("lastnameEdit").setAttribute('value', editUser.lastname);
                                                             document.getElementById("mailEdit").setAttribute('value', editUser.mail);
                                                             document.getElementById("passwordEdit").setAttribute('value', '');
-                                                            // document.getElementById("passwordEdit").setAttribute('display', 'none')
                                                             document.querySelector("#btn_action").innerHTML = "Edit";
                                                             $("#formModal").attr("action","/edit");
                                                             document.getElementById("passwordEdit").style.display = "inline";
@@ -106,6 +102,7 @@
 
 
                                             <td>
+<!--                                            <th th:utext="${editUser.mail}"</th>-->
                                                 <button class="btn btn-outline-danger"
                                                         th:data-parameter1="${user.id}"
                                                         id="btnDelete"
@@ -127,7 +124,6 @@
                                                             document.getElementById("nameEdit").setAttribute('value', deleteUser.name);
                                                             document.getElementById("lastnameEdit").setAttribute('value', deleteUser.lastname);
                                                             document.getElementById("mailEdit").setAttribute('value', deleteUser.mail);
-                                                            // document.getElementById("passwordEdit").setAttribute('value', deleteUser.password);
                                                             document.querySelector("#btn_action").innerHTML = "Delete";
                                                             $("#formModal").attr("action","/delete");
                                                             document.getElementById("passwordEdit").style.display = "none";

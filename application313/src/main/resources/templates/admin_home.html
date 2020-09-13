@@ -29,16 +29,35 @@
     </div>
     <div class="row ">
         <div class="col-md-2" id="md2">
-
+<!--            onclick="location.href = '/admin';"-->
+<!--            onclick="location.href = '/user';"-->
             <div class="btn-group-vertical btn-group-toggle btn-block" id="radioTab" data-toggle="buttons">
                 <label class="btn btn-light btn-outline-primary active">
                     <input type="radio" name="options" id="option1" value="optionAdmin"
-                           onclick="location.href = '/admin';" checked>ADMIN
+                           onclick="onClickChangeUser()" checked>ADMIN
                 </label>
                 <label class="btn btn-outline-primary btn-light">
                     <input type="radio" name="options" value="optionUser" id="option2"
-                           onclick="location.href = '/user';">USER
+                           onclick="onClickChangeUser()">USER
                 </label>
+                <script>
+                    // function onClickChangeAdmin() {
+                    //     // alert('kkklll');
+                    //     fetch('/admin')
+                    //         .then(function (response) {
+                    //             return response.json();
+                    //         })
+                    //          // .then(function (${usersList}) {
+                    //          // }
+                    // }
+                    function onClickChangeUser() {
+                        // alert('kkklllbbbbbbbbb');
+                        fetch('/admin')
+                            .then(function (response) {
+                                return response.json();
+                            })
+                    }
+                </script>
             </div>
         </div>
         <div class="col-md-10 bg-light">
@@ -50,6 +69,8 @@
 </div>
 
 <div th:replace="fragments/editModal.html :: editModal"></div>
+
+
 
 </body>
 </html>
