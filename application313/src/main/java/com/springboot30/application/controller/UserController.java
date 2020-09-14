@@ -162,6 +162,7 @@ public class UserController {
         return model;
     }
 
+
     @RequestMapping(value= {"/admin"}, method=RequestMethod.GET)
     public ModelAndView admin_home() {
         ModelAndView model = new ModelAndView();
@@ -179,6 +180,12 @@ public class UserController {
         model.setViewName("admin_home");
         return model;
     }
+
+//    @RequestMapping(value= {"/adminTable"}, method=RequestMethod.GET)
+//    public List<UserApp> getAllUsers11() {
+//        List<UserApp> usersApp = userServiceImpl.getAllByActive(1);
+//        return usersApp;
+//    }
 
     @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
     public ModelAndView user_home() {

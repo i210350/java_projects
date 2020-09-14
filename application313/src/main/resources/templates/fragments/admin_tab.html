@@ -16,11 +16,26 @@
             <br>
             <br>
             <br>
-            <div>
+            <div id="blockTable">
+                <div class="container">
+                    <div class="row">
 
-                <div th:replace="fragments/users_table :: usersTable"></div>
-
+                    </div>
+                </div>
             </div>
+                    <script>
+                        // <div th:replace="fragments/users_table :: usersTable"></div>
+                //        getUsersTable();
+                        function getUsersTable() {
+                             fetch('/api/users')
+                                .then(function (response) {
+                                    return response.json();
+                                }).then(jsonList =>{console.log(Array.from(jsonList, x => x.id));
+                                });
+                        }
+                    </script>
+
+
         </div>
         <div class="tab-pane fade" id="adduserTab" role="tabpanel" aria-labelledby="adduser-tab">
             <div class="container-fluid">
