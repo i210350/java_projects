@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -184,12 +185,16 @@ public class UserController {
         ModelAndView model = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserApp user = userServiceImpl.findUserByEmail(auth.getName());
+        List<UserApp> usersList = new ArrayList<>();
+        usersList.add(user);
         String isAdmin = null;
         if (user.getStingRoles().contains("ADMIN")) {
             isAdmin = "ADMIN";
         }
+        model.addObject("usersList", usersList);
         model.addObject("userCurrent",user);
         model.addObject("isAdmin",isAdmin);
+
         model.setViewName("user_home");
         return model;
     }
