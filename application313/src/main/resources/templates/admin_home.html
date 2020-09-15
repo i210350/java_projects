@@ -83,8 +83,6 @@
                             .then(function (response) {
                                 return response.json();
                             }).then(usersList =>{
-                            // console.log(Array.from(usersList, user => user.id));
-                            // console.log(newTable);
                             Array.from( usersList, function (user) {
                                 newTable += "<td align='center'>" + user.name + "</td>";
                             });
