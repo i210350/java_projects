@@ -48,17 +48,37 @@
                         newTable = '' ;
                         let i = 0;
                         document.getElementById('blockTable').innerHTML = newTable;
-                        newTable = "<table border='1' width='80%'><tr>";
+                        newTable = "<table border='1' width='80%'>";
+                        // newTable = "<table border='1' width='80%'><tr>";
+                        // fetch('/api/users')
+                        //     .then(function (response) {
+                        //         return response.json();
+                        //     }).then(usersList =>{
+                        //     Array.from( usersList, function (user) {
+                        //         newTable += "<td align='center'>" + user.name + "</td>";
+                        //     });
+                        //     newTable += "</tr></table>";
+                        //     document.getElementById('blockTable').innerHTML = newTable;
+                        // });
+
                         fetch('/api/users')
                             .then(function (response) {
                                 return response.json();
                             }).then(usersList =>{
                             Array.from( usersList, function (user) {
+                                newTable += "<tr>";
+                                newTable += "<td align='center'>" + user.id + "</td>";
                                 newTable += "<td align='center'>" + user.name + "</td>";
+                                newTable += "<td align='center'>" + user.lastname + "</td>";
+                                newTable += "<td align='center'>" + user.mail + "</td>";
+                                newTable += "<td align='center'>" + user.active + "</td>";
+                                newTable += "</tr>";
                             });
-                            newTable += "</tr></table>";
+                            // newTable += "</tr></table>";
+                            newTable += "</table>";
                             document.getElementById('blockTable').innerHTML = newTable;
                         });
+
                         // console.log(newTable);
                     }
 
