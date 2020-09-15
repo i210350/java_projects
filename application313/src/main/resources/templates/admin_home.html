@@ -60,72 +60,39 @@
                         "<div class='panel-heading'></div>"+
                         "<table class='table'>"+
                         "<tr>"+
-                        "<td>"+
-                        "<th>ID</th>"+
-                        "</td>"+
-                        "<td>"+
-                        "<th>FirstName</th>"+
-                        "</td>"+
-                        "<td>"+
-                        "<th>LastName</th>"+
-                        "</td>"+
-                        "<td>"+
-                        "<th>Mail</th>"+
-                        "</td>"+
-                        "<td>"+
-                        "<th>Role</th>"+
-                        "</td>"+
-                        "<td>"+
-                        "<th>Active</th>"+
-                        "</td>"+
+                        "<td align='center'><b>ID</b></td>"+
+                        "<td align='center'><b>FirstName</b></td>"+
+                        "<td align='center'><b>LastName</b></td>"+
+                        "<td align='center'><b>Mail</b></td>"+
+                        "<td align='center'><b>Role</b></td>"+
+                        "<td align='center'><b>Active</b></td>"+
                         "</tr>" ;
-
-                                // "<tr th:each=' user : ${usersList}'>" +
 
                         fetch('/api/users')
                             .then(function (response) {
                                 return response.json();
                             }).then(usersList =>{
                             Array.from( usersList, function (user) {
-                                newTable += "<td>" +
-                                    "<th>" + user.id + "</th>" +
+                                newTable +=
+                                    "<tr><td align='center'>" + user.id +
                                     "</td>" +
-                                    "<td>" +
-                                    "<th>" + user.name + "</th>" +
+                                    "<td align='center'>" + user.name +
                                     "</td>" +
-                                    "<td>" +
-                                    "<th>" + user.lastname + "</th>" +
+                                    "<td align='center'>" + user.lastname +
                                     "</td>" +
-                                    "<td>" +
-                                    "<th>" + user.mail + "</th>" +
+                                    "<td align='center'>" + user.mail +
                                     "</td>" +
-                                    "<td>" +
-                                    "<th>" + user.name + "</th>" +
+                                    "<td align='center'>" + user.name +
                                     "</td>" +
-                                    "<td>" +
-                                    "<th>" + user.active + "</th>" +
-                                    "</td>"+
-                                "</table>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>" +
-                                "</div>" ;
-                            // fetch('/api/users')
-                            //     .then(function (response) {
-                            //         return response.json();
-                            //     }).then(usersList =>{
-                            //     Array.from( usersList, function (user) {
-                                    // newTable += "<tr>";
-                                    // newTable += "<td align='center'>" + user.id + "</td>";
-                                    // newTable += "<td align='center'>" + user.name + "</td>";
-                                    // newTable += "<td align='center'>" + user.lastname + "</td>";
-                                    // newTable += "<td align='center'>" + user.mail + "</td>";
-                                    // // newTable += "<td align='center'>" + user.roles + "</td>";
-                                    // newTable += "<td align='center'>" + user.active + "</td>";
-                                    // newTable += "</tr>";
+                                    "<td align='center'>" + user.active +
+                                    "</td></tr>" ;
                                 });
-                                // newTable += "</table>";
+                                newTable += "</table>" +
+                                    "</div>" +
+                                    "</div>" +
+                                    "</div>" +
+                                    "</div>" +
+                                    "</div>" ;
                                 document.getElementById('blockTable').innerHTML = newTable;
                                 console.log(newTable);
                             });
