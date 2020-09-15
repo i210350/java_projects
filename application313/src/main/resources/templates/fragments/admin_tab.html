@@ -19,90 +19,24 @@
             <div id="blockTable">
                 <div class="container">
                     <div class="row">
-
+<!--                        <script>getUsersTable();</script>-->
+<!--                        <th th:utext="${usersList}"></th>-->
+<!--                        <div th:replace="fragments/users_table :: usersTable"></div>-->
                     </div>
                 </div>
             </div>
 
-            <div id="films">
-                <div class="container">
-                    <h2 class="text-center mt-4">Heroku Films</h2>
-                    <div class="row">
-                    </div>
-                </div>
-            </div>
 
-            <script>
-                // <div th:replace="fragments/users_table :: usersTable"></div>
 
-                // function getUsersTable() {
-                //      fetch('/api/users')
-                //         .then(function (response) {
-                //             return response.json();
-                //         }).then(jsonList =>{console.log(Array.from(jsonList, x => x.lastname));
-                //         });
-                // }
-                // let mainContent = '',
-                //     main = document.querySelector('#films .row');
-
-                function getUsersTable() {
-
-                    const fetchPromise = fetch("/api/users");
-                    let mainContent = '',
-                        main = document.querySelector('#blockTable .row');
-
-                    fetchPromise.then(response => {
-                        return response.json();
-                    }).then(usersList => {
-                        usersList.forEach(user => {
-                            mainContent+=`
-  <div class="col-md-6 film-heroku my-3">
-    <div class="card border-primary">
-  	<div class="card-header bg-primary text-light">
-  	  <div class="card-title">
-  	    <h2>${user.id}</h2>
-  	    <h4>Director: ${user.name}</h4>
-  	    <h4>Producer: ${user.lastname}</h4>
-  	    <h4>Release Date: ${user.password}</h4>
-  	  </div>
-  	</div>
-  	<div class="card-body" data-id="${user.id}">
-  	  <div class="card-text">${user.mail}</div>
-     </div>
-    </div>
-  </div>`;
-                        });
-                        console.log(usersList);
-                        main.innerHTML = mainContent;
-                    });
-
-  //                   fetch('/api/users')
-  //                       .then(function (response) {
-  //                           return response.json();
-  //                       }).then(usersList => {
-  //                       console.log(Array.from(usersList, x => x.lastname));
-  //
-  //                       // mainContent+=`<div th:replace="fragments/users_table :: usersTable"></div>`;
-  //                       mainContent+=`
-  // <div class="col-md-6 film-heroku my-3">
-  //   <div class="card border-primary">
-  // 	<div class="card-header bg-primary text-light">
-  // 	  <div class="card-title">
-  // 	    <h2>${x.id}</h2>
-  // 	    <h4>Director: ${x.name}</h4>
-  // 	    <h4>Producer: ${x.lastname}</h4>
-  // 	    <h4>Release Date: ${x.mail}</h4>
-  // 	  </div>
-  // 	</div>
-  //   </div>
-  // </div>`;
-  //                   });
-  //
-  //                   main.innerHTML = mainContent;
-
-                }
-
-            </script>
+<!--            <script>-->
+<!--                function getUsersTable() {-->
+<!--                    fetch('/api/users')-->
+<!--                            .then(function (response) {-->
+<!--                                return response.json();-->
+<!--                            }).then(jsonList =>{console.log(Array.from(jsonList, user => user.lastname));-->
+<!--                            });-->
+<!--                }-->
+<!--            </script>-->
 
 
         </div>
