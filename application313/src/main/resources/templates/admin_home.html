@@ -45,6 +45,7 @@
                     let newTable = '' ;
                     let usersList ;
 
+
                     function getUsersTable() {
                             newTable = '' ;
                             let i = 0;
@@ -168,7 +169,9 @@
 
 <div th:replace="fragments/editModal.html :: editModal"></div>
 
-
+<script>
+    getUsersTable();
+</script>
 
 </body>
 </html>
