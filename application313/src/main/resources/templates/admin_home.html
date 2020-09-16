@@ -43,7 +43,8 @@
                 <script>
 
                     let newTable = '' ;
-                    let usersList ;
+            //        let usersList ;
+            //         let parameter1;
 
 
                     function getUsersTable() {
@@ -83,17 +84,17 @@
                                     "<td align='center'>" + user.active + "</td>" +
                                     "<td>"+
                                         "<button className='btn btn-info' " +
-                                                "th:data-parameter1=" + user.id +
+                                                "th:data-parameter1=" + "'" + user.id + "'" +
                                                 " id='btnEdit' "+
-                                                " onClick=" + "oneditclick(this.getAttribute('data-parameter1'))>" +
+                                                " onClick=\"oneditclick(this.getAttribute('data-parameter1'))\">" +
                                             "edit" +
                                         "</button>" +
                                     "</td>" +
                                     "<td>"+
                                         "<button className='btn btn-outline-danger' " +
-                                                "th:data-parameter1=" + user.id +
+                                                "th:data-parameter1=" + "'" + user.id + "'" +
                                                 " id='btnEdit' "+
-                                                " onClick=" + "ondeleteclick(this.getAttribute('data-parameter1'))>" +
+                                                " onClick=\"ondeleteclick(this.getAttribute('data-parameter1'))\">" +
                                             "delete" +
                                         "</button>" +
                                     "</td>" +
@@ -104,7 +105,7 @@
                                     "</div>" +
                                     "</div>" +
                                     "</div>" +
-                                    "</div>" ;
+                                    "</div>";  //  + "  "+scriptText;
                                 document.getElementById('blockTable').innerHTML = newTable;
                                 console.log(newTable);
                             });
@@ -123,7 +124,6 @@
                                 return response.json();
                             })
                             .then(function (editUser) {
-                                // console.log(editUser);
                                 document.getElementById("idEdit").setAttribute('value', editUser.id);
                                 document.getElementById("nameEdit").setAttribute('value', editUser.name);
                                 document.getElementById("lastnameEdit").setAttribute('value', editUser.lastname);
@@ -144,7 +144,6 @@
                                 return response.json();
                             })
                             .then(function (deleteUser) {
-                                // console.log(editUser);
                                 document.getElementById("idEdit").setAttribute('value', deleteUser.id);
                                 document.getElementById("nameEdit").setAttribute('value', deleteUser.name);
                                 document.getElementById("lastnameEdit").setAttribute('value', deleteUser.lastname);
@@ -155,6 +154,48 @@
                                 document.getElementById("passwordLabel").style.display = "none";
                             });
                     }
+                    // <script>
+                    //
+                    // // let scriptText =
+                    // //     " <script> "+
+                    // //
+                    // // "function oneditclick(uid) { "+
+                    //   "  $('#winModal').modal('show'); "+
+                    //   "  fetch('/api/' + uid) " +
+                    //   "      .then(function (response) { "+
+                    //   "          return response.json(); "+
+                    //   "      }) "+
+                    //   "      .then(function (editUser) { "+
+                    //   "          document.getElementById('idEdit').setAttribute('value', editUser.id); "+
+                    //   "          document.getElementById('nameEdit').setAttribute('value', editUser.name); "+
+                    //   "          document.getElementById('lastnameEdit').setAttribute('value', editUser.lastname); "+
+                    //   "          document.getElementById('mailEdit').setAttribute('value', editUser.mail); "+
+                    //   "          document.getElementById('passwordEdit').setAttribute('value', ''); "+
+                    //   "          document.querySelector('#btn_action').innerHTML = 'Edit'; "+
+                    // "          $('#formModal').attr('action', '/edit'); "+
+                    // "          document.getElementById('passwordEdit').style.display = 'inline'; "+
+                    // "           document.getElementById('passwordLabel').style.display = 'inline'; "+
+                    // "        }); "+
+                    //
+                    // "}  " + " </" +"script> ";
+
+                    // function ondeleteclick(uid) {
+                    //     $('#winModal').modal('show');
+                    //     fetch('/api/' + uid)
+                    //         .then(function (response) {
+                    //             return response.json();
+                    //         })
+                    //         .then(function (deleteUser) {
+                    //             document.getElementById("idEdit").setAttribute('value', deleteUser.id);
+                    //             document.getElementById("nameEdit").setAttribute('value', deleteUser.name);
+                    //             document.getElementById("lastnameEdit").setAttribute('value', deleteUser.lastname);
+                    //             document.getElementById("mailEdit").setAttribute('value', deleteUser.mail);
+                    //             document.querySelector("#btn_action").innerHTML = "Delete";
+                    //             $("#formModal").attr("action", "/delete");
+                    //             document.getElementById("passwordEdit").style.display = "none";
+                    //             document.getElementById("passwordLabel").style.display = "none";
+                    //         });
+                    // }
 
                 </script>
             </div>
