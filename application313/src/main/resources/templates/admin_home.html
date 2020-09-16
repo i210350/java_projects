@@ -84,7 +84,7 @@
                                     "<td align='center'>" + user.active + "</td>" +
                                     "<td>"+
                                         "<button className='btn btn-info' " +
-                                                "th:data-parameter1=" + "'" + user.id + "'" +
+                                                "th:data-parameter1=" + user.id +
                                                 " id='btnEdit' "+
                                                 " onClick=\"oneditclick(this.getAttribute('data-parameter1'))\">" +
                                             "edit" +
@@ -92,7 +92,7 @@
                                     "</td>" +
                                     "<td>"+
                                         "<button className='btn btn-outline-danger' " +
-                                                "th:data-parameter1=" + "'" + user.id + "'" +
+                                                "th:data-parameter1=" + user.id  +
                                                 " id='btnEdit' "+
                                                 " onClick=\"ondeleteclick(this.getAttribute('data-parameter1'))\">" +
                                             "delete" +
