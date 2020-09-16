@@ -62,6 +62,7 @@ public class UserAPIController {
 
     @PutMapping("/edit")
     void editUser(@RequestBody UserApp editUser) {
+
         userServiceImpl.saveUser(editUser);
     }
 

@@ -28,16 +28,14 @@
     </div>
     <div class="row ">
         <div class="col-md-2" id="md2">
-<!--            onclick="location.href = '/admin';"-->
-<!--            onclick="location.href = '/user';"-->
             <div class="btn-group-vertical btn-group-toggle btn-block" id="radioTab" data-toggle="buttons">
                 <label class="btn btn-light btn-outline-primary active">
                     <input type="radio" name="options" id="option1" value="optionAdmin"
-                           onclick="onClickChangeUser()" checked>ADMIN
+                           onclick="onClickChangeUser(0)" checked>ADMIN
                 </label>
                 <label class="btn btn-outline-primary btn-light">
                     <input type="radio" name="options" value="optionUser" id="option2"
-                           onclick="onClickChangeUser()">USER
+                           onclick="onClickChangeUser(1)">USER
                 </label>
 
             </div>
@@ -52,17 +50,15 @@
 
 <div th:replace="fragments/editModal.html :: editModal"></div>
 
-<!--<script>-->
-<!--    -->
-<!--</script>-->
 
 <script>
 
     let newTable = '' ;
 
-    function getUsersTable() {
+    function getUsersTable(num) {
         newTable = '' ;
         let i = 0;
+        let path = num==0 ? '/api/users' : '/api/currentUser' ;
         document.getElementById('blockTable').innerHTML = newTable;
         newTable = "<div class='panel panel-primary'> " +
             "<div class='panel-heading'>"+
@@ -83,7 +79,7 @@
             "<td align='center'><b>Active</b></td>"+
             "</tr>" ;
 
-        fetch('/api/users')
+        fetch(path)
             .then(function (response) {
                 return response.json();
             }).then(usersList =>{
@@ -122,12 +118,13 @@
             document.getElementById('blockTable').innerHTML = newTable;
             console.log(newTable);
         });
+
     }
 
 
 
-    function onClickChangeUser() {
-        getUsersTable();
+    function onClickChangeUser(num) {
+        getUsersTable(num);
     }
 
     function oneditclick(uid) {
@@ -143,7 +140,8 @@
                 document.getElementById("mailEdit").setAttribute('value', editUser.mail);
                 document.getElementById("passwordEdit").setAttribute('value', '');
                 document.querySelector("#btn_action").innerHTML = "Edit";
-                $("#formModal").attr("action", "/edit");
+                $("#formModal").attr("action", "/api/edit");
+                // $("#formModal").attr("method", "POST");
                 document.getElementById("passwordEdit").style.display = "inline";
                 document.getElementById("passwordLabel").style.display = "inline";
             });
@@ -162,13 +160,32 @@
                 document.getElementById("lastnameEdit").setAttribute('value', deleteUser.lastname);
                 document.getElementById("mailEdit").setAttribute('value', deleteUser.mail);
                 document.querySelector("#btn_action").innerHTML = "Delete";
-                $("#formModal").attr("action", "/delete");
+                $("#formModal").attr("action", "/api/delete");
+                // $("#formModal").attr("method", "POST");
                 document.getElementById("passwordEdit").style.display = "none";
                 document.getElementById("passwordLabel").style.display = "none";
             });
     }
 
-    getUsersTable();
+    function createNewProfile(profile) {
+        const formData = new FormData();
+        formData.append('first_name', profile.firstName);
+        formData.append('last_name', profile.lastName);
+        formData.append('email', profile.email);
+
+        return fetch('http://example.com/api/v1/registration', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+    }
+
+    createNewProfile(profile)
+        .then((json) => {
+            // handle success
+        })
+        .catch(error => error);
+
+    getUsersTable(0);
 </script>
 
 </body>

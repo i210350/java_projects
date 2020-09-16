@@ -17,7 +17,7 @@
                 <div class="modal-body">
                     <form class="col-6 offset-3" th:action="@{/edit}"
                           th:object="${editUser}"
-                          method="POST" id="formModal" name="formModal">
+                          method="PUT" id="formModal" name="formModal">
                         <div class="row">
                             <!--                            <div class="col-4 offset-4">-->
                             <div class="form-group">
@@ -84,8 +84,8 @@
                                 <input type="text"
                                        class="form-control bg-warning"
                                        name="passwordEdit"
-                                       id="passwordEdit">
-<!--                                       th:field="*{password}">-->
+                                       id="passwordEdit"
+                                       th:field="*{password}">
                             </div>
                             <!--                            </div>-->
                         </div>
