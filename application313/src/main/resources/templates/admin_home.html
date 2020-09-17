@@ -140,8 +140,7 @@
                 document.getElementById("mailEdit").setAttribute('value', editUser.mail);
                 document.getElementById("passwordEdit").setAttribute('value', '');
                 document.querySelector("#btn_action").innerHTML = "Edit";
-                $("#formModal").attr("action", "/api/edit");
-                // $("#formModal").attr("method", "POST");
+                $("#formModal").attr("action", "/edit");
                 document.getElementById("passwordEdit").style.display = "inline";
                 document.getElementById("passwordLabel").style.display = "inline";
             });
@@ -160,8 +159,7 @@
                 document.getElementById("lastnameEdit").setAttribute('value', deleteUser.lastname);
                 document.getElementById("mailEdit").setAttribute('value', deleteUser.mail);
                 document.querySelector("#btn_action").innerHTML = "Delete";
-                $("#formModal").attr("action", "/api/delete");
-                // $("#formModal").attr("method", "POST");
+                $("#formModal").attr("action", "/delete");
                 document.getElementById("passwordEdit").style.display = "none";
                 document.getElementById("passwordLabel").style.display = "none";
             });

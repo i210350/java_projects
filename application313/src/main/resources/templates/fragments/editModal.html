@@ -128,12 +128,10 @@
             console.log(formModal.getAttribute("action"));
             e.preventDefault();
             data = new FormData(formModal);
-            act = formModal.getAttribute("action");
-            if (act == '/api/edit') {
-                url = '/edit';
+            url = formModal.getAttribute("action");
+            if (url == '/edit') {
                 fmethod = 'PUT';
             } else {
-                url = '/delete';
                 fmethod = 'DELETE';
             }
 
@@ -142,7 +140,8 @@
                     body: data
                 });
 
-            window.location.href="/admin";
+            // window.location.href="/api/users";
+            getUsersTable(0);
             // let result = await response.json();
 
             // window.location('#users-tab');
