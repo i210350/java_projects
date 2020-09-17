@@ -129,19 +129,16 @@
             e.preventDefault();
             data = new FormData(formModal);
             url = formModal.getAttribute("action");
-            if (url == '/edit') {
-                fmethod = 'PUT';
-            } else {
-                fmethod = 'DELETE';
-            }
+
+            fmethod = url == '/edit' ? 'PUT' : 'DELETE';
 
                 let response = await fetch(url, {
                     method: fmethod,
                     body: data
                 });
+
+            $('#winModal').modal('hide');
             getUsersTable(0);
         };
     </script>
-
-
 </div>
