@@ -1,10 +1,22 @@
 <div th:fragment="topPanel">
     <div class="panel panel-default">
         <div class="p-2 mb-2 bg-dark rounded">
-            <div class="panel-body bg-dark text-white">
-                <th th:utext="${userCurrent.getMail()}"></th>
-                <th th:utext="':'"></th>
-                <th th:utext="${userCurrent.getStingRoles()}"></th>
+            <div class="panel-body bg-dark text-white ">
+                <table>
+                    <rd>
+                        <td  width="2%">
+                            <th th:utext="${userCurrent.getMail()}"></th>
+                            <th th:utext="':'"></th>
+                            <th th:utext="${userCurrent.getStingRoles()}"></th>
+                        </td>
+                        <td width="93%"></td>
+                        <td width="5%">
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Logout"/>
+                            </form>
+                        </td>
+                    </rd>
+                </table>
             </div>
         </div>
     </div>
