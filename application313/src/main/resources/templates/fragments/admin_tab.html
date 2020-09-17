@@ -107,9 +107,12 @@
                 method: 'POST',
                 body: new FormData(formAdd)
             });
-            // let result = await response.json();
+
+            $('.nav-tabs a:first').tab('show')
             getUsersTable(0);
+            $("#formAdd")[0].reset();
         };
+
     </script>
 </div>
 
