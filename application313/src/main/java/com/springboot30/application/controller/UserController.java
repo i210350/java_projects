@@ -181,11 +181,6 @@ public class UserController {
         return model;
     }
 
-//    @RequestMapping(value= {"/adminTable"}, method=RequestMethod.GET)
-//    public List<UserApp> getAllUsers11() {
-//        List<UserApp> usersApp = userServiceImpl.getAllByActive(1);
-//        return usersApp;
-//    }
 
     @RequestMapping(value= {"/user"}, method=RequestMethod.GET)
     public ModelAndView user_home() {
