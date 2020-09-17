@@ -17,7 +17,7 @@
                 <div class="modal-body">
                     <form class="col-6 offset-3" th:action="@{/edit}"
                           th:object="${editUser}"
-                          method="PUT" id="formModal" name="formModal">
+                          id="formModal" name="formModal">
                         <div class="row">
                             <!--                            <div class="col-4 offset-4">-->
                             <div class="form-group">
@@ -124,7 +124,29 @@
     </div>
 
     <script>
+        formModal.onsubmit = async (e) => {
+            console.log(formModal.getAttribute("action"));
+            e.preventDefault();
+            data = new FormData(formModal);
+            act = formModal.getAttribute("action");
+            if (act == '/api/edit') {
+                url = '/edit';
+                fmethod = 'PUT';
+            } else {
+                url = '/delete';
+                fmethod = 'DELETE';
+            }
 
+                let response = await fetch(url, {
+                    method: fmethod,
+                    body: data
+                });
+
+
+            let result = await response.json();
+
+            // window.location('#users-tab');
+        };
     </script>
 
 

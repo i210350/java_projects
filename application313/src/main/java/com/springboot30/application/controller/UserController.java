@@ -86,7 +86,7 @@ public class UserController {
         return "/fragments/deleteModal :: deleteModal";
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public ModelAndView deleteUser(@ModelAttribute("userApp") UserApp deleteUser) {
         ModelAndView modelAndView = new ModelAndView();
         userServiceImpl.deleteUser(deleteUser);
@@ -116,7 +116,7 @@ public class UserController {
 
 
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public ModelAndView editUser(@ModelAttribute("userApp") UserApp editUser,
                                  @RequestParam(required = false) Long[] idRoles) {
         ModelAndView modelAndView = new ModelAndView();
