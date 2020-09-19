@@ -72,7 +72,7 @@ public class RestAPIController {
 
         stringOut += deleteResponse.getBody();
 
-        return stringOut;
+        return "code" + stringOut;
     }
 
 
