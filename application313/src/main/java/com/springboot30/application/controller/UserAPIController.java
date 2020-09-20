@@ -21,31 +21,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserAPIController {
-//    @Autowired
-//    private UserRepository userRepository;
-//
-//    @Autowired
-//    private RoleRepository roleRepository;
     @Autowired
     UserServiceImpl userServiceImpl;
-
-//    @PostMapping(
-//            value = "/users",
-//            consumes = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE},
-//            produces = {APPLICATION_JSON_VALUE, APPLICATION_XML_VALUE}
-//    )
-//    public UserApp create(@RequestBody UserApp userApp)
-//    {
-//        return userRepository.save(userApp);
-//    }
-
-//    @GetMapping("/{id}")
-//    public ResponseEntity<UserApp> getUserById(@PathVariable("id") Long id) {
-////            throws RecordNotFoundException {
-//        UserApp userApp = userServiceImpl.getUserById(id);
-//
-//        return new ResponseEntity<UserApp>(userApp, new HttpHeaders(), HttpStatus.OK);
-//    }
 
     @GetMapping("/{id}")
     public UserApp getUserById(@PathVariable("id") Long id) {
@@ -62,7 +39,6 @@ public class UserAPIController {
 
     @PutMapping("/edit")
     void editUser(@RequestBody UserApp editUser) {
-
         userServiceImpl.saveUser(editUser);
     }
 
