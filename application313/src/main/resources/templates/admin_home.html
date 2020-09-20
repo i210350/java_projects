@@ -41,9 +41,7 @@
             </div>
         </div>
         <div class="col-md-10 bg-light">
-
-            <div th:replace="fragments/admin_tab.html :: tab1"></div>
-
+                <div th:replace="fragments/admin_tab.html :: tab1"></div>
         </div>
     </div>
 </div>
@@ -56,10 +54,10 @@
     let newTable = '' ;
 
     function getUsersTable(num) {
-        newTable = '' ;
+ //       newTable = '' ;
         let i = 0;
         let path = num==0 ? '/api/users' : '/api/currentUser' ;
-        document.getElementById('blockTable').innerHTML = newTable;
+  //      document.getElementById('blockTable').innerHTML = newTable;
         newTable = "<div class='panel panel-primary'> " +
             "<div class='panel-heading'>"+
             "<h3 class='panel-title'>All users</h3>"+
@@ -69,15 +67,15 @@
             "<div class='panel-body'>"+
             "<div class='panel panel-default'>"+
             "<div class='panel-heading'></div>"+
-            "<table class='table'>"+
-            "<tr>"+
+            "<table class='table table-striped'>"+
+            "<thead><tr>"+
             "<td align='center'><b>ID</b></td>"+
             "<td align='center'><b>FirstName</b></td>"+
             "<td align='center'><b>LastName</b></td>"+
             "<td align='center'><b>Mail</b></td>"+
             "<td align='center'><b>Role</b></td>"+
             "<td align='center'><b>Active</b></td>"+
-            "</tr>" ;
+            "</tr></thead><tbody>" ;
 
         fetch(path)
             .then(function (response) {
@@ -88,7 +86,7 @@
                 Array.from(user.roles,function (role) {
                     stringRoles += role.name + ' ';
                 });
-
+                //style='background:#ff0000'    style='background:#78dbe2'
                 newTable +=
                     "<tr><td align='center'>" + user.id + "</td>" +
                     "<td align='center'>" + user.name + "</td>" +
@@ -97,24 +95,24 @@
                     "<td align='center'>" + stringRoles + "</td>" +
                     "<td align='center'>" + user.active + "</td>" +
                     "<td>"+
-                    "<button className='btn btn-info' " +
+                    "<input type='button' class='btn btn-info'  value='edit' " +
                     "data-parameter1=" + user.id +
                     " id='btnEdit' "+
                     " onClick=\"oneditclick(this.getAttribute('data-parameter1'))\">" +
-                    "edit" +
-                    "</button>" +
+                    "" +
+                    "</input>" +
                     "</td>" +
                     "<td>"+
-                    "<button className='btn btn-outline-danger' " +
+                    "<input type='button' class='btn btn-danger'  value='delete'" +
                     "data-parameter1=" + user.id  +
                     " id='btnEdit' "+
                     " onClick=\"ondeleteclick(this.getAttribute('data-parameter1'))\">" +
-                    "delete" +
-                    "</button>" +
+                    "" +
+                    "</input>" +
                     "</td>" +
                     "</tr>" ;
             });
-            newTable += "</table>" +
+            newTable += "</tbody></table>" +
                 "</div>" +
                 "</div>" +
                 "</div>" +
