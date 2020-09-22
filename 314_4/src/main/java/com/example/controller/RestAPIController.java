@@ -69,7 +69,6 @@ public class RestAPIController {
         ///DELETE
         url = url + "/" + editUser.getId();
         ResponseEntity<String> deleteResponse = restTemplate.exchange(url , HttpMethod.DELETE, entity, String.class);
-
         stringOut += deleteResponse.getBody();
 
         return "code:    " + stringOut;
