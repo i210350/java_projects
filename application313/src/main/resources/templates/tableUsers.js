@@ -1,4 +1,4 @@
-let newTable = '' ;
+// let newTable = '' ;
 
 function getUsersTable(num) {
     let i = 0;
