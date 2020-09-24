@@ -55,25 +55,26 @@
     function getUsersTable(num) {
         let i = 0;
         let path = num==0 ? '/api/users' : '/api/currentUser' ;
-        newTable = "<div class='panel panel-primary'> " +
-            "<div class='panel-heading'>"+
-            "<h3 class='panel-title'>All users</h3>"+
-            "</div>"+
-            "<div class='panel panel-default'>"+
-            "<div class='panel-body bg-white'>"+
-            "<div class='panel-body'>"+
-            "<div class='panel panel-default'>"+
-            "<div class='panel-heading'></div>"+
-            "<table class='table table-striped'>"+
-            "<thead><tr>"+
-            "<td align='center'><b>ID</b></td>"+
-            "<td align='center'><b>FirstName</b></td>"+
-            "<td align='center'><b>LastName</b></td>"+
-            "<td align='center'><b>Mail</b></td>"+
-            "<td align='center'><b>Role</b></td>"+
-            "<td align='center'><b>Active</b></td>"+
-            "</tr></thead><tbody>" ;
-
+        newTable =
+            "<div class='panel panel-primary'> "+
+            "<div class='panel-heading'> "+
+            "<h3 class='panel-title'>All users</h3> "+
+            "</div> "+
+            "<div class='panel panel-default'> "+
+            "<div class='panel-body bg-white'> "+
+            "<div class='panel-body'> "+
+            "<div class='panel panel-default'> "+
+            "<div class='panel-heading'></div> "+
+            "<table class='table table-striped'> "+
+            "<thead><tr> "+
+            "<td align='center'><b>ID</b></td> "+
+            "<td align='center'><b>FirstName</b></td> "+
+            "<td align='center'><b>LastName</b></td> "+
+            "<td align='center'><b>Mail</b></td> "+
+            "<td align='center'><b>Role</b></td> "+
+            "<td align='center'><b>Active</b></td> "+
+            "</tr></thead><tbody> " ;
+        console.log(newTable);
         fetch(path)
             .then(function (response) {
                 return response.json();
