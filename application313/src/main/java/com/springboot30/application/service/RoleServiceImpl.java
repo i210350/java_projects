@@ -3,6 +3,7 @@ package com.springboot30.application.service;
 import com.springboot30.application.model.Role;
 import com.springboot30.application.model.UserApp;
 import com.springboot30.application.repository.RoleRepository;
+import com.springboot30.application.repository.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RoleServiceImpl {
+public class RoleServiceImpl implements RoleService {
 
 
 @Qualifier("roleRepository")

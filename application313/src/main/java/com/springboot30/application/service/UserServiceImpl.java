@@ -4,6 +4,7 @@ package com.springboot30.application.service;
 import com.springboot30.application.model.Role;
 import com.springboot30.application.model.UserApp;
 import com.springboot30.application.repository.UserRepository;
+import com.springboot30.application.repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,7 +19,7 @@ import javax.transaction.Transactional;
 import java.util.*;
 
 @Service("userService")
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 
 @Qualifier("userRepository")
 @Autowired
