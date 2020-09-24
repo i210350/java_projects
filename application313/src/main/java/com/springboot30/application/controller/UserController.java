@@ -173,12 +173,17 @@ public class UserController {
         UserApp userAdd = new UserApp();
         UserApp user = userService.findUserByEmail(auth.getName());
         UserApp editUser = user;
+        String isUser = null;
+        if (user.getStingRoles().contains("USER")) {
+            isUser = "USER";
+        }
         List<Role> rolesAll = roleService.findAllRoles();
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
         model.addObject("rolesAll", rolesAll);
         model.addObject("userCurrent",user);
         model.addObject("editUser", editUser);
+        model.addObject("isUser",isUser);
         model.setViewName("admin_home");
         return model;
     }
