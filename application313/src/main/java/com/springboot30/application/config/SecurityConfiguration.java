@@ -1,6 +1,8 @@
 package com.springboot30.application.config;
 
 import com.springboot30.application.handler.UrlAuthenticationSuccessHandler;
+import com.springboot30.application.repository.UserService;
+import com.springboot30.application.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
@@ -19,10 +22,10 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
-
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+//
+//    @Autowired
+//    private BCryptPasswordEncoder bCryptPasswordEncoder;
+//
     @Bean
     public AuthenticationSuccessHandler myAuthenticationSuccessHandler() {
         return new UrlAuthenticationSuccessHandler();
@@ -30,24 +33,43 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private DataSource dataSource;
+//
+//    private final String USERS_QUERY = "select mail, password, active from users where mail=?";
+//    private final String ROLES_QUERY = "select u.mail, r.name from users u inner join users_roles ur on (u.id = ur.users_id) inner join roles r on (ur.roles_id=r.id) where u.mail=?";
+//
+//    @Bean
+//    public BCryptPasswordEncoder passwordEncoder() {
+//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+//        return bCryptPasswordEncoder;
+//    }
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication()
+//                .usersByUsernameQuery(USERS_QUERY)
+//                .authoritiesByUsernameQuery(ROLES_QUERY)
+//                .dataSource(dataSource)
+//                .passwordEncoder(bCryptPasswordEncoder); //userdetailservice userdetail использовать
+//    }
 
-    private final String USERS_QUERY = "select mail, password, active from users where mail=?";
-    private final String ROLES_QUERY = "select u.mail, r.name from users u inner join users_roles ur on (u.id = ur.users_id) inner join roles r on (ur.roles_id=r.id) where u.mail=?";
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return new UserServiceImpl();
+    };
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        return bCryptPasswordEncoder;
-    }
+        return new BCryptPasswordEncoder();
+    };
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-                .usersByUsernameQuery(USERS_QUERY)
-                .authoritiesByUsernameQuery(ROLES_QUERY)
-                .dataSource(dataSource)
-                .passwordEncoder(bCryptPasswordEncoder); //userdetailservice userdetail использовать
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     }
+
+
+
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
@@ -112,11 +134,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 //                .and().exceptionHandling().accessDeniedPage("/access_denied");
     }
 
-    @Bean
-    public PersistentTokenRepository persistentTokenRepository() {
-        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-        db.setDataSource(dataSource);
-
-        return db;
-    }
+//    @Bean
+//    public PersistentTokenRepository persistentTokenRepository() {
+//        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
+//        db.setDataSource(dataSource);
+//
+//        return db;
+//    }
 }
