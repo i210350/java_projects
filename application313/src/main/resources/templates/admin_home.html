@@ -32,7 +32,7 @@
                     <input type="radio" name="options" id="option1" value="optionAdmin"
                            onclick="onClickChangeUser(0)" checked>ADMIN
                 </label>
-                <label class="btn btn-outline-primary btn-light">
+                <label th:if="${isUser}" class="btn btn-outline-primary btn-light">
                     <input type="radio" name="options" value="optionUser" id="option2"
                            onclick="onClickChangeUser(1)">USER
                 </label>

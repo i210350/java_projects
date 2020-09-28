@@ -175,12 +175,17 @@ public class UserController {
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         String uName = userDetails.getUsername() +" : "+userDetails.getAuthorities().toArray()[0]+" "+userDetails.getAuthorities().toArray()[1];
         UserApp editUser = new UserApp();
+        String isUser = null;
+        if (uName.contains("USER")) {
+            isUser = "USER";
+        }
         List<Role> rolesAll = roleService.findAllRoles();
         model.addObject("usersList", usersList);
         model.addObject("userAdd", userAdd);
         model.addObject("rolesAll", rolesAll);
         model.addObject("userCurrent",uName);
         model.addObject("editUser", editUser);
+        model.addObject("isUser",isUser);
         model.setViewName("admin_home");
         return model;
     }
