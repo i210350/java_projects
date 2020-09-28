@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         }
 
         return new
-                User(userApp.getName(), userApp.getPassword(), grantList);
+                User(userApp.getMail(), userApp.getPassword(), grantList);
     }
 
 

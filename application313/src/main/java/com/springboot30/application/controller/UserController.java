@@ -173,7 +173,7 @@ public class UserController {
         List<UserApp> usersList = userService.getAllByActive(1);
         UserApp userAdd = new UserApp();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
-        String uName = userDetails.getUsername() +" : "+userDetails.getAuthorities().toArray()[0]+" "+userDetails.getAuthorities().toArray()[1];
+        String uName = userDetails.getUsername() +" : "+userDetails.getAuthorities().toArray()[0]+";"+userDetails.getAuthorities().toArray()[1];
         UserApp editUser = new UserApp();
         String isUser = null;
         if (uName.contains("USER")) {
