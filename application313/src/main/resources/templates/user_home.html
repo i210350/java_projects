@@ -31,14 +31,22 @@
         <div class="col-md-2">
 
             <div class="btn-group-vertical btn-group-toggle btn-block" data-toggle="buttons">
-<!--                <div th:if="${isAdmin}">-->
-                    <label th:if="${isAdmin}" class="btn btn-light btn-outline-primary active">
-                        <input type="radio" name="options" id="option1" value="optionAdmin" onclick="location.href = '/admin';" >ADMIN
-                    </label>
-<!--                </div>-->
-                <label class="btn btn-outline-primary btn-light">
-                    <input type="radio" name="options" value="optionUser" id="option2" onclick="location.href = '/user';" checked>USER
+                <label th:if="${isAdmin}" class="btn btn-light btn-outline-primary active">
+                    <input type="radio" name="options" id="option1" value="optionAdmin"
+                           onclick="onClickChangeUser(0)" checked>ADMIN
                 </label>
+                <label class="btn btn-outline-primary btn-light">
+                    <input type="radio" name="options" value="optionUser" id="option2"
+                           onclick="onClickChangeUser(1)">USER
+                </label>
+<!--                <div th:if="${isAdmin}">-->
+<!--                    <label th:if="${isAdmin}" class="btn btn-light btn-outline-primary active">-->
+<!--                        <input type="radio" name="options" id="option1" value="optionAdmin" onclick="location.href = '/admin';" >ADMIN-->
+<!--                    </label>-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                <label class="btn btn-outline-primary btn-light">-->
+<!--                    <input type="radio" name="options" value="optionUser" id="option2" onclick="location.href = '/user';" checked>USER-->
+<!--                </label>-->
             </div>
 
         </div>

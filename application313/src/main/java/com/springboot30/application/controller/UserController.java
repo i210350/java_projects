@@ -16,10 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class UserController {
@@ -173,7 +170,7 @@ public class UserController {
         List<UserApp> usersList = userService.getAllByActive(1);
         UserApp userAdd = new UserApp();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
-        String uName = userDetails.getUsername() +" : "+userDetails.getAuthorities().toArray()[0]+";"+userDetails.getAuthorities().toArray()[1];
+        String uName = userDetails.getUsername() +" : "+ Arrays.toString(userDetails.getAuthorities().toArray());
         UserApp editUser = new UserApp();
         String isUser = null;
         if (uName.contains("USER")) {
@@ -198,12 +195,15 @@ public class UserController {
         UserApp user = userService.findUserByEmail(auth.getName());
         List<UserApp> usersList = new ArrayList<>();
         usersList.add(user);
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+        String uName = userDetails.getUsername() +" : "+ Arrays.toString(userDetails.getAuthorities().toArray());
         String isAdmin = null;
         if (user.getStingRoles().contains("ADMIN")) {
             isAdmin = "ADMIN";
         }
         model.addObject("usersList", usersList);
-        model.addObject("userCurrent",user);
+        model.addObject("userCurrent",uName);
+        model.addObject("userCurrentData",user);
         model.addObject("isAdmin",isAdmin);
 
         model.setViewName("user_home");
