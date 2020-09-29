@@ -105,6 +105,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 // защищенные URL
                 .antMatchers("/admin").access("hasAnyRole('ADMIN')")
                 .antMatchers("/user").access("hasAnyRole('USER', 'ADMIN')")
+//                .antMatchers("pub/tableUsers.js").access("hasAnyRole('USER', 'ADMIN')")
                 .anyRequest().authenticated();
 
 

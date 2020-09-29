@@ -1,7 +1,8 @@
 
-let newTable = '' ;
-newTable1 = '';
+
 function getUsersTable(num) {
+    let newTable = '' ;
+    newTable1 = '';
     let i = 0;
     let path = num==0 ? '/api/users' : '/api/currentUser' ;
     newTable = newTable1.concat("<div class='panel panel-primary'> " ,
@@ -117,5 +118,5 @@ function ondeleteclick(uid) {
 }
 
 
-getUsersTable(0);
+
 
