@@ -33,24 +33,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private DataSource dataSource;
-//
-//    private final String USERS_QUERY = "select mail, password, active from users where mail=?";
-//    private final String ROLES_QUERY = "select u.mail, r.name from users u inner join users_roles ur on (u.id = ur.users_id) inner join roles r on (ur.roles_id=r.id) where u.mail=?";
-//
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//        return bCryptPasswordEncoder;
-//    }
-//
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .usersByUsernameQuery(USERS_QUERY)
-//                .authoritiesByUsernameQuery(ROLES_QUERY)
-//                .dataSource(dataSource)
-//                .passwordEncoder(bCryptPasswordEncoder); //userdetailservice userdetail использовать
-//    }
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -109,37 +91,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .anyRequest().authenticated();
 
 
-//        http.authorizeRequests()
-//                .antMatchers("/").permitAll()
-//                .antMatchers("/login").permitAll()
-//                .antMatchers("/signup").permitAll()
-//        // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
-//        // If no login, it will redirect to /login page.
-//                .antMatchers("/user").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-//
-//        // For ADMIN only.
-////                .antMatchers("/**").access("hasRole('ROLE_ADMIN')")
-//                .antMatchers("/**").hasAuthority("ADMIN").anyRequest()
-//                .authenticated().and().csrf().disable()
-//                .formLogin().loginPage("/login").failureUrl("/login?error=true")
-////                .defaultSuccessUrl("/home")
-//                .successHandler(UrlAuthenticationSuccessHandler())
-//                .usernameParameter("email")
-//                .passwordParameter("password")
-//                .and().logout()
-//                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                .logoutSuccessUrl("/")
-//                .and().rememberMe()
-//                .tokenRepository(persistentTokenRepository())
-//                .tokenValiditySeconds(60*60)
-//                .and().exceptionHandling().accessDeniedPage("/access_denied");
     }
 
-//    @Bean
-//    public PersistentTokenRepository persistentTokenRepository() {
-//        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-//        db.setDataSource(dataSource);
-//
-//        return db;
-//    }
 }
